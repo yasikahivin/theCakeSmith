@@ -1,8 +1,55 @@
-<div class="mt-2 mx-auto ">
-  <br/>
-  <br/>
-
-<button
-(click)="login()"
-mdbBtn type="button" color="info" mdbWavesEffect>Login With Google</button>
+<br/>
+<br/>
+<br/>  
+<body >
+<div class="signin-form">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script>
+    <form class="text-center border border-light p-5">
+    <h2>Sign in</h2>
+        <p class="hint-text">Sign in with your social media account</p>
+        <a type="button" class="light-blue-text mx-2">
+            <i class="fa fa-facebook"></i>
+            </a>
+            <a type="button" class="light-blue-text mx-2" (click)="login()">
+            <i class="fa fa-google"></i>
+            </a>
+            <a type="button" class="light-blue-text mx-2">
+            <i class="fa fa-instagram"></i>
+            </a>
+        <!--OR-->
+        <!--<div class="social-btn text-center">
+            <a class="btn btn-primary btn-lg" title="Facebook"><i class="fa fa-facebook"></i></a> 
+            <a (click)="login()" class="btn btn-danger btn-lg" title="Google"><i class="fa fa-google"></i></a>   
+        </div>-->
+        <!--OR-->
+        <div class="or-seperator"><b>OR</b></div>
+        <!--Username-->
+        <div class="form-group">
+            <input type="text" class="form-control input-lg" name="username" placeholder="Username" required="required">
+        </div>
+        <!--Password-->
+        <div class="form-group">
+            <input type="password" class="form-control input-lg" name="password" placeholder="Password" required="required">
+        </div>  
+        <!--SubmitButton-->
+        <div class="form-group">
+            <button type="submit" class="btn btn-success btn-lg btn-block signin-btn">Sign in</button>
+        </div>
+        <div class="text-center"><a href="#">Forgot Your password?</a></div>
+    </form>
+    <div class=" text-center"><b>Don't have an account?</b><a routerLink="/signup" ><b>Sign up</b></a></div>
 </div>
+<br/>
+<br/>
+<br/>
+</body>
+   
