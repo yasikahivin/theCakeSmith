@@ -1,61 +1,68 @@
-<!-- Default form register -->
-<form class="text-center border border-light p-5">
-
-    <p class="h4 mb-4">Sign up</p>
-
+<br/>
+<br/>
+<br/>
+<body>
+<div class="signup-form">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script>
+    <form class="text-center border border-light p-5">
+    <h2>Sign up</h2>
+    <!-- Social register -->
+    <p class="hint-text">Sign up with your social media account</p>
+    <a type="button" class="light-blue-text mx-2">
+    <i class="fa fa-facebook"></i>
+    </a>
+    <a type="button" class="light-blue-text mx-2">
+        <i class="fa fa-google"></i>
+    </a>
+    <a type="button" class="light-blue-text mx-2">
+    <i class="fa fa-instagram"></i>
+    </a>
+    <!--OR-->
+    <div class="or-seperator"><b>OR</b></div>
+    <!-- Name -->
+    <div class="form-group">
     <div class="form-row mb-4">
       <div class="col">
         <!-- First name -->
-        <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
+        <input type="text" id="defaultRegisterFormFirstName" class="form-control input-lg" placeholder="First name">
       </div>
       <div class="col">
         <!-- Last name -->
-        <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
+        <input type="text" id="defaultRegisterFormLastName" class="form-control input-lg" placeholder="Last name">
       </div>
     </div>
-
+    </div>
     <!-- E-mail -->
-    <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
-
+    <div class="form-group">
+    <input type="email" id="defaultRegisterFormEmail" class="form-control input-lg mb-4" placeholder="E-mail">
+    </div>
     <!-- Password -->
-    <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+    <div class="form-group">
+    <input type="password" id="defaultRegisterFormPassword" class="form-control input-lg" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
     <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
       At least 8 characters and 1 digit
     </small>
-
+    </div>
     <!-- Phone number -->
-    <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+    <div class="form-group">
+    <input type="text" id="defaultRegisterPhonePassword" class="form-control input-lg" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
     <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
       Optional - for two-step authentication
     </small>
-
-    <!-- Newsletter -->
-    <div class="row">
-      <div class="col-md-6 mx-auto d-flex justify-content-center">
-        <mdb-checkbox [default]="true">Subscribe to our newsletter</mdb-checkbox>
-      </div>
     </div>
-
     <!-- Sign up button -->
-    <button mdbBtn color="info" block="true" class="my-4" type="submit">Sign in</button>
-
-    <!-- Social register -->
-    <p>or sign up with:</p>
-
-    <a type="button" class="light-blue-text mx-2">
-      <mdb-icon fab icon="facebook"></mdb-icon>
-    </a>
-    <a type="button" class="light-blue-text mx-2">
-      <mdb-icon fab icon="twitter"></mdb-icon>
-    </a>
-    <a type="button" class="light-blue-text mx-2">
-      <mdb-icon fab icon="linkedin"></mdb-icon>
-    </a>
-    <a type="button" class="light-blue-text mx-2">
-      <mdb-icon fab icon="github"></mdb-icon>
-    </a>
-
-    <hr>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success btn-lg btn-block signup-btn">Sign in</button>
+    </div>
 
     <!-- Terms of service -->
     <p>By clicking
@@ -63,4 +70,5 @@
       <a href="" target="_blank">terms of service</a></p>
 
   </form>
-  <!-- Default form register -->
+</div>
+</body>
