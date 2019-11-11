@@ -11,6 +11,7 @@ import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.componen
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { AuthGuardService } from './auth-guard.service';
 import { SignupComponent } from './signup/signup.component';
+import { AdminAuthGuardService } from './admin-auth-guard.service';
 
 
 const routes: Routes = [
@@ -22,14 +23,15 @@ const routes: Routes = [
 
   {path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuardService]},
   {path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService]},
-  {path: 'admin-products', component: AdminProductsComponent, canActivate: [AuthGuardService]},
-  {path: 'admin-orders', component: AdminOrdersComponent, canActivate: [AuthGuardService]},
   {path: 'my-orders', component: MyOrdersComponent, canActivate: [AuthGuardService]},
+
+  {path: 'admin-products', component: AdminProductsComponent, canActivate: [AuthGuardService, AdminAuthGuardService]},
+  {path: 'admin-orders', component: AdminOrdersComponent, canActivate: [AuthGuardService, AdminAuthGuardService]},
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [AuthGuardService]
+  providers: [AuthGuardService, AdminAuthGuardService]
 })
 export class AppRoutingModule { }
