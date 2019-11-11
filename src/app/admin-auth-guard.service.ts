@@ -9,14 +9,14 @@ import { Observable } from 'rxjs';
 })
 // error on 18th
 
-export class AdminAuthGuardService implements CanActivate {
+/*export class AdminAuthGuardService implements CanActivate {
 
   constructor(private auth: AuthService, private authService: AuthService ) { }
 
-  canActivate(): Observable<boolean> {
+ canActivate(): Observable<boolean> {
     return this.auth.user$.pipe(
       switchMap(user => this.authService.get(user.uid).valueChanges()),
       map(appUser => appUser.isAdmin)
       );
   }
-}
+}*/
