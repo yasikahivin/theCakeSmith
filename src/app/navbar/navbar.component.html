@@ -16,9 +16,6 @@
         <li class="nav-item ">
           <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/']" routerLinkActive="router-link-active" ><b>Home</b><span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/shopping-cart']" routerLinkActive="router-link-active" ><b>Shopping Cart</b></a>
-        </li>
         <ng-template #anonymousUser>
               <li class="nav-item">
                 <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/login']" routerLinkActive="router-link-active" ><b>Login</b></a>
@@ -37,7 +34,11 @@
             <a class="dropdown-item waves-light" mdbWavesEffect (click)="logout()" >Log Out</a>
           </div>
         </li>
-  
+        <mdb-navbar>
+                <a class="sc-ic" href="#">
+                <i class="fa fa-shopping-cart fa-lg  mr-md-3 mr-3 fa-2x"> </i>
+                </a>
+        </mdb-navbar>
       </ul>
       <!-- Links -->
   
