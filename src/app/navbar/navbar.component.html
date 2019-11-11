@@ -1,55 +1,11 @@
-<header class="h-100"> 
-
-  <!--Navbar-->
-  <mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-light rgba-white-strong scrolling-navbar intro-fixed-nav" [containerInside]="false">
-  
-      <!-- Navbar brand -->
-      <mdb-navbar-brand><a class="navbar-brand" [routerLink]="['/']" routerLinkActive="router-link-active" ><img src="../../assets/images/logo.png" width=20% height=20% alt="TClogo"></a></mdb-navbar-brand>
-    
-    <!-- Collapsible content -->
-    <links>
-  
-      <!-- Links -->
-      <ul class="navbar-nav mr-auto">
-  
-      
-        <li class="nav-item ">
-          <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/']" routerLinkActive="router-link-active" ><b>Home</b><span class="sr-only">(current)</span></a>
-        </li>
-        <ng-template #anonymousUser>
-              <li class="nav-item">
-                <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/login']" routerLinkActive="router-link-active" ><b>Login</b></a>
-              </li>
-        </ng-template>
-  
-        <!-- Dropdown -->
-        <li *ngIf="user$ | async as user; else anonymousUser" class="nav-item dropdown" dropdown>
-          <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
-            {{user.displayName}}<span class="caret"></span></a>
-          <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-            <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/my-orders']" routerLinkActive="router-link-active" >My Orders</a>
-            <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/admin/orders']" routerLinkActive="router-link-active" >Manage Orders</a>
-            <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/admin/products']" routerLinkActive="router-link-active" >Manage Products</a>
-            <div class="divider dropdown-divider"></div>
-            <a class="dropdown-item waves-light" mdbWavesEffect (click)="logout()" >Log Out</a>
-          </div>
-        </li>
-        <mdb-navbar>
-                <a class="sc-ic" href="#">
-                <i class="fa fa-shopping-cart fa-lg  mr-md-3 mr-3 fa-2x"> </i>
-                </a>
-        </mdb-navbar>
-      </ul>
-      <!-- Links -->
-  
-  
-    </links>
-    <!-- Collapsible content -->
-  
-  
-  
-  </mdb-navbar>
-  <!--/.Navbar-->
-  
-  </header>
-  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<header>
+	<nav id="navigation" class="navbar navbar-dark bg-primary navbar-fixed-top">		
+			<ul class="nav navbar-nav">
+				<li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+				<li class="nav-item"><a href="#projects" class="nav-link">Teams</a></li>
+				<li class="nav-item"><a href="#blog" class="nav-link">Service</a></li>
+				<li class="nav-item"><a href="#contact-us" class="nav-link">Contact us</a></li>
+			</ul>
+	</nav>
+</header>
