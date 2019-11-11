@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { CanActivate } from '@angular/router';
+import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { AuthService } from './auth.service';
-import { switchMap, map } from 'rxjs/operators';
+import { switchMap, map, take } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-// error on 18th
+// error
 
 export class AdminAuthGuardService implements CanActivate {
 
@@ -15,8 +15,9 @@ export class AdminAuthGuardService implements CanActivate {
 
   canActivate(): Observable<boolean> {
     return this.auth.user$.pipe(
-      switchMap(user => this.authService.get(user.uid).valueChanges()),
-      map(appUser => appUser.isAdmin)
+     // switchMap(user => this.authService.get(user.uid).valueChanges()),
+      map((appUser: any) => appUser.isAdmin)
       );
   }
+
 }
