@@ -1,11 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Injectable, CollectionChangeRecord } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { UserService } from './user.service';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AppUser } from './models/app-user';
 
 @Injectable({
   providedIn: 'root'
@@ -67,6 +68,10 @@ export class AuthService {
 
   logout() {
     this.afAuth.auth.signOut();
+  }
+
+  get(uid: string): AngularFirestoreCollection<AppUser> {
+    return this.db.collection('users');
   }
 
 }

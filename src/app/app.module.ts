@@ -24,6 +24,7 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.service';
 import { UserService } from './user.service';
+import { AdminAuthGuardService } from './admin-auth-guard.service';
 import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
@@ -53,6 +54,7 @@ import { SignupComponent } from './signup/signup.component';
   providers: [
     AuthService,
     AuthGuardService,
+    AdminAuthGuardService
     // UserService
   ],
   bootstrap: [AppComponent]
