@@ -1,27 +1,27 @@
-<header class="h-100"> 
+<header class="h-100">
 
 	<!--Navbar-->
 	<mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-light rgba-white-strong scrolling-navbar intro-fixed-nav" [containerInside]="false">
-	
+
 		<!-- Navbar brand -->
 		<mdb-navbar-brand><a class="navbar-brand" [routerLink]="['/']" routerLinkActive="router-link-active" ><img src="../../assets/images/logo.png" width=20% height=20% alt="TClogo"></a></mdb-navbar-brand>
-	  
+
 	  <!-- Collapsible content -->
 	  <links>
-	
+
 		<!-- Links -->
 		<ul class="navbar-nav mr-auto">
-	
-		
+
+
 		  <li class="nav-item ">
-			<a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/']" routerLinkActive="router-link-active" ><b>Home</b><span class="sr-only">(current)</span></a>
+			<a class="nav-link waves-light" mdbWavesEffect [routerLink]="['']" routerLinkActive="router-link-active" ><b>Home</b><span class="sr-only">(current)</span></a>
 		  </li>
 		  <ng-template #anonymousUser>
 				<li class="nav-item">
 				  <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/login']" routerLinkActive="router-link-active" ><b>Login</b></a>
 				</li>
 		  </ng-template>
-	
+
 		  <!-- Dropdown -->
 		  <li *ngIf="user$ | async as user; else anonymousUser" class="nav-item dropdown" dropdown>
 			<a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
@@ -43,16 +43,15 @@
 		</div>
 		</ul>
 		<!-- Links -->
-	
-	
+
+
 	  </links>
 	  <!-- Collapsible content -->
-	
-	
-	
+
+
+
 	</mdb-navbar>
 	<!--/.Navbar-->
-	
-	</header>-->
-  
-	
+
+	</header>
+
