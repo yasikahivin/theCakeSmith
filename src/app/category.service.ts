@@ -17,13 +17,5 @@ export class CategoryService {
   constructor(private db:AngularFirestore) { }
 
   getCategories() {
-    this.categories = this.categoryCollection.snapshotChanges().pipe(
-      map(changes => {
-      return changes.map(action => {
-        const data = action.payload.doc.data() as Category;
-        return data;
-      });
-    })); 
-  
     return this.categories;}
 }
