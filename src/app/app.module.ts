@@ -56,7 +56,8 @@ import { MenuComponent } from './menu/menu.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    NgFlashMessagesModule.forRoot()
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
