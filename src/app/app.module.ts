@@ -28,6 +28,10 @@ import { AdminAuthGuardService } from './admin-auth-guard.service';
 import { SignupComponent } from './signup/signup.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { CategoryService } from './category.service';
+import { NgFlashMessagesModule } from 'ng-flash-messages';
+import { ProductService } from './product.service';
+
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +47,8 @@ import { CategoryService } from './category.service';
     LoginComponent,
     MyOrdersComponent,
     SignupComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
