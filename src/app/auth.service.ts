@@ -8,6 +8,8 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, DocumentSnapshot } from '@angular/fire/firestore';
 import { AppUser } from './models/app-user';
 import { switchMap } from 'rxjs/operators';
+import { resolve } from 'url';
+import { reject } from 'q';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +34,14 @@ export class AuthService {
       });
     });
     this.db.collection('users').doc();
+  }
+
+  login2(email: string, password: string){
+    return new Promise((resolve, reject) => {
+      this.afAuth.auth.signInWithEmailAndPassword(email, password)
+        .then(userData => resolve(userData),
+      err => reject(err))
+    });
   }
 
   logout() {
