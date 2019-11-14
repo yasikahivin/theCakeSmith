@@ -13,7 +13,7 @@ import { AuthGuardService } from './auth-guard.service';
 import { SignupComponent } from './signup/signup.component';
 import { AdminAuthGuardService } from './admin-auth-guard.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
-
+import { MenuComponent } from './menu/menu.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -21,6 +21,7 @@ const routes: Routes = [
   {path: 'shopping-cart', component: ShoppingCartComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
+  {path: 'menu', component:MenuComponent},
 
   {path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuardService]},
   {path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService]},
