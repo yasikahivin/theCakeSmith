@@ -10,8 +10,6 @@ import { AppUser } from './models/app-user';
 import { switchMap } from 'rxjs/operators';
 import { resolve } from 'url';
 import { reject } from 'q';
-import { map, take } from 'rxjs/operators';
-import 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,27 +18,23 @@ export class AuthService {
 
   user$: Observable<firebase.User>;
 
-  constructor(
-    private afAuth: AngularFireAuth, 
-    // private db: AngularFirestore, 
-    // private route: ActivatedRoute
-    ) {
-    // this.user$ = afAuth.authState;
+  constructor(private afAuth: AngularFireAuth, private db: AngularFirestore, private route: ActivatedRoute) {
+    this.user$ = afAuth.authState;
    }
 
-  // login() {
-  //   const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
-  //   localStorage.setItem('returnUrl', returnUrl );
+  login() {
+    const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+    localStorage.setItem('returnUrl', returnUrl );
 
-  //   this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(cred => {
-  //     this.db.collection('users').doc(cred.user.uid).set({
-  //       name: cred.user.displayName,
-  //       email: cred.user.email,
-  //       photoURL: cred.user.photoURL,
-  //     });
-  //   });
-  //   this.db.collection('users').doc();
-  // }
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(cred => {
+      this.db.collection('users').doc(cred.user.uid).set({
+        name: cred.user.displayName,
+        email: cred.user.email,
+        photoURL: cred.user.photoURL,
+      });
+    });
+    this.db.collection('users').doc();
+  }
 
   login2(email: string, password: string){
     return new Promise((resolve, reject) => {
@@ -48,10 +42,6 @@ export class AuthService {
         .then(userData => resolve(userData),
       err => reject(err))
     });
-  }
-
-  getAuth() {
-    return this.afAuth.authState.pipe(map(auth => auth));
   }
 
   logout() {

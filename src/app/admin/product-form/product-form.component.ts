@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/category.service';
-import 'rxjs';
-
-import { Category} from '../../models/Category';
 
 @Component({
   selector: 'app-product-form',
@@ -11,16 +8,13 @@ import { Category} from '../../models/Category';
 })
 
 export class ProductFormComponent implements OnInit {
-  categories$;
+  categories;
   
-  constructor(private categoryService: CategoryService) { 
-    this.categories$ = this.categoryService.getCategories();
-  }
+  constructor(private categoryService: CategoryService) { }
  
-
    ngOnInit() {
-     
-    }
+     this.categoryService.getCategories().subscribe(categories => this.categories = categories);
+   }
  
  }
  

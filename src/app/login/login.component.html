@@ -6,7 +6,15 @@
 <br/>
 <br/>
 <div class="signin-form">
-    <form (submit)="onSubmit()" class="text-center border border-light p-5">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v5.0"></script>
+    <form class="text-center border border-light p-5">
     <h2>Sign in</h2>
         <p class="hint-text">Sign in with your social media account</p>
         <a type="button" class="light-blue-text mx-2">
@@ -22,7 +30,7 @@
         <div class="or-seperator"><b>OR</b></div>
         <!--Username-->
         <div class="form-group">
-            <input type="email" class="form-control input-lg" name="email" placeholder="Email" [(ngModel)]="email"  required="required">
+            <input type="text" class="form-control input-lg" name="username" placeholder="Username" required="required">
         </div>
         <!--Password-->
         <div class="form-group">
