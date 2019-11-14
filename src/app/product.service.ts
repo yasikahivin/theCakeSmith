@@ -10,17 +10,17 @@ import { Action } from 'rxjs/internal/scheduler/Action';
   providedIn: 'root'
 })
 export class ProductService {
-  productCollection:  AngularFirestoreCollection<Product>;
+  productCollection: AngularFirestoreCollection<Product>;
   productDoc: AngularFirestoreDocument<Product>;
   products: Observable<Product[]>;
   product: Observable<Product>;
 
   constructor(private afs: AngularFirestore) {
     this.productCollection = this.afs.collection('products',
-    ref => ref.orderBy('name','asc'));
+    ref => ref.orderBy('name', 'asc'));
   }
 
-  getProducts(): Observable<Product[]>{
+  getProducts(): Observable<Product[]> {
     this.products = this.productCollection.snapshotChanges().pipe(
         map(changes => {
         return changes.map(action => {
@@ -28,9 +28,9 @@ export class ProductService {
           data.id = action.payload.doc.id;
           return data;
         });
-      })); 
-    
-      return this.products;
+      }));
+
+    return this.products;
   }
 
 }
