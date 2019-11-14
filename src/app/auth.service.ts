@@ -36,11 +36,11 @@ export class AuthService {
     this.db.collection('users').doc();
   }
 
-  login2(email: string, password: string){
+  login2(email: string, password: string) {
     return new Promise((resolve, reject) => {
       this.afAuth.auth.signInWithEmailAndPassword(email, password)
         .then(userData => resolve(userData),
-      err => reject(err))
+      err => reject(err));
     });
   }
 
