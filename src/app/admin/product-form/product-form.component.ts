@@ -9,14 +9,10 @@ import { CategoryService } from 'src/app/category.service';
 
 export class ProductFormComponent implements OnInit {
   categories;
-  
+
   constructor(private categoryService: CategoryService) { }
- 
+
    ngOnInit() {
      this.categoryService.getCategories().subscribe(categories => this.categories = categories);
    }
- 
  }
- 
-
- 
