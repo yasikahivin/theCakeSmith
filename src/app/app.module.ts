@@ -63,8 +63,7 @@ import { MenuComponent } from './menu/menu.component';
     AuthService,
     AuthGuardService,
     AdminAuthGuardService,
-    CategoryService,
-    ProductService
+    CategoryService
     // UserService
   ],
   bootstrap: [AppComponent]
