@@ -30,7 +30,6 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
 import { CategoryService } from './category.service';
 import { NgFlashMessagesModule } from 'ng-flash-messages';
 import { ProductService } from './product.service';
-
 import { MenuComponent } from './menu/menu.component';
 
 @NgModule({

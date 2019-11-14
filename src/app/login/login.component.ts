@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import 'rxjs';
 import { NgFlashMessageService } from 'ng-flash-messages';
 
 @Component({
@@ -23,12 +24,17 @@ export class LoginComponent  implements OnInit{
   }
 
   ngOnInit() {
-
+    // this.auth.getAuth().subscribe(auth =>
+    //   {
+    //     if(auth){
+    //       this.router.navigate(['/'])
+    //     }
+    //   })
   }
 
-  login() {
-    this.auth.login();
-  }
+  // login() {
+  //   this.auth.login();
+  // }
 
   onSubmit(){
     this.auth.login2(this.email, this.password)
