@@ -10,14 +10,20 @@ import {Category} from '../../models/Category';
 })
 
 export class ProductFormComponent implements OnInit {
-  categories$;
+  list:Category [];
   
   constructor(private categoryService: CategoryService) {
-    this.categories$= this.categoryService.getCategories;
-   
+    
    }
  
    ngOnInit() {
-
+    this.categoryService.getCategories().subscribe(actionArray => {
+      this.list = actionArray.map(item => {
+        return {
+          id: item.payload.doc.id,
+          ... item.payload.doc.data()
+        } as Category;
+      })
+    });
    }
  }

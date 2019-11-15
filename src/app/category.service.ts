@@ -17,18 +17,20 @@ export class CategoryService {
 
   constructor(private db:AngularFirestore) { }
 
-  getCategories():Observable<Category[]> {
-    this.categories = this.categoryCollection.snapshotChanges().pipe(
-      map(changes => {
-      return changes.map(action => {
-        const data = action.payload.doc.data() as Category;
-        data.id = action.payload.doc.id;
-        return data;
-      });
-    }));
-
-    return this.categories;
+  getCategories() {
+    return this.db.collection('categories').snapshotChanges();
   }
+
+  // getCategories():Observable<Category[]> {
+  //   this.categories = this.categoryCollection.snapshotChanges().pipe(
+  //     map(changes => {
+  //     return changes.map(action => {
+  //       const data = action.payload.doc.data() as Category;
+  //       data.id = action.payload.doc.id;
+  //       return data;
+  //     });
+  //   }));
+  // return this.categories;
   
 
 }
