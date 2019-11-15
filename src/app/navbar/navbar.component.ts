@@ -13,7 +13,9 @@ import { AuthService } from '../auth.service';
 export class NavbarComponent  {
   user$: Observable<firebase.User>;
 
-  constructor(private auth: AuthService , private afAuth: AngularFireAuth) {
+  constructor(
+    private auth: AuthService , 
+    private afAuth: AngularFireAuth) {
     this.user$ = afAuth.authState;
    }
 
