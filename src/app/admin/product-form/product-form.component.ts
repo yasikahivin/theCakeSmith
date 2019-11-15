@@ -23,7 +23,7 @@ export class ProductFormComponent implements OnInit {
           id: item.payload.doc.id,
           ... item.payload.doc.data()
         } as Category;
-      })
+      });
     });
    }
  }

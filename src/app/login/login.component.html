@@ -1,6 +1,6 @@
 <body >
 <br/>
-<br/>  
+<br/>
 <br/>
 <br/>
 <br/>
@@ -9,15 +9,19 @@
     <form (submit)="onSubmit()" class="text-center border border-light p-5">
     <h2>Sign in</h2>
         <p class="hint-text">Sign in with your social media account</p>
-        <a type="button" class="light-blue-text mx-2">
+        <!--
+          <a type="button" class="light-blue-text mx-2">
         <i class="fa fa-facebook"></i>
         </a>
+      -->
         <a type="button" class="light-blue-text mx-2" (click)="login()">
         <i class="fa fa-google"></i>
         </a>
-        <a type="button" class="light-blue-text mx-2">
+        <!--
+          <a type="button" class="light-blue-text mx-2">
         <i class="fa fa-instagram"></i>
         </a>
+      -->
         <!--OR-->
         <div class="or-seperator"><b>OR</b></div>
         <!--Username-->
@@ -27,12 +31,12 @@
         <!--Password-->
         <div class="form-group">
             <input type="password" class="form-control input-lg" name="password" placeholder="Password" [(ngModel)]="password" required="required">
-        </div>  
+        </div>
         <!--SubmitButton-->
         <div class="form-group">
             <input type="submit" value="Sign in" class="btn btn-success btn-lg btn-block signin-btn">
         </div>
-        <div class="text-center"><a href="#">Forgot Your password?</a></div>
+        <!--<div class="text-center"><a href="#">Forgot Your password?</a></div>-->
     </form>
     <div class=" text-center"><b>Don't have an account?</b><a routerLink="/signup" ><b>Sign up</b></a></div>
 </div>
@@ -42,4 +46,4 @@
 <br/>
 <br/>
 </body>
-   
+

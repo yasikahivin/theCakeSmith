@@ -9,6 +9,7 @@ import { Product } from '../models/Product';
 })
 export class ProductsComponent implements OnInit {
   products: Product[];
+  noProducts: any; // to fix the error in html file
 
 
   constructor(private productService: ProductService) { }

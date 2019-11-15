@@ -20,9 +20,10 @@
                             </div>
                             <div class="form-group">
                                 <label for="category">Category</label>
-                                <select id="category" class="form-control">
+                                <select  id="category" class="form-control">
                                     <option value=""></option>
-                                    <option *ngFor="let c of list" [value]="c.$key">{{ c.name }}</option>
+                                    <!--<option *ngFor="let c of list" [value]="c.$key">{{ c.name }}</option>-->
+                                    <option *ngFor="let c of list" >{{ c.name }}</option>
                                 </select>
                             </div>
                             <div class="form-group">
