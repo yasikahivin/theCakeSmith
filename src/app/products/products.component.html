@@ -2,13 +2,19 @@
 <table *ngIf="products?.length >0;else noProducts" class="table table-striped">
     <thead class="thead-inverse">
         <th>Name</th>
+        <th>Price</th>
+        <th>Category</th>
         <th>Weight</th>
+        <th>Image URL</th>
         <th>Description</th>
     </thead>
     <tbody>
         <tr *ngFor="let product of products">
             <td>{{ product.name }}</td>
+            <td>{{ product.price}}</td>
+            <td>{{ product.category}}</td>
             <td>{{ product.weight  }}</td>
+            <td>{{ product.imageUrl}}</td>
             <td>{{ product.description }}</td>
         </tr>
     </tbody>
