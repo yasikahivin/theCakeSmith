@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+
 import { Category } from './models/Category';
 
 @Injectable({
@@ -17,5 +18,19 @@ export class CategoryService {
   constructor(private db:AngularFirestore) { }
 
   getCategories() {
-    return this.categories;}
+    return this.db.collection('categories').snapshotChanges();
+  }
+
+  // getCategories():Observable<Category[]> {
+  //   this.categories = this.categoryCollection.snapshotChanges().pipe(
+  //     map(changes => {
+  //     return changes.map(action => {
+  //       const data = action.payload.doc.data() as Category;
+  //       data.id = action.payload.doc.id;
+  //       return data;
+  //     });
+  //   }));
+  // return this.categories;
+  
+
 }
