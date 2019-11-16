@@ -10,12 +10,12 @@ import { Category } from './models/Category';
   providedIn: 'root'
 })
 export class CategoryService {
-  categoryCollection:  AngularFirestoreCollection<Category>;
+  categoryCollection: AngularFirestoreCollection<Category>;
   categoryDoc: AngularFirestoreDocument<Category>;
   categories: Observable<Category[]>;
   category: Observable<Category>;
 
-  constructor(private db:AngularFirestore) { }
+  constructor(private db: AngularFirestore) { }
 
   getCategories() {
     return this.db.collection('categories').snapshotChanges();
@@ -31,6 +31,6 @@ export class CategoryService {
   //     });
   //   }));
   // return this.categories;
-  
+
 
 }

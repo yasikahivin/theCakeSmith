@@ -7,6 +7,10 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
+import { NgFlashMessagesModule } from 'ng-flash-messages';
+import { FormsModule } from '@angular/forms';
+// import { HttpModule } from '@angular/http';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
@@ -28,9 +32,10 @@ import { AdminAuthGuardService } from './admin-auth-guard.service';
 import { SignupComponent } from './signup/signup.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { CategoryService } from './category.service';
-import { NgFlashMessagesModule } from 'ng-flash-messages';
+
 import { ProductService } from './product.service';
 import { MenuComponent } from './menu/menu.component';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 @NgModule({
   declarations: [
@@ -54,9 +59,12 @@ import { MenuComponent } from './menu/menu.component';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireDatabaseModule,
     AngularFireAuthModule,
     MDBBootstrapModule.forRoot(),
-    NgFlashMessagesModule.forRoot()
+    NgFlashMessagesModule.forRoot(),
+    FormsModule,
+    // HttpModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
