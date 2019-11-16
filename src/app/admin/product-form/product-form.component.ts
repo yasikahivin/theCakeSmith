@@ -22,7 +22,6 @@ export class ProductFormComponent {
    }
 
    save(product: any) {
-    // this.itemsRef.push(product);
      this.productService.create(product);
      console.log(product);
    }
