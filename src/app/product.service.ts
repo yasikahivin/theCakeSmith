@@ -33,5 +33,10 @@ create(product: any) {
   this.itemsRef.push(product);
 }
 
+getall() {
+  return this.itemsRef.valueChanges();
+  console.log( this.itemsRef.valueChanges());
+}
+
 }
 

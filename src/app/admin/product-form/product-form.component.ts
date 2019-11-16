@@ -6,6 +6,7 @@ import { AngularFireDatabase, AngularFireObject, AngularFireList } from '@angula
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ProductService } from 'src/app/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-form',
@@ -13,17 +14,19 @@ import { ProductService } from 'src/app/product.service';
   styleUrls: ['./product-form.component.scss']
 })
 
-export class ProductFormComponent {
-  list: Category [];
+export class ProductFormComponent  {
 
 
 
-  constructor(  private productService: ProductService) {
-   }
+  constructor(
+    private productService: ProductService,
+    private router: Router
+    ) {}
 
    save(product: any) {
      this.productService.create(product);
      console.log(product);
+     this.router.navigate(['/admin/products']);
    }
 
 
