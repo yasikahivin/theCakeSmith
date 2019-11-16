@@ -34,8 +34,15 @@ create(product: any) {
 }
 
 getall() {
-  return this.itemsRef.valueChanges();
-  console.log( this.itemsRef.valueChanges());
+  return this.items;
+}
+
+get(productId: string) {
+  return this.db.object('/products/' + productId);
+}
+
+update(productId: string , product: Partial<unknown>){
+  this.db.object('products' + productId).update(product);
 }
 
 }
