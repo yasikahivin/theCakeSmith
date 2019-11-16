@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 
 import { Product } from './models/Product';
 import { Action } from 'rxjs/internal/scheduler/Action';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 
 @Injectable({
   providedIn: 'root'
@@ -15,23 +16,27 @@ export class ProductService {
   products: Observable<Product[]>;
   product: Observable<Product>;
 
-  constructor(private afs: AngularFirestore) {
-    this.productCollection = this.afs.collection('products',
-    ref => ref.orderBy('name', 'asc'));
+  itemsRef: AngularFireList<any>;
+  items: Observable<any[]>;
+
+  constructor( private db: AngularFireDatabase) {
+    this.itemsRef = db.list('products');
+
+    this.items = this.itemsRef.snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+      )
+    );
   }
 
-  getProducts(): Observable<Product[]> {
-    this.products = this.productCollection.snapshotChanges().pipe(
-        map(changes => {
-        return changes.map(action => {
-          const data = action.payload.doc.data() as Product;
-          data.id = action.payload.doc.id;
-          return data;
-        });
-      }));
+create(product: any) {
+  this.itemsRef.push(product);
+}
 
-    return this.products;
-  }
+getall() {
+  return this.itemsRef.valueChanges();
+  console.log( this.itemsRef.valueChanges());
+}
 
 }
 

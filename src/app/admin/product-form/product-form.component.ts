@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/category.service';
 
 import {Category} from '../../models/Category';
+import { AngularFireDatabase, AngularFireObject, AngularFireList } from '@angular/fire/database';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { ProductService } from 'src/app/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-form',
@@ -9,21 +14,20 @@ import {Category} from '../../models/Category';
   styleUrls: ['./product-form.component.scss']
 })
 
-export class ProductFormComponent implements OnInit {
-  list:Category [];
-  
-  constructor(private categoryService: CategoryService) {
-    
+export class ProductFormComponent  {
+
+
+
+  constructor(
+    private productService: ProductService,
+    private router: Router
+    ) {}
+
+   save(product: any) {
+     this.productService.create(product);
+     console.log(product);
+     this.router.navigate(['/admin/products']);
    }
- 
-   ngOnInit() {
-    this.categoryService.getCategories().subscribe(actionArray => {
-      this.list = actionArray.map(item => {
-        return {
-          id: item.payload.doc.id,
-          ... item.payload.doc.data()
-        } as Category;
-      })
-    });
-   }
+
+
  }
