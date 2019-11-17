@@ -29,6 +29,7 @@ export class LoginComponent  implements OnInit{
   login() {
     this.auth.login();
   }
+  
 
   onSubmit(){
     this.auth.login2(this.email, this.password)
@@ -38,7 +39,7 @@ export class LoginComponent  implements OnInit{
           type: 'success', 
           timeout: 4000
         });
-        this.router.navigate(['/admin/products/new']);
+        this.router.navigate(['/menu']);
       })
         .catch(err => {
           this.flashMessage.showFlashMessage({
