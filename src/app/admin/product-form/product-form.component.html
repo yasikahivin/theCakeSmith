@@ -55,7 +55,7 @@
           <div class="card" style="width:20rem;">
 
                   <div class="view overlay">
-                      <img class="card-img-top" src={{product.imageURL}} >
+                      <img class="card-img-top" src={{product.imageURL}} *ngIf="product.imageURL">
                   </div>
 
                   <div class="card-body">
