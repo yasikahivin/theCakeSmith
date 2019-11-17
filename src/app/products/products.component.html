@@ -1,4 +1,4 @@
-<table class="table">
+<!-- <table class="table">
     <thead class="black white-text">
       <tr>
         <th scope="col">Title</th>
@@ -25,4 +25,28 @@
   <ng-template #noClient>
     <hr>
     <h5>There are no products</h5>
-  </ng-template>
+  </ng-template>-->
+<head>
+    <script>$(function () {$("#mdb-lightbox-ui").load("mdb-addons/mdb-lightbox-ui.html");});</script>
+</head>
+<div>
+    <div class="col-md-2 mx-auto"></div>
+    <div class="col-md-8 mx-auto">
+    <div class="row">
+        <div *ngFor="let p of products$| async" class="col-lg-4 col-md-12">
+            <div class="card card-cascade">
+                <div class="view view-cascade overlay">
+                    <img src="{{p.imageURL}}" class="card-img-top" alt="normal" height=420 >
+                    <a>
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                <div class="card-body card-body-cascade text-center">
+                    <h4 class="card-title"><strong> {{p.title}} </strong></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="col-md-2 mx-auto"></div>
+
+</div>
