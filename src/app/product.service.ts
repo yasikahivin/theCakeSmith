@@ -41,7 +41,7 @@ get(productId: string) {
   return this.db.object('/products/' + productId);
 }
 
-update(productId: string , product: Partial<unknown>){
+update(productId: string , product: Partial<unknown>) {
   this.db.object('products' + productId).update(product);
 }
 
