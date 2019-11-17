@@ -9,7 +9,6 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import { NgFlashMessagesModule } from 'ng-flash-messages';
-import { FormsModule } from '@angular/forms';
 // import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app-routing.module';

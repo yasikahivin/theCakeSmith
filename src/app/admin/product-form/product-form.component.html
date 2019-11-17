@@ -1,6 +1,7 @@
 <br/>
 <div class="row">
-    <div class="col-md-6 mx-auto">
+    <div class="col-md-3 mx-auto"></div>
+    <div class="col-md-4 mx-auto">
         <div class="card">
             <div class="card-body">
                     <form #f="ngForm" (ngSubmit)="save(f.value)" novalidate>
@@ -19,28 +20,41 @@
                           <label for="category">Category</label>
                           <select [(ngModel)]="product.category" name="category"  id="category" class="form-control">
 
-                              <option value="1">One</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
+                              <option value="1">Simple Cake</option>
+                              <option value="2">Birthday Cake</option>
+                              <option value="3">Wedding Cake</option>
+                              <option value="4">Cupcake</option>
+                              <option value="4">Cookie</option>
+                              <option value="4">Donut</option>
                               <!--<option *ngFor="let c of list" [value]="c.$key">{{ c.name }}</option>-->
                               <!--<option *ngFor="let c of list" >{{ c.name }}</option>-->
                           </select>
                       </div>
                       <div class="form-group">
+                        <label for="weight">Weight</label>
+                        <div class="input-group">
+                            <input [(ngModel)]="product.weight" #weight name="weight" id="weight" type="number" class="form-control">
+                            <span class="input-group-text">kg</span>
+                        </div>
+                      </div>
+                      <div class="form-group">
                           <label for="imageURL">Image URL</label>
                           <input [(ngModel)]="product.imagURL" #imageURL name="imageURL" id="imageURL" type="text" class="form-control">
                       </div>
+                      <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea [(ngModel)]="product.description" #description name="description" id="description" type="number" class="form-control"></textarea>
+                          </div>
                       <button class="btn btn-primary">Save</button>
                   </form>
             </div>
         </div>
     </div>
-    <div class="col-md-6 mx-auto">
+    <div class="col-md-4 mx-auto">
           <div class="card" style="width:20rem;">
                   <div class="view overlay">
                     <img class="card-img-top" src={{product.imageURL}}  >
-                      <a href="#!">
+                      <a href="product.imageURL">
                         <div class="mask rgba-white-slight"></div>
                       </a>
                   </div>

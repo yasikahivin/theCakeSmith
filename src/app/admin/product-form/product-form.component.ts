@@ -4,7 +4,6 @@ import { CategoryService } from 'src/app/category.service';
 import {Category} from '../../models/Category';
 import { AngularFireDatabase, AngularFireObject, AngularFireList } from '@angular/fire/database';
 import { Observable } from 'rxjs';
-import { take } from 'rxjs/add/operator/take';
 import { ProductService } from 'src/app/product.service';
 import { Router, ActivatedRoute } from '@angular/router';
 

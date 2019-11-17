@@ -1,29 +1,28 @@
-
-<table *ngIf="products?.length >0;else noProducts" class="table table-striped">
-    <thead class="thead-inverse">
-        <th>Name</th>
-        <th>Price</th>
-        <th>Category</th>
-        <th>Weight</th>
-        <th>Image URL</th>
-        <th>Description</th>
+<table class="table">
+    <thead class="black white-text">
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Category</th>
+        <th scope="col">Price</th>
+        <th scope="col">Weight</th>
+        <th scope="col">Image URL</th>
+        <th scope="col">Description</th>
+      </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let product of products">
-            <td>{{ product.name }}</td>
-            <td>{{ product.price}}</td>
-            <td>{{ product.category}}</td>
-            <td>{{ product.weight  }}</td>
-            <td>{{ product.imageUrl}}</td>
-            <td>{{ product.description }}</td>
-        </tr>
+      <tr *ngFor="let p of products$| async">
+        <td>{{ p.title }}</td>
+        <td>{{ p.category}}</td>
+        <td>{{ p.price }} </td>
+        <td>{{ p.weight  }}</td>
+        <td>{{ p.imageUrl}}</td>
+        <td>{{ p.description }}</td>
+      </tr>
+  
     </tbody>
+  </table>
 
-</table>
-
-<ng-template #noClient>
+  <ng-template #noClient>
     <hr>
     <h5>There are no products</h5>
-
-</ng-template>
-
+  </ng-template>
