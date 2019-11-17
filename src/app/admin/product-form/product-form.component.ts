@@ -9,6 +9,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 
+import { Product } from 'src/app/models/Product';
+
 @Component({
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',
@@ -18,26 +20,34 @@ import { CommonModule } from '@angular/common';
 
 
 export class ProductFormComponent implements OnInit  {
-   product = {};
-
+   // product: Product;
+   id: string;
+   product: Product = {  id: '', title: '', price: 0, category : '' , weight : 0 , imageURL: '' , description: '' };
 
   constructor(
     private productService: ProductService,
     private router: Router,
     private route: ActivatedRoute
     ) {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) { this.productService.get(id).valueChanges().subscribe(p => this.product = p);
-     }
+
+        this.id = this.route.snapshot.paramMap.get('id');
+        if (this.id) { this.productService.get(this.id).pipe(take(1)).subscribe(p => this.product = p); }
+
+        // this.product = new Product();
     }
 
    save(product: any) {
-     this.productService.create(product);
-     console.log(product);
-     this.router.navigate(['/admin/products']);
+        if (this.id) {
+            this.productService.update(this.id, product);
+        } else {
+          this.productService.create(product);
+          }
+        console.log(product);
+        this.router.navigate(['/admin/products']);
    }
 
    ngOnInit() {
+
    }
 
 
