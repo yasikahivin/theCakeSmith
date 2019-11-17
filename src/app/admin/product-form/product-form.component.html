@@ -53,22 +53,18 @@
     </div>
     <div class="col-md-4 mx-auto">
           <div class="card" style="width:20rem;">
+
                   <div class="view overlay">
-                      <img class="card-img-top" src="product.imageURL" *ngIf="product.imageURL"   >
-
+                      <img class="card-img-top" src={{product.imageURL}} >
                   </div>
-            <div class="card-body">
 
-              <h4 class="card-title">{{ product.title}}</h4>
-              <p class="card-text">{{ product.price}}</p>
+                  <div class="card-body">
+                    <h4 class="card-title">{{ product.title}}</h4>
+                    <p class="card-text">{{ product.price}}</p>
+                  </div>
 
-            </div>
-    <div class="card-body">
-        <h4 class="card-title">{{ product.title}}</h4>
-        <p class="card-text">{{ product.price}}</p>
+          </div>
     </div>
-    </div>
-</div>
 </div>
 <br/>
 </body>

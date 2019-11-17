@@ -9,6 +9,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 
+import { Product } from 'src/app/models/Product';
+
 @Component({
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',
@@ -18,8 +20,9 @@ import { CommonModule } from '@angular/common';
 
 
 export class ProductFormComponent implements OnInit  {
-   product = {};
+   // product: Product;
    id: string;
+   product: Product = {  id: '', title: '', price: 0, category : '' , weight : 0 , imageURL: '' , description: '' };
 
   constructor(
     private productService: ProductService,
@@ -29,6 +32,8 @@ export class ProductFormComponent implements OnInit  {
 
         this.id = this.route.snapshot.paramMap.get('id');
         if (this.id) { this.productService.get(this.id).pipe(take(1)).subscribe(p => this.product = p); }
+
+        // this.product = new Product();
     }
 
    save(product: any) {
@@ -42,6 +47,7 @@ export class ProductFormComponent implements OnInit  {
    }
 
    ngOnInit() {
+
    }
 
 
