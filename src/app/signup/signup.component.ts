@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { NgFlashMessageService } from 'ng-flash-messages';
@@ -15,7 +14,6 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private auth: AuthService,
-    private db: AngularFirestore,
     private router: Router,
     private flashMessage: NgFlashMessageService
   ) { }
@@ -27,7 +25,7 @@ export class SignupComponent implements OnInit {
     this.auth.register(this.email, this.password)
     .then(res => {
       this.flashMessage.showFlashMessage({
-        messages:['You are now logged in'], 
+        messages:['You are registered and now logged in'], 
         type: 'success', 
         timeout: 4000
       });
