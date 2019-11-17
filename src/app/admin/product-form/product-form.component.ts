@@ -19,22 +19,26 @@ import { CommonModule } from '@angular/common';
 
 export class ProductFormComponent implements OnInit  {
    product = {};
-
+   id: string;
 
   constructor(
     private productService: ProductService,
     private router: Router,
     private route: ActivatedRoute
     ) {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) { this.productService.get(id).valueChanges().subscribe(p => this.product = p);
-     }
+
+        this.id = this.route.snapshot.paramMap.get('id');
+        if (this.id) { this.productService.get(this.id).pipe(take(1)).subscribe(p => this.product = p); }
     }
 
    save(product: any) {
-     this.productService.create(product);
-     console.log(product);
-     this.router.navigate(['/admin/products']);
+        if (this.id) {
+            this.productService.update(this.id, product);
+        } else {
+          this.productService.create(product);
+          }
+        console.log(product);
+        this.router.navigate(['/admin/products']);
    }
 
    ngOnInit() {

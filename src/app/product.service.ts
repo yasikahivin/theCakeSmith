@@ -20,7 +20,7 @@ export class ProductService {
   items: Observable<any[]>;
 
   constructor( private db: AngularFireDatabase) {
-    this.itemsRef = db.list('products');
+    this.itemsRef = db.list('/products/');
 
     this.items = this.itemsRef.snapshotChanges().pipe(
       map(changes =>
@@ -38,11 +38,11 @@ getall() {
 }
 
 get(productId: string) {
-  return this.db.object('/products/' + productId);
+  return this.db.object('/products/' + productId).valueChanges();
 }
 
 update(productId: string , product: Partial<unknown>) {
-  this.db.object('products' + productId).update(product);
+  return this.db.object('/products/' + productId).update(product);
 }
 
 }
