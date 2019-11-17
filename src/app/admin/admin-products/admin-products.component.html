@@ -1,26 +1,36 @@
+<body background="../../../assets/images/dd2.jpg" >
 <br/>
-<p>
-  <a routerLink="/admin/products/new" class="btn btn-primary">New products</a>
-</p>
-
-<table class="table">
-  <thead class="black white-text">
-    <tr>
-      <th scope="col">Title</th>
-      <th scope="col">Category</th>
-      <th scope="col">Price</th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let p of products$| async">
-      <td>{{ p.title }}</td>
-      <td>{{ p.category}}</td>
-      <td>{{ p.price }} </td>
-      <td>
-        <a [routerLink]="['/admin/products/', p.key]" routerLinkActive="router-link-active" >Edit</a>
-      </td>
-    </tr>
-
-  </tbody>
-</table>
+<div class="col-md-2 mx-auto">
+  <p><a routerLink="/admin/products/new" class="btn btn-primary blue-grey lighten-3">Add new product</a></p>
+</div>
+<div class="col-md-8 mx-auto pink lighten-5">
+  <br/>
+  <div class="card rgba-white-light">
+    <div class="card-body">
+      <table class="table" width=75%>
+          <thead class="blue-grey lighten-3 white-text">
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Category</th>
+              <th scope="col">Price</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p of products$| async">
+              <td>{{ p.title }}</td>
+              <td>{{ p.category}}</td>
+              <td>{{ p.price }} </td>
+              <td>
+                <a [routerLink]="['/admin/products/', p.key]" routerLinkActive="router-link-active" >Edit</a>
+              </td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+  </div>
+  <br/>
+</div>
+<div class="col-md-2 mx-auto"></div>
+<br/>
+</body>
