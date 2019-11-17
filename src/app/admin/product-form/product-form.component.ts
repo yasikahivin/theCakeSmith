@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { CategoryService } from 'src/app/category.service';
 
 import {Category} from '../../models/Category';
@@ -6,6 +6,8 @@ import { AngularFireDatabase, AngularFireObject, AngularFireList } from '@angula
 import { Observable } from 'rxjs';
 import { ProductService } from 'src/app/product.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { take } from 'rxjs/operators';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-product-form',
@@ -13,9 +15,10 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./product-form.component.scss']
 })
 
-export class ProductFormComponent  {
-  product = {};
 
+
+export class ProductFormComponent implements OnInit  {
+   product = {};
 
 
   constructor(
@@ -32,6 +35,9 @@ export class ProductFormComponent  {
      this.productService.create(product);
      console.log(product);
      this.router.navigate(['/admin/products']);
+   }
+
+   ngOnInit() {
    }
 
 

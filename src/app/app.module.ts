@@ -36,6 +36,7 @@ import { CategoryService } from './category.service';
 import { ProductService } from './product.service';
 import { MenuComponent } from './menu/menu.component';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
   imports: [
     BrowserModule,
     FormsModule,
+    CommonModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
@@ -64,7 +66,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     AngularFireAuthModule,
     MDBBootstrapModule.forRoot(),
     NgFlashMessagesModule.forRoot(),
-    FormsModule,
+    FormsModule
     // HttpModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],

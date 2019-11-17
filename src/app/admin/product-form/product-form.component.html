@@ -7,25 +7,25 @@
                     <form #f="ngForm" (ngSubmit)="save(f.value)" novalidate>
                       <div class="form-group">
                           <label for="title">Title</label>
-                          <input [(ngModel)]="product.title" #title name="title" id="title" type="text" class="form-control">
+                          <input [(ngModel)]="product.title" #title="ngModel"  name="title" id="title" type="text" class="form-control">
                       </div>
                       <div class="form-group">
                           <label for="price">Price</label>
                           <div class="input-group">
                               <span class="input-group-text">$</span>
-                              <input [(ngModel)]="product.price" #price name="price" id="price" type="number" class="form-control">
+                              <input [(ngModel)]="product.price" #price="ngModel" name="price" id="price" type="number" class="form-control">
                         </div>
                       </div>
                       <div class="form-group">
                           <label for="category">Category</label>
-                          <select [(ngModel)]="product.category" name="category"  id="category" class="form-control">
+                          <select #category="ngModel" [(ngModel)]="product.category" name="category"  id="category" class="form-control">
 
-                              <option value="1">Simple Cake</option>
-                              <option value="2">Birthday Cake</option>
-                              <option value="3">Wedding Cake</option>
-                              <option value="4">Cupcake</option>
-                              <option value="4">Cookie</option>
-                              <option value="4">Donut</option>
+                              <option value="Simple Cake">Simple Cake</option>
+                              <option value="Birthday Cake">Birthday Cake</option>
+                              <option value="Wedding Cake">Wedding Cake</option>
+                              <option value="Cupcake">Cupcake</option>
+                              <option value="Cookie">Cookie</option>
+                              <option value="Donut">Donut</option>
                               <!--<option *ngFor="let c of list" [value]="c.$key">{{ c.name }}</option>-->
                               <!--<option *ngFor="let c of list" >{{ c.name }}</option>-->
                           </select>
@@ -33,17 +33,17 @@
                       <div class="form-group">
                         <label for="weight">Weight</label>
                         <div class="input-group">
-                            <input [(ngModel)]="product.weight" #weight name="weight" id="weight" type="number" class="form-control">
                             <span class="input-group-text">kg</span>
+                            <input #weight="ngModel" [(ngModel)]="product.weight"   name="weight" id="weight" type="number" class="form-control">
                         </div>
                       </div>
                       <div class="form-group">
                           <label for="imageURL">Image URL</label>
-                          <input [(ngModel)]="product.imagURL" #imageURL name="imageURL" id="imageURL" type="text" class="form-control">
+                          <input #imageURL="ngModel" [(ngModel)]="product.imageURL"  id="imageURL" type="text" class="form-control">
                       </div>
                       <div class="form-group">
                             <label for="description">Description</label>
-                            <textarea [(ngModel)]="product.description" #description name="description" id="description" type="number" class="form-control"></textarea>
+                            <textarea #description="ngModel" [(ngModel)]="product.description"  name="description" id="description" type="number" class="form-control"></textarea>
                           </div>
                       <button class="btn btn-primary">Save</button>
                   </form>
@@ -53,15 +53,15 @@
     <div class="col-md-4 mx-auto">
           <div class="card" style="width:20rem;">
                   <div class="view overlay">
-                    <img class="card-img-top" src={{product.imageURL}}  >
-                      <a href="product.imageURL">
+                      <img class="card-img-top" src="product.imageURL"   >
+                      <a href="#!">
                         <div class="mask rgba-white-slight"></div>
                       </a>
                   </div>
             <div class="card-body">
 
               <h4 class="card-title">{{ product.title}}</h4>
-              <p class="card-text">{{ product.value}}</p>
+              <p class="card-text">{{ product.price}}</p>
 
             </div>
           </div>
