@@ -36,19 +36,26 @@ export class ProductFormComponent implements OnInit  {
         // this.product = new Product();
     }
 
-   save(product: any) {
+    save(product: any) {
         if (this.id) {
             this.productService.update(this.id, product);
         } else {
-          this.productService.create(product);
-          }
+            this.productService.create(product);
+        }
         console.log(product);
         this.router.navigate(['/admin/products']);
    }
 
-   ngOnInit() {
+    delete() {
+      if (!confirm('Do you want to delete this product?')) { return; }
 
-   }
+      this.productService.delete(this.id);
+      this.router.navigate(['/admin/products']);
+    }
+
+    ngOnInit() {
+
+    }
 
 
  }

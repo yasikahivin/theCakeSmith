@@ -1,10 +1,18 @@
 <body background="../../../assets/images/dd2.jpg" >
 <br/>
-<div class="col-md-2 mx-auto">
-  <p><a routerLink="/admin/products/new" class="btn btn-primary blue-grey lighten-3">Add new product</a></p>
+<div class="col-md-6 mx-auto">
+  <p>
+    <a routerLink="/admin/products/new" class="btn btn-primary blue-grey lighten-3">Add new product</a>
+  </p>
 </div>
 <div class="col-md-8 mx-auto pink lighten-5">
   <br/>
+    <p>
+        <input
+            #query
+            (keyup)="filter(query.value)"
+            type="text" class="form-control" placeholder="Search...">
+    </p>
   <div class="card rgba-white-light">
     <div class="card-body">
       <table class="table" width=75%>
@@ -17,7 +25,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let p of products$| async">
+            <tr *ngFor="let p of filteredproducts">
               <td>{{ p.title }}</td>
               <td>{{ p.category}}</td>
               <td>{{ p.price }} </td>
@@ -26,7 +34,9 @@
               </td>
             </tr>
         </tbody>
+
         </table>
+
     </div>
   </div>
   <br/>
