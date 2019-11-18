@@ -45,7 +45,7 @@ update(productId: string , product: Partial<unknown>) {
   return this.db.object('/products/' + productId).update(product);
 }
 
-delete(productId: string){
+delete(productId: string) {
   return this.db.object('/products/' + productId).remove();
 }
 

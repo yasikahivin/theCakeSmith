@@ -1,52 +1,38 @@
-<!-- <table class="table">
-    <thead class="black white-text">
-      <tr>
-        <th scope="col">Title</th>
-        <th scope="col">Category</th>
-        <th scope="col">Price</th>
-        <th scope="col">Weight</th>
-        <th scope="col">Image URL</th>
-        <th scope="col">Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let p of products$| async">
-        <td>{{ p.title }}</td>
-        <td>{{ p.category}}</td>
-        <td>{{ p.price }} </td>
-        <td>{{ p.weight  }}</td>
-        <td>{{ p.imageUrl}}</td>
-        <td>{{ p.description }}</td>
-      </tr>
-  
-    </tbody>
-  </table>
+<div class="btn-group col-sm-12" role="group" aria-label="Basic example" >
 
-  <ng-template #noClient>
-    <hr>
-    <h5>There are no products</h5>
-  </ng-template>-->
-<head>
-    <script>$(function () {$("#mdb-lightbox-ui").load("mdb-addons/mdb-lightbox-ui.html");});</script>
-</head>
-<div>
-    <div class="col-md-2 mx-auto"></div>
-    <div class="col-md-8 mx-auto">
-    <div class="row">
-        <div *ngFor="let p of products$| async" class="col-lg-4 col-md-12">
-            <div class="card card-cascade">
-                <div class="view view-cascade overlay">
-                    <img src="{{p.imageURL}}" class="card-img-top" alt="normal" height=420 >
-                    <a>
-                        <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
-                <div class="card-body card-body-cascade text-center">
-                    <h4 class="card-title"><strong> {{p.title}} </strong></h4>
-                </div>
+    <button mdbBtn type="button" color="unique" class="waves-light" mdbWavesEffect>Simple Cakes</button>
+    <button mdbBtn type="button" color="unique" class="waves-light" mdbWavesEffect>Birthday Cakes</button>
+    <button mdbBtn type="button" color="unique" class="waves-light" mdbWavesEffect>Wedding Cakes</button>
+    <button mdbBtn type="button" color="unique" class="waves-light" mdbWavesEffect>Cupcakes</button>
+    <button mdbBtn type="button" color="unique" class="waves-light" mdbWavesEffect>Cookies</button>
+    <button mdbBtn type="button" color="unique" class="waves-light" mdbWavesEffect>Donut</button>
+    <button mdbBtn type="button" color="unique" class="waves-light" mdbWavesEffect>All Products</button>
+  </div>
+
+<div class="row">
+  <ng-container *ngFor="let p of filteredProducts ; let i = index">
+      <div class="col-sm ">
+        <div class="card"  >
+            <div class="view overlay">
+              <!-- <img class="card-img-top" src={{p.imageURL}} > -->
+                <div class="mask rgba-white-slight"></div>
+
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">{{p.title}}</h4>
+              <p class="card-text">{{p.price}}</p>
+              <a href="#" class="btn btn-primary">Button</a>
             </div>
         </div>
     </div>
-<div class="col-md-2 mx-auto"></div>
-
+    <div  *ngIf=" (i + 1) % 4 === 0" class="w-100" ></div>
+  </ng-container>
 </div>
+
+
+
+
+
+
+
+
