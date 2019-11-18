@@ -1,6 +1,6 @@
 <body background="../../../assets/images/dd2.jpg" >
 <br/>
-<div class="col-md-6 mx-auto">
+<div class="col-md-2 mx-auto">
   <p>
     <a routerLink="/admin/products/new" class="btn btn-primary blue-grey lighten-3">Add new product</a>
   </p>
@@ -29,8 +29,9 @@
               <td>{{ p.title }}</td>
               <td>{{ p.category}}</td>
               <td>{{ p.price }} </td>
-              <td>
-                <a [routerLink]="['/admin/products/', p.key]" routerLinkActive="router-link-active" >Edit</a>
+              <td class="center">
+                <!-- <a [routerLink]="['/admin/products/', p.key]" routerLinkActive="router-link-active" >Edit</a> -->
+                <button type="button" color="success" outline="true" mdbWavesEffect mdbBtn color="success" outline="true"  class="my-0"size="sm" [routerLink]="['/admin/products/', p.key]" routerLinkActive="router-link-active" >Edit</button>
               </td>
             </tr>
         </tbody>

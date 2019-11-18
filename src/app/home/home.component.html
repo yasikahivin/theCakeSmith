@@ -16,40 +16,53 @@
 <main class="text-center py-5">
   <div class="center">
     <div class="row">
-      <div class="column">
-        <div class="card">
-          <img src="../../assets/images/bday.jpg" alt="bday" width=100% height=100% >
-          <div class="container">
-            <h4><b>Birthday Cakes</b></h4>
-          </div>
+        <div class="column">
+            <div class="card">
+              <a [routerLink]="['/menu']"
+              [queryParams]="{ category: 'BirthdayCake' }">
+                <img src="../../assets/images/bday.jpg" alt="bday" width=100% height=100% >
+                <div class="container">
+                  <h4><b>Birthday Cakes</b></h4>
+                </div>
+              </a>
+              </div>
         </div>
-      </div>
-      <div class="column">
-        <div class="card">
-          <img src="../../assets/images/do.jpg" alt="donut" width=100% height=100% >
-          <div class="container">
-            <h4><b>Donuts</b></h4>
-          </div>
+        <div class="column">
+            <div class="card">
+                <a [routerLink]="['/menu']"
+                [queryParams]="{ category: 'Donut' }">
+                <img src="../../assets/images/do.jpg" alt="donut" width=100% height=100% >
+                <div class="container">
+                  <h4><b>Donuts</b></h4>
+                </div>
+                </a>
+              </div>
         </div>
-      </div>
-      <div class="column">
-        <div class="card">
-          <img src="../../assets/images/wedding.jpg" alt="wedding" width=100% height=100%>
-          <div class="container">
-            <h4><b>Wedding Cakes</b></h4>
-          </div>
+        <div class="column">
+            <div class="card">
+                <a [routerLink]="['/menu']"
+                [queryParams]="{ category: 'WeddingCake' }">
+                <img src="../../assets/images/wedding.jpg" alt="wedding" width=100% height=100%>
+                <div class="container">
+                  <h4><b>Wedding Cakes</b></h4>
+                </div>
+                </a>
+              </div>
         </div>
-      </div>
-      <div class="column">
-        <div class="card">
-          <img src="../../assets/images/cupcake.jpg" alt="cupcake" width=100% height=100%>
-          <div class="container">
-            <h4><b>Cupcakes</b></h4>
-          </div>
+        <div class="column">
+            <div class="card">
+                <a [routerLink]="['/menu']"
+                [queryParams]="{ category: 'Cupcake' }">
+                <img src="../../assets/images/cupcake.jpg" alt="cupcake" width=100% height=100%>
+                <div class="container">
+                  <h4><b>Cupcakes</b></h4>
+                </div>
+                </a>
+              </div>
         </div>
       </div>
     </div>
-  </div>
+
 </main>
 
 <div class="col s12">

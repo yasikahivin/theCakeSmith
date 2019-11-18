@@ -3,6 +3,8 @@ import { ProductService } from '../product.service';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 import { Product } from '../models/Product';
+import { from } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -13,11 +15,29 @@ export class ProductsComponent implements OnInit {
   products$: any ;
   closeResult: string;
 
+  constructor(route: ActivatedRoute,
+    private modalService: NgbModal,
+              private productService: ProductService) {
+                this.products$ = this.productService.getall();
+                productService.getall().subscribe(products => {
+                  this.products = products;
+                  console.log(this.products);
 
-  constructor(private productService: ProductService, 
-    private modalService: NgbModal) {
-    this.products$ = this.productService.getall();
-   }
+                  route.queryParamMap.subscribe(params => {
+                  this.category = params.get('category');
+                  console.log(this.category);
+
+                  this.filteredProducts =  this.category ?
+                    this.products.filter(p => p.category === this.category) : this.products;
+                  console.log(this.filteredProducts);
+                });
+
+                });
+              }
+              
+  products: Product[] = [];
+  filteredProducts: Product[] = [];
+  category: string;
 
   ngOnInit() {}
 

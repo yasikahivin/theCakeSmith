@@ -13,12 +13,15 @@ export class AppComponent {
   title = 'theCakesmith';
   @ViewChild (ModalDirective, { static: true, }) modal: ModalDirective;
 
-  constructor(private userServive: UserService, private auth: AuthService, router: Router) {
+  constructor(private authServive: AuthService, private auth: AuthService, router: Router) {
     auth.user$.subscribe(user => {
       if (user) {
-
         const returnUrl = localStorage.getItem('returnUrl');
-        router.navigateByUrl(returnUrl);
+
+        if (returnUrl) {
+          localStorage.removeItem('returnUrl');
+          router.navigateByUrl(returnUrl);
+        }
       }
     });
 
