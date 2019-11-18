@@ -1,52 +1,69 @@
-<!-- <table class="table">
-    <thead class="black white-text">
-      <tr>
-        <th scope="col">Title</th>
-        <th scope="col">Category</th>
-        <th scope="col">Price</th>
-        <th scope="col">Weight</th>
-        <th scope="col">Image URL</th>
-        <th scope="col">Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let p of products$| async">
-        <td>{{ p.title }}</td>
-        <td>{{ p.category}}</td>
-        <td>{{ p.price }} </td>
-        <td>{{ p.weight  }}</td>
-        <td>{{ p.imageUrl}}</td>
-        <td>{{ p.description }}</td>
-      </tr>
-  
-    </tbody>
-  </table>
-
-  <ng-template #noClient>
-    <hr>
-    <h5>There are no products</h5>
-  </ng-template>-->
-<head>
-    <script>$(function () {$("#mdb-lightbox-ui").load("mdb-addons/mdb-lightbox-ui.html");});</script>
-</head>
 <div>
-    <div class="col-md-2 mx-auto"></div>
-    <div class="col-md-8 mx-auto">
+  <div class="col-md-2 mx-auto"></div>
+  <div class="col-md-8 mx-auto">
     <div class="row">
-        <div *ngFor="let p of products$| async" class="col-lg-4 col-md-12">
-            <div class="card card-cascade">
-                <div class="view view-cascade overlay">
-                    <img src="{{p.imageURL}}" class="card-img-top" alt="normal" height=420 >
-                    <a>
-                        <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
-                <div class="card-body card-body-cascade text-center">
-                    <h4 class="card-title"><strong> {{p.title}} </strong></h4>
-                </div>
+      <div *ngFor="let p of products$| async" class="mx-auto mb-3">
+        <div class="flip-card display-block">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="{{p.imageURL}} " style="width:300px;height:300px;">
             </div>
+            <div class="flip-card-back">
+              <br/>
+              <br/>
+              <p style="font-size: x-large;">{{p.title}}</p>
+            
+              <ng-template #content let-modal>
+                <div class="col-md-10" >
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title"><b>{{p.title}}</b></h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col">
+                        <img src="{{p.imageURL}} " style="width:300px;height:300px;">
+                      </div>
+                      <div class="col">
+                        <h3>Rs. {{p.price}}</h3>    
+                        <p>{{p.description}}</p>
+                        <div class="options weight mt20">
+                          <p class="title">Weight</p>
+                          <label class="radio-inline btn btn-default grey"> {{p.weight}} kg </label>
+                        </div>
+                        <div class="area-qty-select">
+                          <div class="quantity mt20">
+                              <p class="title">Quantity</p>
+                              <div class="input-group">
+                                  <div class="input-group-btn">
+                                      <button type="button" class="btn btn-default class minus-button "><i class="wq-minus" aria-hidden="true"></i></button>
+                                  </div>
+                                  <input type="text" class="form-control text-center " name="item_quantity" id="item_quantity" value="1" min="1">
+                                  <div class="input-group-btn">
+                                      <button type="button" class="btn btn-default add-button "><i class="wq-plus" aria-hidden="true"></i></button>
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+                  </div>
+                </div>
+                </ng-template>
+                
+                <button class="btn btn-sm btn-outline-primary" (click)="open(content)">More</button>
+                
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-<div class="col-md-2 mx-auto"></div>
-
+  </div>
+  
+  <div class="col-md-2 mx-auto"></div>
 </div>

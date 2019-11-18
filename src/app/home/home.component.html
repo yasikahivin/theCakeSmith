@@ -52,51 +52,64 @@
   </div>
 </main>
 
-
-
-<div class="footer">
-<footer class="page-footer font-small pink accent-1 pt-2s">
-  <div class="container text-center text-md-left">
-    <div class="row text-center text-md-left mt-3 pb-3">
-      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-        <h6 class="text-uppercase mb-4 font-weight-bold">The Cakesmith</h6>
-        <p>Baker Family based in Colombo</p>
+<div class="col s12">
+<div class="card horizontal">
+<br/>
+<div class="row">
+  <div class="col">
+      <div class="card-image text-md-left">
+        <img src="../../assets/images/col.jpg">
       </div>
-      <hr class="w-100 clearfix d-md-none">
-      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
-        <h6 class="text-uppercase mb-4 font-weight-bold">Links</h6>
-        <p><a href="#!">Your Account</a></p>
-        <p><a href="#!">Privacy Policy</a></p>
-        <p><a href="#!">Refund Policy</a></p>
-        <p><a href="#!">Help</a></p>
-      </div>
-      <hr class="w-100 clearfix d-md-none">
-      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
-        <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
-        <p><i class="fa fa-home"></i> J 3rd floor, 215, Park Road, Colombo 05</p>
-        <p><i class="fa fa-envelope"></i> thecakesmith05@gmail.com</p>
-        <p><i class="fa fa-phone"></i> +94 (76) 907 0125</p>
-      </div>
-    </div>
-    <hr>
-    <div class="row d-flex align-items-center">
-      <div class="col-md-7 col-lg-8">
-        <p class="text-center text-md-left"><img src="../../assets/images/logo.png" width=40% height=40%/></p>
-      </div>
-      <div class="col-md-5 col-lg-4 ml-lg-0">
-        <div class="text-center text-md-right ">
-          <ul class="list-unstyled list-inline">
-            <li class="list-inline-item">
-              <a href="https://www.facebook.com/TheCakesmith/"><i class="fa fa-facebook" style="font-size: 2em;"></i></a>
-            </li>
-            <li class="list-inline-item">
-              <a  role="button" href="https://www.instagram.com/the_cakesmith_/"><i class="fa fa-instagram" style="font-size: 2em;"></i></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
   </div>
-</footer>
+  <div class="col text-center">
+      <div class="card-content">
+        <p style="font-size: 30px;">Cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake</p>
+        <p style="font-size: 30px;">Cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake  cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake</p>
+        <p style="font-size: 20px;">Cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake cake</p>
+      </div>
+      <div class="card-action">
+        <a [routerLink]="['/menu']" routerLinkActive="router-link-active">Click for more</a>
+      </div>
+  </div>
+</div>       
+<br/>   
 </div>
+</div>
+<br/>
+
+  <div class="h-25 w-100 d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)">
+        <mdb-carousel [animation]="'slide'">
+            <mdb-carousel-item>
+              <img class="d-block w-100" src="../../assets/images/h3.jpg" height="50%" alt="First slide">
+            </mdb-carousel-item>
+            <mdb-carousel-item>
+              <img class="d-block w-100" src="../../assets/images/h4.jpg" height="50%" alt="Second slide">
+            </mdb-carousel-item>
+            <mdb-carousel-item>
+              <img class="d-block w-100" src="../../assets/images/h5.jpg" height="50%" alt="Third slide">
+            </mdb-carousel-item>
+          </mdb-carousel>
+    </div>
+
+<!-- <div style="height: 100px;">
+<mdb-card class="w-75 h-75 mb-3 mx-auto">
+  <mdb-card-body>
+            <mdb-carousel [animation]="'slide'">
+              <mdb-carousel-item>
+                <img class="d-block w-100" src="../../assets/images/h3.jpg" height="50%" alt="First slide">
+              </mdb-carousel-item>
+              <mdb-carousel-item>
+                <img class="d-block w-100" src="../../assets/images/h4.jpg" height="50%" alt="Second slide">
+              </mdb-carousel-item>
+              <mdb-carousel-item>
+                <img class="d-block w-100" src="../../assets/images/h5.jpg" height="50%" alt="Third slide">
+              </mdb-carousel-item>
+            </mdb-carousel>
+    <mdb-card-title>
+      <h5>Cakes made with love to satisfy your sweet tooth celebrate all the special occasions</h5>
+    </mdb-card-title>
+    <mdb-card-text>With supporting text below as a natural lead-in to additional content</mdb-card-text>
+    <a [routerLink]="['/menu']" routerLinkActive="router-link-active" mdbBtn color="primary">Go somewhere</a>
+  </mdb-card-body>
+</mdb-card></div>  -->
 
