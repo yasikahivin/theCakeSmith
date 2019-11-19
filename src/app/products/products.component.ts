@@ -17,23 +17,23 @@ export class ProductsComponent implements OnInit {
 
   constructor(route: ActivatedRoute,
     private modalService: NgbModal,
-              private productService: ProductService) {
-                this.products$ = this.productService.getall();
-                productService.getall().subscribe(products => {
-                  this.products = products;
-                  console.log(this.products);
+    private productService: ProductService) {
+      this.products$ = this.productService.getall();
+      productService.getall().subscribe(products => {
+        this.products = products;
+        console.log(this.products);
 
-                  route.queryParamMap.subscribe(params => {
-                  this.category = params.get('category');
-                  console.log(this.category);
+        route.queryParamMap.subscribe(params => {
+        this.category = params.get('category');
+        console.log(this.category);
 
-                  this.filteredProducts =  this.category ?
-                    this.products.filter(p => p.category === this.category) : this.products;
-                  console.log(this.filteredProducts);
-                });
+        this.filteredProducts =  this.category ?
+          this.products.filter(p => p.category === this.category) : this.products;
+        console.log(this.filteredProducts);
+      });
 
-                });
-              }
+      });
+    }
               
   products: Product[] = [];
   filteredProducts: Product[] = [];
