@@ -10,7 +10,7 @@ import { NgFlashMessageService } from 'ng-flash-messages';
   styleUrls: ['./login.component.scss']
 })
 
-export class LoginComponent  implements OnInit{
+export class LoginComponent  implements OnInit {
   email: string;
   password: string;
 
@@ -29,21 +29,19 @@ export class LoginComponent  implements OnInit{
   login() {
     this.auth.login();
   }
-  
-
-  onSubmit(){
+  onSubmit() {
     this.auth.login2(this.email, this.password)
       .then(res => {
         this.flashMessage.showFlashMessage({
-          messages:['You are now logged in'], 
-          type: 'success', 
+          messages: ['You are now logged in'],
+          type: 'success',
           timeout: 4000
         });
         this.router.navigate(['/menu']);
       })
         .catch(err => {
           this.flashMessage.showFlashMessage({
-            messages:['Invalid'], 
+            messages: ['Invalid'],
             type: 'danger', timeout: 4000
         });
   });

@@ -1,12 +1,38 @@
 <div class="btn-group col-sm-12" role="group" aria-label="Basic example" >
 
-    <button mdbBtn type="button" color="unique" class="waves-light" mdbWavesEffect>Simple Cakes</button>
-    <button mdbBtn type="button" color="unique" class="waves-light" mdbWavesEffect>Birthday Cakes</button>
-    <button mdbBtn type="button" color="unique" class="waves-light" mdbWavesEffect>Wedding Cakes</button>
-    <button mdbBtn type="button" color="unique" class="waves-light" mdbWavesEffect>Cupcakes</button>
-    <button mdbBtn type="button" color="unique" class="waves-light" mdbWavesEffect>Cookies</button>
-    <button mdbBtn type="button" color="unique" class="waves-light" mdbWavesEffect>Donut</button>
-    <button mdbBtn type="button" color="unique" class="waves-light" mdbWavesEffect>All Products</button>
+    <button mdbBtn type="button" color="unique" class="waves-light" mdbWavesEffect
+    [routerLink]="['/menu']"
+    [queryParams]="{ category: 'SimpleCake' }"
+    >Simple Cakes</button>
+
+    <button mdbBtn type="button" color="unique" class="waves-light" mdbWavesEffect
+    [routerLink]="['/menu']"
+    [queryParams]="{ category: 'BirthdayCake' }"
+    >Birthday Cakes</button>
+
+    <button mdbBtn type="button" color="unique" class="waves-light" mdbWavesEffect
+    [routerLink]="['/menu']"
+    [queryParams]="{ category: 'WeddingCake' }"
+    >Wedding Cakes</button>
+
+    <button mdbBtn type="button" color="unique" class="waves-light" mdbWavesEffect
+    [routerLink]="['/menu']"
+    [queryParams]="{ category: 'Cupcakes' }"
+    >Cupcakes</button>
+
+    <button mdbBtn type="button" color="unique" class="waves-light" mdbWavesEffect
+    [routerLink]="['/menu']"
+    [queryParams]="{ category: 'Cookies' }"
+    >Cookies</button>
+
+    <button mdbBtn type="button" color="unique" class="waves-light" mdbWavesEffect
+    [routerLink]="['/menu']"
+    [queryParams]="{ category: 'SimpleCake' }"
+    >Donut</button>
+
+    <button mdbBtn type="button" color="unique" class="waves-light" mdbWavesEffect
+    [routerLink]="['/menu']"
+    >All Products</button>
   </div>
 
 <div class="row">
@@ -14,7 +40,7 @@
       <div class="col-sm ">
         <div class="card"  >
             <div class="view overlay">
-              <!-- <img class="card-img-top" src={{p.imageURL}} > -->
+              <img class="card-img-top" src={{p.imageURL}} >
                 <div class="mask rgba-white-slight"></div>
 
             </div>
