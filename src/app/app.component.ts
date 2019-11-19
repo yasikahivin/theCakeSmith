@@ -1,8 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
 import { UserService } from './user.service';
-import {ModalDirective} from 'angular-bootstrap-md';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +10,6 @@ import {ModalDirective} from 'angular-bootstrap-md';
 })
 export class AppComponent {
   title = 'theCakesmith';
-  @ViewChild (ModalDirective, { static: true, }) modal: ModalDirective;
 
   constructor(private authServive: AuthService, private auth: AuthService, router: Router) {
     auth.user$.subscribe(user => {
