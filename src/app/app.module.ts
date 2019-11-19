@@ -37,6 +37,9 @@ import { ProductService } from './product.service';
 import { MenuComponent } from './menu/menu.component';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { CommonModule } from '@angular/common';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FooterComponent } from './footer/footer.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,9 @@ import { CommonModule } from '@angular/common';
     MyOrdersComponent,
     SignupComponent,
     ProductFormComponent,
-    MenuComponent
+    MenuComponent,
+    FooterComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +71,8 @@ import { CommonModule } from '@angular/common';
     AngularFireAuthModule,
     MDBBootstrapModule.forRoot(),
     NgFlashMessagesModule.forRoot(),
-    FormsModule
+    FormsModule,
+    NgbModule
     // HttpModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
