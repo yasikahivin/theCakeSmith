@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AppUser } from './models/app-user';
+import { Observable } from 'rxjs/internal/Observable';
 
 // didn't used yet
 
@@ -14,14 +16,19 @@ export class UserService {
 
 
     constructor(private afAuth: AngularFireAuth,
-                private db: AngularFirestore) { }
+                private db: AngularFireDatabase) { }
 
     Save(user: firebase.User) {
-      this.db.collection('users').doc(user.uid).set({
+      this.db.object('/users/' + user.uid).update
+      ({
         name: user.displayName,
         email: user.email,
         photoURL: user.photoURL
       });
-      this.db.collection('users').doc();
 }
+get(uid: string): Observable<AppUser> {
+    return this.db.object<AppUser>('/users/' + uid).valueChanges();
+}
+
+
 }

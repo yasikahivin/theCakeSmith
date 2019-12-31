@@ -14,7 +14,7 @@ export class NavbarComponent  {
   user$: Observable<firebase.User>;
 
   constructor(
-    private auth: AuthService , 
+    private auth: AuthService ,
     private afAuth: AngularFireAuth) {
     this.user$ = afAuth.authState;
    }

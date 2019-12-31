@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import {CustomFormsModule} from 'ng2-validation';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -40,6 +41,8 @@ import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './footer/footer.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { ProductFilterComponent } from './products/product-filter/product-filter.component';
+import { ProductCardComponent } from './products/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +61,9 @@ import { AboutUsComponent } from './about-us/about-us.component';
     ProductFormComponent,
     MenuComponent,
     FooterComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    ProductFilterComponent,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +77,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
     MDBBootstrapModule.forRoot(),
     NgFlashMessagesModule.forRoot(),
     FormsModule,
-    NgbModule
+    NgbModule,
+    CustomFormsModule
     // HttpModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],

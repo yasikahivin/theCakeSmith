@@ -3,6 +3,7 @@ import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from
 import { AuthService } from './auth.service';
 import { switchMap, map, take } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,14 +12,19 @@ import { Observable } from 'rxjs';
 
 export class AdminAuthGuardService implements CanActivate {
 
-  constructor(private auth: AuthService, private authService: AuthService ) { }
+  constructor(private auth: AuthService, private userService: UserService ) { }
 
   canActivate(): Observable<boolean> {
     return this.auth.user$.pipe(
-     // switchMap(user => this.authService.get(user.uid).valueChanges()),
-      map((appUser: any) => appUser.isAdmin)
-      );
+      switchMap(({uid}) => {
+        return this.userService.get(uid);
+      }),
+      map(user => {
+        return user.isAdmin;
+      })
+    );
+  }
   }
 
 
-}
+

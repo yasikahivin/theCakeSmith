@@ -26,14 +26,16 @@ export class AuthService {
     const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
     localStorage.setItem('returnUrl', returnUrl );
 
-    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(cred => {
+    this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+
+    /*.then(cred => {
       this.db.collection('users').doc(cred.user.uid).set({
         name: cred.user.displayName,
         email: cred.user.email,
         photoURL: cred.user.photoURL,
       });
-    });
-    this.db.collection('users').doc();
+    });*/
+    // this.db.collection('users').doc();
   }
 
   login2(email: string, password: string) {
@@ -51,7 +53,7 @@ export class AuthService {
       err => reject(err));
     });
   }
- 
+
   logout() {
     this.afAuth.auth.signOut();
   }

@@ -1,0 +1,47 @@
+<div class="flip-card display-block mx-auto">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="{{product.imageURL}} " style="width:300px;height:300px;" alt="{{product.title}}">
+      </div>
+      <div class="flip-card-back">
+        <br/>
+        <br/>
+        <p style="font-size: x-large;">{{product.title}}</p>
+
+        <ng-template #content let-modal>
+          <div class="col-md-10" >
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title"><b>{{product.title}}</b></h4>
+              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+
+                <div class="col">
+                  <img src="{{product.imageURL}} " style="width:300px;height:300px;">
+                </div>
+
+                <div class="col">
+                  <h3>Rs. {{product.price}}</h3>
+                  <p>{{product.description}}</p>
+                  <div class="options weight mt20">
+                    <p class="title">Weight</p>
+                    <label class="radio-inline btn btn-default grey"> {{product.weight}} kg </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+            </div>
+
+          </div>
+          </ng-template>
+
+          <button class="btn btn-sm btn-outline-primary" (click)="open(content)">More</button>
+        </div>
+      </div>
+</div>
