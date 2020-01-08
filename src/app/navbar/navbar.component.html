@@ -61,16 +61,18 @@
                 </li>
 
               <!-- Dropdown -->
-              <li *ngIf="user$ | async as user; else anonymousUser" class="nav-item dropdown" dropdown>
+              <li *ngIf="appUser ; else anonymousUser" class="nav-item dropdown" dropdown>
                 <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
-                    {{user.displayName}}
+                    {{appUser.name}}
                     <span class="caret"></span>
                 </a>
 
                 <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
                   <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/my/orders']" routerLinkActive="router-link-active" >My Orders</a>
-                  <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/admin/orders']" routerLinkActive="router-link-active" >Manage Orders</a>
-                  <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/admin/products']" routerLinkActive="router-link-active" >Manage Products</a>
+                  <ng-container *ngIf="appUser.isAdmin">
+                      <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/admin/orders']" routerLinkActive="router-link-active" >Manage Orders</a>
+                      <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/admin/products']" routerLinkActive="router-link-active" >Manage Products</a>
+                  </ng-container>
                   <div class="divider dropdown-divider"></div>
                   <a class="dropdown-item waves-light" mdbWavesEffect (click)="logout()" >Log Out</a>
                 </div>

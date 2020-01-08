@@ -13,10 +13,11 @@ import { Observable } from 'rxjs/internal/Observable';
   providedIn: 'root'
 })
 export class UserService {
+user$: Observable<firebase.User>;
 
-
-    constructor(private afAuth: AngularFireAuth,
-                private db: AngularFireDatabase) { }
+    constructor(private db: AngularFireDatabase) {
+                  // this.user$ = afAuth.authState;
+                }
 
     Save(user: firebase.User) {
       this.db.object('/users/' + user.uid).update
@@ -28,6 +29,7 @@ export class UserService {
 }
 get(uid: string): Observable<AppUser> {
     return this.db.object<AppUser>('/users/' + uid).valueChanges();
+    // console.log('/users/');
 }
 
 

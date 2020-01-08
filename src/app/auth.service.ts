@@ -1,7 +1,7 @@
 import { Injectable, CollectionChangeRecord } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { UserService } from './user.service';
 import { AngularFireDatabase } from '@angular/fire/database';
@@ -18,7 +18,10 @@ export class AuthService {
 
   user$: Observable<firebase.User>;
 
-  constructor(private afAuth: AngularFireAuth, private db: AngularFirestore, private route: ActivatedRoute) {
+  constructor(
+    private userService: UserService,
+    private afAuth: AngularFireAuth,
+    private route: ActivatedRoute) {
     this.user$ = afAuth.authState;
    }
 
@@ -35,8 +38,11 @@ export class AuthService {
         photoURL: cred.user.photoURL,
       });
     });*/
-    // this.db.collection('users').doc();
+
+    // this.db.collection('users').doc(user.uid);
   }
+
+  /*
 
   login2(email: string, password: string) {
     return new Promise((resolve, reject) => {
@@ -54,9 +60,24 @@ export class AuthService {
     });
   }
 
+  */
+
   logout() {
     this.afAuth.auth.signOut();
   }
+
+get appUser$(): Observable<AppUser> {
+  return this.user$.pipe(
+    switchMap(user => {
+      if (user) {
+        return this.userService.get(user.uid);
+      } else {
+        return of(null);
+      }
+    })
+  );
+}
+
 /*
   get(uid: string): AngularFirestoreCollection<AppUser> {
     return this.db.collection('users' + uid);
