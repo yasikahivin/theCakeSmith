@@ -43,6 +43,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ProductFilterComponent } from './products/product-filter/product-filter.component';
 import { ProductCardComponent } from './products/product-card/product-card.component';
+import { ShoppingCartService } from './shopping-cart.service';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import { ProductCardComponent } from './products/product-card/product-card.compo
     AdminAuthGuardService,
     CategoryService,
     ProductService,
-    UserService
+    UserService,
+    ShoppingCartService
   ],
   bootstrap: [AppComponent]
 })
