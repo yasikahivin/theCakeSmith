@@ -9,3 +9,17 @@ header{
 .navbar {
   z-index: 1;
 }
+
+ .top-nav-collapse {
+    background-color: #563e91 !important;
+  }
+
+  .navbar:not(.top-nav-collapse) {
+    background: transparent !important;
+  }
+
+  @media (max-width: 991px) {
+    .navbar:not(.top-nav-collapse) {
+      background: #563e91 !important;
+    }
+  }

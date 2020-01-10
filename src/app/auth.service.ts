@@ -42,7 +42,7 @@ export class AuthService {
     // this.db.collection('users').doc(user.uid);
   }
 
-  /*
+
 
   login2(email: string, password: string) {
     return new Promise((resolve, reject) => {
@@ -60,7 +60,7 @@ export class AuthService {
     });
   }
 
-  */
+
 
   logout() {
     this.afAuth.auth.signOut();
