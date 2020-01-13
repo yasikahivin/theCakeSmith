@@ -5,6 +5,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Observable } from 'rxjs';
 import { AuthService } from '../auth.service';
 import { AppUser } from '../models/app-user';
+// import { HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -23,5 +24,6 @@ export class NavbarComponent  {
   logout() {
     this.auth.logout();
   }
+
 
 }

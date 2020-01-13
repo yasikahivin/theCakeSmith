@@ -45,6 +45,7 @@ import { ProductFilterComponent } from './products/product-filter/product-filter
 import { ProductCardComponent } from './products/product-card/product-card.component';
 import { ShoppingCartService } from './shopping-cart.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,

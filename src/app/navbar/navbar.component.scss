@@ -6,20 +6,13 @@ header{
     font-size: 12pt;
 }
 
-.navbar {
-  z-index: 1;
+
+.div1 {
+  padding-left: 50px;
 }
 
- .top-nav-collapse {
-    background-color: #563e91 !important;
-  }
 
-  .navbar:not(.top-nav-collapse) {
-    background: transparent !important;
-  }
-
-  @media (max-width: 991px) {
-    .navbar:not(.top-nav-collapse) {
-      background: #563e91 !important;
-    }
-  }
+.navbar-fixed-top.scrolled {
+  background-color: rgb(112, 0, 0) !important;
+  // transition: background-color 200ms linear;
+}

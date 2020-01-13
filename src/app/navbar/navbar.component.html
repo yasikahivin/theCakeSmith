@@ -1,12 +1,16 @@
 
 
-
-  <mdb-navbar SideClass="navbar fixed-top navbar-expand-lg  top-nav-collapse scrolling-navbar intro-fixed-nav" [containerInside]="false">
-    <div class="container">
-    <!-- Navbar brand -->
+  <mdb-navbar SideClass="navbar top-nav-collapse fixed-top navbar-expand-lg navbar-light navbar-fixed-top scrolling-navbar intro-fixed-nav" [containerInside]="false" >
 
 
+  <img src="../../assets/images/logo2.png" width=150px height=30% alt="TClogo" [routerLink]="['/']" routerLinkActive="router-link-active">
+  <!--  Navbar brand
+    <mdb-navbar-brand>
+      <a class="navbar-brand"  >
 
+      </a>
+    </mdb-navbar-brand>
+-->
     <!-- Collapsible content -->
 
     <links>
@@ -49,11 +53,8 @@
         </div>
 
 
-        <mdb-navbar-brand>
-          <a class="navbar-brand" [routerLink]="['/']" routerLinkActive="router-link-active" >
-            <img src="../../assets/images/logo2.png" width=30% height=30% alt="TClogo">
-          </a>
-        </mdb-navbar-brand>
+
+
 
         <navlinks>
             <ul class="nav navbar-nav nav-flex-icons ml-auto ">
@@ -96,7 +97,7 @@
 
     <!-- Links -->
     </links>
-    </div>
+
     <!-- Collapsible content -->
   </mdb-navbar>
   <!--/.Navbar-->
