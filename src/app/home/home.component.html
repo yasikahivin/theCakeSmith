@@ -1,23 +1,54 @@
 
+
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      xfbml            : true,
+      version          : 'v5.0'
+    });
+  };
+
+  (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Your customer chat code -->
+<div class="fb-customerchat"
+  attribution=setup_tool
+  page_id="102697900128167"
+theme_color="#d696bb"
+logged_in_greeting="Hi! How can we help you?"
+logged_out_greeting="Hi! How can we help you?">
+</div>
+
+
+
 <div class="view intro-2">
   <div class="view">
     <video class="video" autoplay muted="muted" loop id="myVideo" width= "100%">
         <source src="../../assets/videos/cookie.mp4" type="video/mp4">
     </video>
-    <div class="mask rgba-black-Dark flex-center">
-        <div class="container">
 
-
-            <div class="white-text text-center wow fadeInUp">
-                <h3 class="display-3 font-weight-bold white-text mb-0 pt-md-5 pt-5">The Cakesmith</h3>
-                <hr class="hr-light my-4 w-75">
-                <p>The Cakesmith was founded in 2016 for the love of baking. We continue to thrive in our passion to bake and bring love to you through our cakes. We currently have a range of birthday cakes, Wedding cakes, donut selection and other scrumptious baked goods to choose from. We hope you enjoy browsing through our creations listed on this website which was carefully curated for each customer’s needs.
-                </p>
-            </div>
-        </div>
-    </div>
   </div>
 </div>
+
+<div class="mask rgba-black-Dark flex-center">
+  <div class="container">
+      <div class="white-text text-center wow fadeInUp">
+          <h3 class="display-3 font-weight-bold black-text mb-0 pt-md-5 pt-5">The Cakesmith</h3>
+          <h6 class="   black-text ">
+          <p>The Cakesmith was founded in 2016 for the love of baking. We continue to thrive in our passion to bake and bring love to you through our cakes. We currently have a range of birthday cakes, Wedding cakes, donut selection and other scrumptious baked goods to choose from. We hope you enjoy browsing through our creations listed on this website which was carefully curated for each customer’s needs.
+          </p></h6>
+      </div>
+  </div>
+</div>
+
 <main class="text-center py-5">
   <div class="center">
     <div class="row">

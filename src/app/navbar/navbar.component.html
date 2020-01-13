@@ -1,6 +1,6 @@
 
 
-  <mdb-navbar SideClass="navbar top-nav-collapse fixed-top navbar-expand-lg navbar-light navbar-fixed-top scrolling-navbar intro-fixed-nav" [containerInside]="false" >
+  <mdb-navbar SideClass="navbar top-nav-collapse fixed-top navbar-expand-lg navbar-light navbar-fixed-top scrolling-navbar intro-fixed-nav navbar-inverse"  [containerInside]="false" (scroll)="onWindowScroll($event);" >
 
 
   <img src="../../assets/images/logo2.png" width=150px height=30% alt="TClogo" [routerLink]="['/']" routerLinkActive="router-link-active">
