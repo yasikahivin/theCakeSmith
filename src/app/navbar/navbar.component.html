@@ -76,6 +76,7 @@
                 <ng-container *ngIf="appUser.isAdmin">
                     <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/admin/orders']" routerLinkActive="router-link-active" >Manage Orders</a>
                     <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/admin/products']" routerLinkActive="router-link-active" >Manage Products</a>
+                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/admin/inventory']" routerLinkActive="router-link-active" >Manage Inventory</a>
                 </ng-container>
                 <div class="divider dropdown-divider"></div>
                 <a class="dropdown-item waves-light" mdbWavesEffect (click)="logout()" >Log Out</a>
