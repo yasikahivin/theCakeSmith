@@ -14,7 +14,7 @@ import { NgFlashMessagesModule } from 'ng-flash-messages';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { environment } from 'src/environments/environment';
+import { environment } from '../environments/environment';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
@@ -44,6 +44,9 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { ProductFilterComponent } from './products/product-filter/product-filter.component';
 import { ProductCardComponent } from './products/product-card/product-card.component';
 import { ShoppingCartService } from './services/shopping-cart.service';
+import { InventoryService } from './services/inventory.service';
+import { InventoryFormComponent } from './admin/inventory-form/inventory-form.component';
+import { AdminInventoryComponent } from './admin/admin-inventory/admin-inventory.component';
 
 
 @NgModule({
@@ -64,8 +67,8 @@ import { ShoppingCartService } from './services/shopping-cart.service';
     MenuComponent,
     FooterComponent,
     AboutUsComponent,
-    ProductFilterComponent,
-    ProductCardComponent
+    ProductFilterComponent, 
+    ProductCardComponent, InventoryFormComponent, AdminInventoryComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +94,8 @@ import { ShoppingCartService } from './services/shopping-cart.service';
     CategoryService,
     ProductService,
     UserService,
-    ShoppingCartService
+    ShoppingCartService,
+    InventoryService
   ],
   bootstrap: [AppComponent]
 })

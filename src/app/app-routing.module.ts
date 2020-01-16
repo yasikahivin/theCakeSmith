@@ -7,12 +7,14 @@ import { CheckOutComponent } from './check-out/check-out.component';
 import { OrderSuccessComponent } from './order-success/order-success.component';
 import { LoginComponent } from './login/login.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
+import { AdminInventoryComponent } from './admin/admin-inventory/admin-inventory.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { SignupComponent } from './signup/signup.component';
 import { AdminAuthGuardService } from './services/admin-auth-guard.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
+import { InventoryFormComponent } from './admin/inventory-form/inventory-form.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutUsComponent } from './about-us/about-us.component';
@@ -34,6 +36,9 @@ const routes: Routes = [
   {path: 'admin/products/new', component: ProductFormComponent, canActivate: [AuthGuardService, AdminAuthGuardService]},
   {path: 'admin/products/:id', component: ProductFormComponent, canActivate: [AuthGuardService, AdminAuthGuardService]},
   {path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuardService]},
+  {path: 'admin/inventory', component: AdminInventoryComponent, canActivate: [AuthGuardService]},
+  {path: 'admin/inventories/new', component: InventoryFormComponent, canActivate: [AuthGuardService, AdminAuthGuardService]},
+  {path: 'admin/inventories/:id', component: InventoryFormComponent, canActivate: [AuthGuardService, AdminAuthGuardService]},
   {path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthGuardService]},
 ];
 
