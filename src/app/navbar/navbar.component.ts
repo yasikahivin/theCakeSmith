@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Observable } from 'rxjs';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth.service';
 import { AppUser } from '../models/app-user';
 import { HostListener } from '@angular/core';
 // import { HostListener } from '@angular/core';

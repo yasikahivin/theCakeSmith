@@ -3,7 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { Product } from './models/Product';
+import { Product } from '../models/Product';
 import { Action } from 'rxjs/internal/scheduler/Action';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 

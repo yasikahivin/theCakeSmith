@@ -1,10 +1,10 @@
 import { Component, OnInit, NgModule } from '@angular/core';
-import { CategoryService } from 'src/app/category.service';
+import { CategoryService } from 'src/app/services/category.service';
 
 import {Category} from '../../models/Category';
 import { AngularFireDatabase, AngularFireObject, AngularFireList } from '@angular/fire/database';
 import { Observable } from 'rxjs';
-import { ProductService } from 'src/app/product.service';
+import { ProductService } from 'src/app/services/product.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';

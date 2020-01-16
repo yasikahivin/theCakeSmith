@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 
-import { Category } from './models/Category';
+import { Category } from '../models/Category';
 
 @Injectable({
   providedIn: 'root'

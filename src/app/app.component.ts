@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import { AuthService } from './auth.service';
+import { AuthService } from './services/auth.service';
 import { Router } from '@angular/router';
-import { UserService } from './user.service';
+import { UserService } from './services/user.service';
 import {ModalDirective} from 'angular-bootstrap-md';
 import { User } from 'firebase';
 

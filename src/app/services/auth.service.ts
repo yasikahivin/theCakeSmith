@@ -6,7 +6,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { UserService } from './user.service';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, DocumentSnapshot } from '@angular/fire/firestore';
-import { AppUser } from './models/app-user';
+import { AppUser } from '../models/app-user';
 import { switchMap } from 'rxjs/operators';
 import { resolve } from 'url';
 import { reject } from 'q';
