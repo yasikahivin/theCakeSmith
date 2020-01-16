@@ -20,7 +20,7 @@ export class ProductsComponent implements OnInit, AfterViewInit {
   @ViewChild(MdbTableDirective, { static: true }) mdbTable: MdbTableDirective;
   elements: any = [];
   previous: any = [];
-  headElements = ['ID', 'First', 'Last', 'Handle'];
+  headElements = ['ID', 'Item'];
 
   products: Product[] = [];
   filteredProducts: Product[] = [];
@@ -33,21 +33,25 @@ export class ProductsComponent implements OnInit, AfterViewInit {
       productService.getall().subscribe(products => {
         this.products = products;
 
+        // console.log(this.filteredProducts.lastIndexOf);
         route.queryParamMap.subscribe(params => {
         this.category = params.get('category');
 
         this.filteredProducts =  this.category ?
           this.products.filter(p => p.category === this.category) : this.products;
-      });
+        console.log(this.filteredProducts.length);
+          });
 
       });
     }
 
     ngOnInit() {
 
+
       this.mdbTable.setDataSource(this.filteredProducts);
       this.filteredProducts = this.mdbTable.getDataSource();
       this.previous = this.mdbTable.getDataSource();
+      this.filteredProducts.length===this.mdbTablePagination.lastItemIndex;
     }
 
     ngAfterViewInit() {
