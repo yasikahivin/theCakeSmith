@@ -14,34 +14,6 @@
   </ng-container>
 </div>
 
-<div class="align=center color: red" ><h1>unedited conent</h1></div>
-
-<!--unedited content-->
-
-<div class="container">
-  <table mdbTable #tableEl="mdbTable" class="z-depth-1">
-    <thead>
-    <tr>
-      <th *ngFor="let head of headElements; let i = index" scope="col">{{head}}
-      </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let p of filteredProducts; let i = index ">
-      <th *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex"><app-product-card [product]="p"></app-product-card></th>
-      <!--<td *ngIf="i+1 >= mdbTablePagination.firstItemIndex && i < mdbTablePagination.lastItemIndex"><app-product-card [product]="p"></app-product-card></td>-->
-    </tr>
-    </tbody>
-    <tfoot class="grey lighten-5 w-100">
-    <tr>
-      <td colspan="4">
-        <mdb-table-pagination [tableEl]="tableEl" [searchDataSource]="filteredProducts"></mdb-table-pagination>
-      </td>
-    </tr>
-    </tfoot>
-  </table>
-</div>
-
 
 </body>
 <!--unedited content-->

@@ -15,12 +15,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss']
 })
-export class ProductsComponent implements OnInit, AfterViewInit {
-  @ViewChild(MdbTablePaginationComponent, { static: true }) mdbTablePagination: MdbTablePaginationComponent;
-  @ViewChild(MdbTableDirective, { static: true }) mdbTable: MdbTableDirective;
-  elements: any = [];
-  previous: any = [];
-  headElements = ['ID', 'Item'];
+export class ProductsComponent implements OnInit {
 
   products: Product[] = [];
   filteredProducts: Product[] = [];
@@ -45,22 +40,8 @@ export class ProductsComponent implements OnInit, AfterViewInit {
       });
     }
 
-    ngOnInit() {
+    ngOnInit() {}
 
-
-      this.mdbTable.setDataSource(this.filteredProducts);
-      this.filteredProducts = this.mdbTable.getDataSource();
-      this.previous = this.mdbTable.getDataSource();
-      this.filteredProducts.length===this.mdbTablePagination.lastItemIndex;
-    }
-
-    ngAfterViewInit() {
-      this.mdbTablePagination.setMaxVisibleItemsNumberTo(5);
-
-      this.mdbTablePagination.calculateFirstItemIndex();
-      this.mdbTablePagination.calculateLastItemIndex();
-      this.cdRef.detectChanges();
-    }
 
 
 
