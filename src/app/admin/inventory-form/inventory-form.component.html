@@ -6,67 +6,59 @@
     <br/>
 
     <div class="row">
-        <div class="col-md-2 mx-auto"></div>
-        <div class="col-md-6 mx-auto">
+        <div class="col-md-6 mx-auto offset-2">
             <div class="card">
                 <div class="card-body">
                         <form #f="ngForm" (ngSubmit)="save(f.value)" novalidate>
                         <div class="row">
-                        <div class="col-3"></div>
-                        <div class="form-group col-6">
+                        <div class="form-group col-6 offset-3">
                             <label for="title">Name</label>
                             <input [(ngModel)]="inventory.name" #name="ngModel"  name="name" id="name" type="text" class="form-control">
                         </div>
-                        <div class="col-3"></div>
                         </div>
     
                         <div class="row">
-                            <div class="col-4"></div>
-                            <div class="form-group col-4">
+                            <div class="form-group col-4 offset-4">
                                 <label for="unit_price">Unit Price</label>
                                 <div class="input-group">
                                     <span class="input-group-text">LKR</span>
                                     <input [(ngModel)]="inventory.unit_price" #price="ngModel" name="unit_price" id="unit_price" type="number" class="form-control" size="8">
                                 </div>
                             </div>
-                        <div class="col-4"></div>
                         </div>
 
                         <div class="row">
-                        <div class="col-4"></div>
-                        <div class="form-group col-4">
-                            <label for="unit_weight">Weight</label>
-                            <div class="input-group">
-                                <input #unit_weight="ngModel" [(ngModel)]="inventory.unit_weight"   name="unit_weight" id="unit_weight" type="number" class="form-control text-center" >
-                                <span class="input-group-text">kg</span>
+                            <div class="form-group col-4 offset-4">
+                                <label for="unit_weight">Weight</label>
+                                <div class="input-group">
+                                    <input #unit_weight="ngModel" [(ngModel)]="inventory.unit_weight"   name="unit_weight" id="unit_weight" type="number" class="form-control text-center" >
+                                    <span class="input-group-text">kg</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-4"></div>
-                        </div>
 
                         <div class="row">
-                        <div class="col-4"></div>
-                        <div class="form-group col-4">
+                        <div class="form-group col-4 offset-4">
                             <label for="quantity">Quantity</label>
                             <div class="input-group">
                                 <input #weight="ngModel" [(ngModel)]="inventory.quantity"   name="quantity" id="quantity" type="number" class="form-control text-center" >
                             </div>
                         </div>
-                        <div class="col-4"></div>
                         </div>
-    
+                        <br/>
+                        <br/>
                         <div class="row">
-                            <div class="col-4"></div>
+                            <div class="col-3"></div>
                             <button class="btn btn-primary col-2">Save</button>
+                            <div class="col-2"></div>
                             <button type="button" (click)="delete()" class="btn btn-danger col-2">Delete</button>
-                            <div class="col-4"></div>
+                            <div class="col-3"></div>
                         </div>
                           
                       </form>
                 </div>
             </div>
         </div>
-        <div class="col-md-2 mx-auto"></div>
     </div>
     <br/>
     </body>
