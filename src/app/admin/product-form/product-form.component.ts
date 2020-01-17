@@ -20,6 +20,9 @@ import { Product } from 'src/app/models/Product';
 
 
 export class ProductFormComponent implements OnInit  {
+  imgSrc : string = '../../../assets/images/up.jpeg';
+  selectedImage : any = null;
+  isSubmitted : boolean = false;
    // product: Product;
    id: string;
    product: Product = {  id: '', title: '', price: 0, category : '' , weight : 0 , imageURL: '' , description: '' };
@@ -57,5 +60,18 @@ export class ProductFormComponent implements OnInit  {
 
     }
 
+    showPreview(event:any){
+      if(event.target.files && event.target.files[0]){
+        const reader = new FileReader();
+        reader.onload= (e:any) => this.imgSrc = e.target.result;
+        reader.readAsDataURL(event.target.files[0]);
+        this.selectedImage = event.target.files[0];
+      }
+      else{
+        this.imgSrc = '../../../assets/images/up.jpeg';
+        this.selectedImage = null;
+      }
+    }
 
+  
  }
