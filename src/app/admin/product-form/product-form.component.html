@@ -56,7 +56,7 @@
                       </div>
 
                       <div class="text-center">
-                          <img [src]="imgSrc" alt="upload" class="src" width="250px" height="250px" (click)="fileUploader.click()">
+                          <img [src]="imgSrc" alt="upload" class="src" width="180px" height="180px" (click)="fileUploader.click()">
                       </div>
                       <div class="form-group">
                           <label>Select file to upload</label>
@@ -80,7 +80,7 @@
           <div *ngIf="product.title" class="card" style="width:20rem;">
 
                   <div class="view overlay">
-                      <img class="card-img-top" [src]="imgSrc" *ngIf="imgSrc">
+                      <img class="card-img-top" [src]="imgSrc" *ngIf="imgSrc" src={{product.imageURL}}>
                   </div>
 
                   <div class="card-body">

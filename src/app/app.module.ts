@@ -6,6 +6,7 @@ import {CustomFormsModule} from 'ng2-validation';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireStorageModule } from "@angular/fire/storage";
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
@@ -78,6 +79,7 @@ import { AdminInventoryComponent } from './admin/admin-inventory/admin-inventory
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
+    AngularFireStorageModule,
     AngularFireAuthModule,
     MDBBootstrapModule.forRoot(),
     NgFlashMessagesModule.forRoot(),

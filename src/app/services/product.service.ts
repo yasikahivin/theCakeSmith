@@ -49,5 +49,13 @@ delete(productId: string) {
   return this.db.object('/products/' + productId).remove();
 }
 
+insert(products) {
+  this.itemsRef.push(products);
+}
+
+getproducts(){
+    this.itemsRef = this.db.list('products');
+}
+
 }
 
