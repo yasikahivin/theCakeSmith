@@ -1,15 +1,14 @@
-import { Injectable, CollectionChangeRecord } from '@angular/core';
+import { Injectable, NgZone} from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase';
 import { Observable, of } from 'rxjs';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { UserService } from './user.service';
-import { AngularFireDatabase } from '@angular/fire/database';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, DocumentSnapshot } from '@angular/fire/firestore';
 import { AppUser } from '../models/app-user';
 import { switchMap } from 'rxjs/operators';
-import { resolve } from 'url';
-import { reject } from 'q';
+import { Router } from '@angular/router';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -21,9 +20,20 @@ export class AuthService {
   constructor(
     private userService: UserService,
     private afAuth: AngularFireAuth,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    public router: Router,
+    public ngZone: NgZone) {
     this.user$ = afAuth.authState;
    }
+
+
+   SendVerificationMail() {
+    return this.afAuth.auth.currentUser.sendEmailVerification()
+    .then(() => {
+      this.router.navigate(['<!-- enter your route name here -->']);
+    });
+  }
+
 
   login() {
     const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
@@ -45,6 +55,9 @@ export class AuthService {
 
 
   login2(email: string, password: string) {
+    const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+    localStorage.setItem('returnUrl', returnUrl );
+
     return new Promise((resolve, reject) => {
       this.afAuth.auth.signInWithEmailAndPassword(email, password)
         .then(userData => resolve(userData),
@@ -55,8 +68,17 @@ export class AuthService {
   register(email: string, password: string) {
     return new Promise((resolve, reject) => {
       this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-        .then(userData => resolve(userData),
-      err => reject(err));
+
+        .then((result) => {
+          if (result.user.emailVerified !== true) {
+            this.SendVerificationMail();
+            window.alert('Please validate your email address. Kindly check your inbox.');
+          } else {
+            this.ngZone.run(() => {
+              this.router.navigate(['<!-- enter your route name here -->']);
+            });
+          }
+      });
     });
   }
 

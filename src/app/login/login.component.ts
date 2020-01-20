@@ -30,7 +30,7 @@ export class LoginComponent  implements OnInit {
     this.auth.login();
   }
   onSubmit() {
-   /* this.auth.login2(this.email, this.password)
+    this.auth.login2(this.email, this.password)
       .then(res => {
         this.flashMessage.showFlashMessage({
           messages: ['You are now logged in'],
@@ -44,7 +44,7 @@ export class LoginComponent  implements OnInit {
             messages: ['Invalid'],
             type: 'danger', timeout: 4000
         });
-  });*/
+  });
 }
 
 }
