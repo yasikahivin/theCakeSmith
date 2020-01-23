@@ -34,6 +34,7 @@ import { AdminAuthGuardService } from './services/admin-auth-guard.service';
 import { SignupComponent } from './signup/signup.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { CategoryService } from './services/category.service';
+import { CustomService } from './services/custom.service';
 
 import { ProductService } from './services/product.service';
 import { MenuComponent } from './menu/menu.component';
@@ -48,6 +49,7 @@ import { ShoppingCartService } from './services/shopping-cart.service';
 import { InventoryService } from './services/inventory.service';
 import { InventoryFormComponent } from './admin/inventory-form/inventory-form.component';
 import { AdminInventoryComponent } from './admin/admin-inventory/admin-inventory.component';
+import { CustomComponent } from './custom/custom.component';
 
 
 @NgModule({
@@ -69,7 +71,10 @@ import { AdminInventoryComponent } from './admin/admin-inventory/admin-inventory
     FooterComponent,
     AboutUsComponent,
     ProductFilterComponent, 
-    ProductCardComponent, InventoryFormComponent, AdminInventoryComponent
+    ProductCardComponent, 
+    InventoryFormComponent, 
+    AdminInventoryComponent, 
+    CustomComponent
   ],
   imports: [
     BrowserModule,
@@ -97,7 +102,8 @@ import { AdminInventoryComponent } from './admin/admin-inventory/admin-inventory
     ProductService,
     UserService,
     ShoppingCartService,
-    InventoryService
+    InventoryService,
+    CustomService
   ],
   bootstrap: [AppComponent]
 })
