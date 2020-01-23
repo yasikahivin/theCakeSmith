@@ -29,6 +29,7 @@ export class LoginComponent  implements OnInit {
   login() {
     this.auth.login();
   }
+
   onSubmit() {
     this.auth.login2(this.email, this.password)
       .then(res => {

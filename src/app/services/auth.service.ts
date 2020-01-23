@@ -27,11 +27,9 @@ export class AuthService {
    }
 
 
-   SendVerificationMail() {
-    return this.afAuth.auth.currentUser.sendEmailVerification()
-    .then(() => {
-      this.router.navigate(['<!-- enter your route name here -->']);
-    });
+   async SendVerificationMail() {
+    await this.afAuth.auth.currentUser.sendEmailVerification();
+    this.router.navigate(['./login']);
   }
 
 
@@ -100,7 +98,7 @@ get appUser$(): Observable<AppUser> {
   );
 }
 
-/*
+  /*
   get(uid: string): AngularFirestoreCollection<AppUser> {
     return this.db.collection('users' + uid);
   }
