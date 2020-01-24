@@ -1,19 +1,13 @@
-<body background="../../../assets/images/dd2.jpg" >
+<body>
 <br/>
 <br/>
 <br/>
 <br/>
 <app-product-filter fixed-top></app-product-filter>
-<div class="col-2"></div>
-
-<div class="row">
+<div class="row ml-2" text-center>
   <ng-container *ngFor="let p of filteredProducts ">
-
     <app-product-card [product]="p"></app-product-card>
-
   </ng-container>
 </div>
-
-
 </body>
 <!--unedited content-->
