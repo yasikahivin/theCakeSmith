@@ -1,6 +1,10 @@
+
 <body style="background-color: #f8bbd0 ;">
 
     <body style="background-color:rgb(252,228,236)">
+        <br/>
+        <br/>
+        <br/>
         <br/>
         <div class="row">
             <div class="col-md-6 offset-3">
@@ -22,7 +26,7 @@
                                     <option value="Chocolate sponge">Chocolate sponge</option>
                                 </select>
                             </div>
-                            
+
                             <div class="row">
                                 <div class="form-group col-3 offset-2">
                                     <label for="frosting_type">Frosting Type</label>
@@ -31,7 +35,7 @@
                                         <option value="BirthdayCake">Fondant</option>
                                     </select>
                                 </div>
-    
+
                                 <div class="form-group col-3 offset-2">
                                     <label for="frosting_color">Frosting color</label>
                                     <div class="input-group">
@@ -39,7 +43,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
 
                             <div class="form-group col-4 offset-4">
                                 <label for="weight" class="col-4 offset-2">Weight</label>
@@ -79,7 +83,7 @@
                                 </label>
                                 </div>
                             </div>
-                            
+
 
                             <div class="form-group col-md-6 offset-3">
                                 <label for="wording">Wording</label>
@@ -93,7 +97,7 @@
                                 <label>Select file to upload</label>
                                 <input type="file" accept="image/*" name="imageURL" id="imageURL" class="form-control" #fileUploader (change)="showPreview($event)">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="notes">Additional Notes</label>
                                 <textarea #notes="ngModel" [(ngModel)]="cust_order.notes"  name="notes" id="notes" type="text" class="form-control"></textarea>
@@ -106,7 +110,7 @@
         </div>
         <br/>
         </body>
-        
-        
+
+
 
 </body>

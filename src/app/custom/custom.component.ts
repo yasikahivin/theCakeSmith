@@ -2,7 +2,7 @@ import { Component, OnInit, NgModule } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AngularFireDatabase, AngularFireObject, AngularFireList } from '@angular/fire/database';
 import { Observable } from 'rxjs';
-import { finalize } from "rxjs/operators";
+import { finalize } from 'rxjs/operators';
 import { CustomService } from 'src/app/services/custom.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs/operators';
@@ -17,11 +17,18 @@ import { Custom } from 'src/app/models/Custom';
 })
 
 export class CustomComponent implements OnInit {
-  imgSrc : string = '../../../assets/images/upll.png';
-  selectedImage : any = null;
-  isSubmitted : boolean;
+  imgSrc: string = '../../../assets/images/upll.png';
+  selectedImage: any = null;
+  isSubmitted: boolean;
   id: string;
-  cust_order : Custom = {  id: '', flavor: '', frosting_type: '', frosting_color: '', weight: 0, shape: '', wording: '', imageURL: '', notes: '' };
+  cust_order : Custom = { id: '',
+                          flavor: '',
+                          frosting_type: '',
+                          frosting_color: '',
+                          weight: 0, shape: '',
+                          wording: '',
+                          imageURL: '',
+                          notes: '' };
   formTemplate = new FormGroup({
     id : new FormControl(''),
     flavor : new FormControl(''),
@@ -39,14 +46,15 @@ export class CustomComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private storage: AngularFireStorage
-  ) { 
+  ) {
     this.id = this.route.snapshot.paramMap.get('id');
-    if(this.id) { this.customService.get(this.id).pipe(take(1)).subscribe(o => this.cust_order = o )}
+    if (this.id) { this.customService.get(this.id).pipe(take(1)).subscribe(o => this.cust_order = o )}
   }
+
   save(cust_order: any) {
     this.isSubmitted = true;
     if (this.formTemplate.valid) {
-      var filePath = `{cust_orderS}/${this.selectedImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()} `
+      const filePath = `{cust_orderS}/${this.selectedImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()} `;
       const fileRef = this.storage.ref(filePath);
       this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
         finalize (() => {
@@ -54,7 +62,7 @@ export class CustomComponent implements OnInit {
             cust_order['imageURL'] = url;
             this.customService.insert(cust_order);
             this.resetForm();
-          })
+          });
         })
       ).subscribe();
     }
@@ -67,8 +75,8 @@ export class CustomComponent implements OnInit {
 }
 
 delete() {
-  if (!confirm('Do you want to delete this order?')) { 
-    return; 
+  if (!confirm('Do you want to delete this order?')) {
+    return;
   }
 
   this.customService.delete(this.id);
@@ -79,41 +87,39 @@ ngOnInit() {
 
 }
 
-showPreview(event:any){
-  if(event.target.files && event.target.files[0]){
+showPreview(event: any) {
+  if (event.target.files && event.target.files[0]) {
     const reader = new FileReader();
-    reader.onload= (e:any) => this.imgSrc = e.target.result;
+    reader.onload = (e: any) => this.imgSrc = e.target.result;
     reader.readAsDataURL(event.target.files[0]);
     this.selectedImage = event.target.files[0];
-  }
-  else{
-    this.imgSrc = "../../../assets/images/upll.png";
+  } else {
+    this.imgSrc = '../../../assets/images/upll.png';
     this.selectedImage = null;
   }
 }
 
 
-get formControls(){
+get formControls() {
   return this.formTemplate['controls'];
 }
 
 resetForm() {
   this.formTemplate.reset();
   this.formTemplate.setValue({
-    id: '', 
-    flavor: '', 
-    frosting_type: '', 
-    frosting_color: '', 
-    weight: 0, 
-    shape: '', 
-    wording: '', 
-    imageURL: '', 
-    notes: '' 
+    id: '',
+    flavor: '',
+    frosting_type: '',
+    frosting_color: '',
+    weight: 0,
+    shape: '',
+    wording: '',
+    imageURL: '',
+    notes: ''
   });
   this.imgSrc = '../../../assets/images/upll.png';
   this.selectedImage = null;
   this.isSubmitted = false;
-  
 }
 
 

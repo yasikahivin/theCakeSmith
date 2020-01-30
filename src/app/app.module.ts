@@ -35,6 +35,8 @@ import { SignupComponent } from './signup/signup.component';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { CategoryService } from './services/category.service';
 import { CustomService } from './services/custom.service';
+import { ShoppingCartService } from './services/shopping-cart.service';
+import { InventoryService } from './services/inventory.service';
 
 import { ProductService } from './services/product.service';
 import { MenuComponent } from './menu/menu.component';
@@ -45,8 +47,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ProductFilterComponent } from './products/product-filter/product-filter.component';
 import { ProductCardComponent } from './products/product-card/product-card.component';
-import { ShoppingCartService } from './services/shopping-cart.service';
-import { InventoryService } from './services/inventory.service';
+
 import { InventoryFormComponent } from './admin/inventory-form/inventory-form.component';
 import { AdminInventoryComponent } from './admin/admin-inventory/admin-inventory.component';
 import { CustomComponent } from './custom/custom.component';
