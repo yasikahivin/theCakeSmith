@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/models/Product';
+import { ShoppingCartComponent } from 'src/app/shopping-cart/shopping-cart.component';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 
@@ -9,7 +10,9 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
   styleUrls: ['./product-card.component.scss']
 })
 export class ProductCardComponent  {
+  // tslint:disable-next-line: no-input-rename
   @Input('product') product: Product;
+  // @input('shopping-cart') ShoppingCart;
   closeResult: string;
 
   constructor(private modalService: NgbModal,
