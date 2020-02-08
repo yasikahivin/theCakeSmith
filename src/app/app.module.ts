@@ -51,6 +51,7 @@ import { ProductCardComponent } from './products/product-card/product-card.compo
 import { InventoryFormComponent } from './admin/inventory-form/inventory-form.component';
 import { AdminInventoryComponent } from './admin/admin-inventory/admin-inventory.component';
 import { CustomComponent } from './custom/custom.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -75,7 +76,8 @@ import { CustomComponent } from './custom/custom.component';
     ProductCardComponent,
     InventoryFormComponent,
     AdminInventoryComponent,
-    CustomComponent
+    CustomComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
