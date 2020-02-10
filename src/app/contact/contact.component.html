@@ -1,0 +1,57 @@
+<body style="background-color: #f8bbd0 ;">
+
+    <body style="background-color:rgb(252,228,236)">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                <div class="card">
+                    <div class="card-body">
+                        <form #f="ngForm" (ngSubmit)="save(f.value)" novalidate>
+
+                            <br> <br>
+
+                            <h2 >  Contact Us </h2>
+                            
+                            <div class="form-group col-8 offset-2">
+                                <label for="name">Name</label>
+                                <div class="input-group">
+                                    <input #name="ngModel" [(ngModel)]="cont_name.name"   name="name" id="name" type="text" class="form-control" >
+                                </div>
+                            </div>
+
+                            <div class="form-group col-8 offset-2">
+                                <label for="email">Email</label>
+                                <div class="input-group">
+                                    <input #email="ngModel" [(ngModel)]="cont_mail.email"   name="email" id="email" type="text" class="form-control" >
+                                </div>
+                            </div>
+        
+
+                            <div class="form-group col-8 offset-2">
+                                    <label for="phone_num">Phone number</label>
+                                    <div class="input-group">
+                                        <input #phone_num="ngModel" [(ngModel)]="cont_pno.phone_num"   name="phone_num" id="phone_num" type="text" class="form-control" >
+                                    </div>
+                             </div>
+                            
+
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea rows="5" cols="25" #message="ngModel" [(ngModel)]="cont_message"  name="message" id="message" type="text" class="form-control"></textarea>
+                            </div>
+                            <button class="btn btn-primary text-center">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        </body>
+        
+        
+
+</body>
