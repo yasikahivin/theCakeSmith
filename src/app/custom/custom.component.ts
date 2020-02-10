@@ -9,6 +9,8 @@ import { take } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Custom } from 'src/app/models/Custom';
+import { AppUser } from 'src/app/models/app-user';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-custom',
@@ -21,6 +23,7 @@ export class CustomComponent implements OnInit {
   selectedImage : any = null;
   isSubmitted : boolean;
   id: string;
+  appUser: AppUser;
   cust_order : Custom = {  id: '', flavor: '', frosting_type: '', frosting_color: '', weight: 0, shape: '', wording: '', imageURL: '', notes: '' };
   formTemplate = new FormGroup({
     id : new FormControl(''),
@@ -38,8 +41,10 @@ export class CustomComponent implements OnInit {
     private customService: CustomService,
     private router: Router,
     private route: ActivatedRoute,
-    private storage: AngularFireStorage
+    private storage: AngularFireStorage,
+    private auth: AuthService
   ) { 
+    auth.appUser$.subscribe(appUser => this.appUser = appUser);
     this.id = this.route.snapshot.paramMap.get('id');
     if(this.id) { this.customService.get(this.id).pipe(take(1)).subscribe(o => this.cust_order = o )}
   }
