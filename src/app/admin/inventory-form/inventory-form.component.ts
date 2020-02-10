@@ -16,13 +16,13 @@ import { Inventory } from 'src/app/models/Inventory';
 })
 export class InventoryFormComponent implements OnInit {
   id: string;
-  inventory: Inventory = { id:'', name:'', unit_price: 0, quantity:0, unit_weight: 0 };
+  inventory: Inventory = { id: '', name: '', unit_price: 0, quantity: 0, unit_weight: 0 };
 
   constructor(
     private inventoryService: InventoryService,
     private router: Router,
     private route: ActivatedRoute
-  ) { 
+  ) {
 
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) { this.inventoryService.get(this.id).pipe(take(1)).subscribe(i => this.inventory = i); }

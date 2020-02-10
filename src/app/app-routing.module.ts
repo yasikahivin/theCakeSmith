@@ -19,6 +19,7 @@ import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { CustomComponent } from './custom/custom.component';
+import { ContactComponent} from './contact/contact.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path: 'footer', component: FooterComponent},
   {path: 'about-us', component: AboutUsComponent},
   {path: 'custom', component: CustomComponent},
+  {path: 'contact', component: ContactComponent},
 
   {path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuardService]},
   {path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService]},
