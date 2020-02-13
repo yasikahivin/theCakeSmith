@@ -52,6 +52,7 @@ import { InventoryFormComponent } from './admin/inventory-form/inventory-form.co
 import { AdminInventoryComponent } from './admin/admin-inventory/admin-inventory.component';
 import { CustomComponent } from './custom/custom.component';
 import { ContactComponent } from './contact/contact.component';
+import { SystemAdminComponent } from './system-admin/system-admin.component';
 
 
 @NgModule({
@@ -77,7 +78,8 @@ import { ContactComponent } from './contact/contact.component';
     InventoryFormComponent,
     AdminInventoryComponent,
     CustomComponent,
-    ContactComponent
+    ContactComponent,
+    SystemAdminComponent
   ],
   imports: [
     BrowserModule,
