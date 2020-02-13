@@ -1,12 +1,12 @@
 
 
-
+/*
 .view {
   background: no-repeat center center;
   background-size: cover;
   height: 100%;
 }
-
+*/
 
 
 * {
@@ -40,7 +40,6 @@ body {
 /* Style the counter cards */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-
   text-align: center;
   background-color: #f1f1f1;
 }
@@ -72,3 +71,57 @@ body {
     background-attachment: scroll;
   }
 }
+
+
+//aspects for video in the background
+#videoBG {
+  position:fixed;
+  z-index: -1;
+  height: 1000px;
+  size: 50%;
+}
+@media (min-aspect-ratio: 16/9) {
+  #videoBG {
+      width:100%;
+      height: auto;
+  }
+}
+@media (max-aspect-ratio: 16/9) {
+  #videoBG {
+      width:auto;
+      height: 100%;
+  }
+}
+@media (max-width: 767px) {
+  #videoBG {
+      display: none;
+  }
+
+}
+
+//intro text mask 1
+div.mask {
+  background-color: #ffffff;
+  height:100%;
+  //border: 1px solid black;
+  //opacity: 0.6;
+}
+
+div.mask span{
+  position:relative;
+  filter: alpha(opacity=100);
+  opacity: 1.0;
+}
+
+div.center{
+  margin:5%;
+}
+
+// mask for text cake
+div.mask2 {
+  background-color:  #d4c4d4 ;
+  height:350px;
+  //border: 1px solid black;
+  //opacity: 0.6;
+}
+
