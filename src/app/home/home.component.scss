@@ -1,14 +1,5 @@
 
 
-/*
-.view {
-  background: no-repeat center center;
-  background-size: cover;
-  height: 100%;
-}
-*/
-
-
 * {
   box-sizing: border-box;
 }
@@ -54,23 +45,7 @@ body {
 }
 
 
-.parallax {
 
-  height: 100%;
-
-  /* Create the parallax scrolling effect */
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-/* Turn off parallax scrolling for tablets and phones. Increase the pixels if needed */
-@media only screen and (max-device-width: 1366px) {
-  .parallax {
-    background-attachment: scroll;
-  }
-}
 
 
 //aspects for video in the background
@@ -122,6 +97,6 @@ div.mask2 {
   background-color:  #d4c4d4 ;
   height:350px;
   //border: 1px solid black;
-  //opacity: 0.6;
+  opacity: 0.9;
 }
 
