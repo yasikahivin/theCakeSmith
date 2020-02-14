@@ -39,18 +39,7 @@ export class AuthService {
 
     this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
 
-    /*.then(cred => {
-      this.db.collection('users').doc(cred.user.uid).set({
-        name: cred.user.displayName,
-        email: cred.user.email,
-        photoURL: cred.user.photoURL,
-      });
-    });*/
-
-    // this.db.collection('users').doc(user.uid);
   }
-
-
 
   login2(email: string, password: string) {
     const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
@@ -98,11 +87,6 @@ get appUser$(): Observable<AppUser> {
   );
 }
 
-  /*
-  get(uid: string): AngularFirestoreCollection<AppUser> {
-    return this.db.collection('users' + uid);
-  }
-  */
 
 }
 
