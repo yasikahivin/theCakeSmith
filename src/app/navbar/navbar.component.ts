@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 import { AppUser } from '../models/app-user';
 import { HostListener } from '@angular/core';
+import { ShoppingCartComponent } from '../shopping-cart/shopping-cart.component';
+import { ShoppingCartService } from '../services/shopping-cart.service';
 // import { HostListener } from '@angular/core';
 
 @Component({
@@ -13,14 +15,28 @@ import { HostListener } from '@angular/core';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent  {
+export class NavbarComponent implements OnInit  {
   appUser: AppUser;
+  shoppingCartItemCount: number;
 
   constructor(
-    private auth: AuthService ) {
-      auth.appUser$.subscribe(appUser => this.appUser = appUser);
+    private auth: AuthService,
+    private shoppingCartService: ShoppingCartService) {
+      
    }
 
+   async ngOnInit() {
+   // throw new Error("Method not implemented.");
+    this.auth.appUser$.subscribe(appUser => this.appUser = appUser);
+    let cart$ = await this.shoppingCartService.getCart();
+    cart$.valueChanges().subscribe((cart =>{
+      this.shoppingCartItemCount = 0;
+      for (let productId in cart.items){
+        this.shoppingCartItemCount += cart.items[productId].quantity
+      }
+    }));   
+  }
+  
 
   logout() {
     this.auth.logout();
