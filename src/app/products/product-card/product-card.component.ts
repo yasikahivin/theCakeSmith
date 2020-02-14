@@ -12,7 +12,7 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 export class ProductCardComponent  {
   // tslint:disable-next-line: no-input-rename
   @Input('product') product: Product;
-  // @input('shopping-cart') ShoppingCart;
+  @Input('shopping-cart') ShoppingCart;
   closeResult: string;
 
   constructor(private modalService: NgbModal,
@@ -26,11 +26,21 @@ export class ProductCardComponent  {
         });
       }
 
-      addToCart(product: Product) {
+      addToCart() {
 
-        this.shoppingCartService.addToCart(product);
+        this.shoppingCartService.addToCart(this.product);
 
+      }  
+
+      removeFromCart(){
+        this.shoppingCartService.removeFromCart(this.product) 
       }
+
+      getQuantity(){
+      if (!this.ShoppingCart) return 0;
+      let item = this.ShoppingCart.items[this.product.key];
+      return item ? item.quantity : 0;
+    }
 
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {

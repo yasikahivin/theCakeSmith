@@ -53,7 +53,7 @@ import { AdminInventoryComponent } from './admin/admin-inventory/admin-inventory
 import { CustomComponent } from './custom/custom.component';
 import { ContactComponent } from './contact/contact.component';
 import { SystemAdminComponent } from './system-admin/system-admin.component';
-import { SalesManagerComponent } from './staff/sales-manager/sales-manager.component';
+// import { SalesManagerComponent } from './staff/sales-manager/sales-manager.component';
 import { DashboardComponent } from './staff/salesManager/dashboard/dashboard.component';
 
 
@@ -82,7 +82,7 @@ import { DashboardComponent } from './staff/salesManager/dashboard/dashboard.com
     CustomComponent,
     ContactComponent,
     SystemAdminComponent,
-    SalesManagerComponent,
+    // SalesManagerComponent,
     DashboardComponent
   ],
   imports: [
