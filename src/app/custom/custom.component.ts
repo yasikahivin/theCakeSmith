@@ -17,11 +17,12 @@ import { Custom } from 'src/app/models/Custom';
 })
 
 export class CustomComponent implements OnInit {
-  imgSrc: string = '../../../assets/images/upll.png';
+  imgSrc = '../../../assets/images/upll.png';
   selectedImage: any = null;
   isSubmitted: boolean;
   id: string;
-  cust_order : Custom = { id: '',
+  // tslint:disable-next-line: variable-name
+  cust_order: Custom = { id: '',
                           flavor: '',
                           frosting_type: '',
                           frosting_color: '',
@@ -39,7 +40,7 @@ export class CustomComponent implements OnInit {
     wording : new FormControl(''),
     imageURL : new FormControl(''),
     notes : new FormControl('')
-  })
+  });
 
   constructor(
     private customService: CustomService,
@@ -48,9 +49,10 @@ export class CustomComponent implements OnInit {
     private storage: AngularFireStorage
   ) {
     this.id = this.route.snapshot.paramMap.get('id');
-    if (this.id) { this.customService.get(this.id).pipe(take(1)).subscribe(o => this.cust_order = o )}
+    if (this.id) { this.customService.get(this.id).pipe(take(1)).subscribe(o => this.cust_order = o ); }
   }
 
+  // tslint:disable-next-line: variable-name
   save(cust_order: any) {
     this.isSubmitted = true;
     if (this.formTemplate.valid) {
@@ -59,7 +61,7 @@ export class CustomComponent implements OnInit {
       this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
         finalize (() => {
           fileRef.getDownloadURL().subscribe((url) => {
-            cust_order['imageURL'] = url;
+            cust_order.imageURL = url;
             this.customService.insert(cust_order);
             this.resetForm();
           });
@@ -101,7 +103,7 @@ showPreview(event: any) {
 
 
 get formControls() {
-  return this.formTemplate['controls'];
+  return this.formTemplate.controls;
 }
 
 resetForm() {
