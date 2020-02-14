@@ -2,139 +2,96 @@
 <br>
 <br>
 <br/>
-    <div class="row">
-        <div class="col-md-6 offset-3">
-            <div class="card">
-                <div class="card-body">
-                    <form #f="ngForm" (ngSubmit)="save(f.value)" novalidate>
-
-                        <div><b>User </b>: {{appUser.name}}</div>
-
-<body style="background-color: #f8bbd0 ;">
-
-    <body style="background-color:rgb(252,228,236)">
-        <br/>
-        <br/>
-        <br/>
-        <br/>
+<div class="row">
+  <div class="col-md-6 offset-3">
+    <div class="card">
+      <div class="card-body">
+        <form #f="ngForm" (ngSubmit)="save(f.value)" novalidate>
+        <!-- <div><b>User </b>: {{appUser.name}}</div> -->
+        <div class="form-group col-4 offset-4">
+            <label for="flavor">Flavor</label>
+            <select #flavor="ngModel" [(ngModel)]="cust_order.flavor" name="flavor" id="flavor" class="form-control">
+                <option value="Vanilla">Vanilla</option>
+                <option value="Chocolate">Chocolate</option>
+                <option value="Strawberry">Strawberry</option>
+                <option value="Red Velvet">Red Velvet</option>
+                <option value="Coffee">Coffee</option>
+                <option value="Mint">Mint</option>
+                <option value="Lemon">Lemon</option>
+                <option value="Vanilla sponge">Vanilla sponge</option>
+                <option value="Chocolate sponge">Chocolate sponge</option>
+            </select>
+        </div>
         <div class="row">
-            <div class="col-md-6 offset-3">
-                <div class="card">
-                    <div class="card-body">
-                        <form #f="ngForm" (ngSubmit)="save(f.value)" novalidate>
-
-                        <div class="form-group col-4 offset-4">
-                            <label for="flavor">Flavor</label>
-                            <select #flavor="ngModel" [(ngModel)]="cust_order.flavor" name="flavor" id="flavor" class="form-control">
-                                <option value="Vanilla">Vanilla</option>
-                                <option value="Chocolate">Chocolate</option>
-                                <option value="Strawberry">Strawberry</option>
-                                <option value="Red Velvet">Red Velvet</option>
-                                <option value="Coffee">Coffee</option>
-                                <option value="Mint">Mint</option>
-                                <option value="Lemon">Lemon</option>
-                                <option value="Vanilla sponge">Vanilla sponge</option>
-                                <option value="Chocolate sponge">Chocolate sponge</option>
-                            </select>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="form-group col-3 offset-2">
-                                <label for="frosting_type">Frosting Type</label>
-                                <select #frosting_type="ngModel" [(ngModel)]="cust_order.frosting_type" name="frosting_type" id="frosting_type" class="form-control">
-                                    <option value="Vanilla">Buttercream</option>
-                                    <option value="BirthdayCake">Fondant</option>
-                                </select>
-                            </div>
-
-                            <div class="row">
-                                <div class="form-group col-3 offset-2">
-                                    <label for="frosting_type">Frosting Type</label>
-                                    <select #frosting_type="ngModel" [(ngModel)]="cust_order.frosting_type" name="frosting_type"  id="frosting_type" class="form-control">
-                                        <option value="Vanilla">Buttercream</option>
-                                        <option value="BirthdayCake">Fondant</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group col-3 offset-2">
-                                    <label for="frosting_color">Frosting color</label>
-                                    <div class="input-group">
-                                        <input #frosting_color="ngModel" [(ngModel)]="cust_order.frosting_color"   name="frosting_color" id="frosting_color" type="text" class="form-control text-center" >
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="form-group col-3 offset-2">
-                                <label for="frosting_color">Frosting color</label>
-                                <div class="input-group">
-                                    <input #frosting_color="ngModel" [(ngModel)]="cust_order.frosting_color" name="frosting_color" id="frosting_color" type="text" class="form-control text-center" >
-                                </div>
-                            </div>
-                        </div>
-                        
-
-                        <div class="form-group col-4 offset-4">
-                            <label for="weight" class="col-4 offset-2">Weight</label>
-                            <div class="input-group">
-                                <input #weight="ngModel" [(ngModel)]="cust_order.weight" name="weight" id="weight" type="number" class="form-control text-center" >
-                                <span class="input-group-text">kg</span>
-                            </div>
-                        </div>
-
-                        <!-- <div class="form-group col-4 offset-4">
-                            <label for="shape">Shape</label>
-                            <select #shape="ngModel" [(ngModel)]="cust_order.shape" name="shape"  id="shape" class="form-control">
-                                <option value="Circular">Circular</option>
-                                <option value="Square">Square</option>
-                                <option value="Rectangular">Rectangular</option>
-                            </select>
-                        </div> -->
-
-                        <div class="text-center">
-                            <label for="shape"><b>Shape</b></label>
-                            <div class="form-check">
-                                <input #shape="ngModel" [(ngModel)]="cust_order.shape" class="form-check-input" type="radio" name="shape" id="shape1" value="Circular" checked>
-                                <label class="form-check-label" for="shape1">
-                                    Circular
-                                </label>
-                            </div>
-                            <div class="form-check">
-                            <input #shape="ngModel" [(ngModel)]="cust_order.shape" class="form-check-input" type="radio" name="shape" id="shape2" value="Square">
-                            <label class="form-check-label" for="shape2">
-                                Square
-                            </label>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="notes">Additional Notes</label>
-                                <textarea #notes="ngModel" [(ngModel)]="cust_order.notes"  name="notes" id="notes" type="text" class="form-control"></textarea>
-                            </div>
-                        </div>
-                        
-
-                        <div class="form-group col-md-6 offset-3">
-                            <label for="wording">Wording</label>
-                            <textarea #wording="ngModel" [(ngModel)]="cust_order.wording" name="wording" id="wording" rows="1" type="text" class="form-control"></textarea>
-                        </div>
-
-                        <div class="text-center">
-                            <img [src]="imgSrc" alt="upload" class="src" width="180px" height="180px" (click)="fileUploader.click()">
-                        </div>
-                        <div class="form-group col-md-6 offset-3">
-                            <label>Select file to upload</label>
-                            <input type="file" accept="image/*" name="imageURL" id="imageURL" class="form-control" #fileUploader (change)="showPreview($event)">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="notes">Additional Notes</label>
-                            <textarea #notes="ngModel" [(ngModel)]="cust_order.notes" name="notes" id="notes" type="text" class="form-control"></textarea>
-                        </div>
-                        <button class="btn btn-primary text-center">Submit</button>
-                    </form>
-                </div>
+          <div class="form-group col-3 offset-2">
+            <label for="frosting_type">Frosting Type</label>
+            <select #frosting_type="ngModel" [(ngModel)]="cust_order.frosting_type" name="frosting_type"  id="frosting_type" class="form-control">
+                <option value="Vanilla">Buttercream</option>
+                <option value="BirthdayCake">Fondant</option>
+            </select>
+          </div>
+          <div class="form-group col-3 offset-2">
+            <label for="frosting_color">Frosting color</label>
+            <div class="input-group">
+                <input #frosting_color="ngModel" [(ngModel)]="cust_order.frosting_color" name="frosting_color" id="frosting_color" type="text" class="form-control text-center" >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <label for="weight" class="col-4 offset-4">Weight</label>
+            <div class="input-group col-4 offset-4">
+                <input #weight="ngModel" [(ngModel)]="cust_order.weight" name="weight" id="weight" type="number" class="form-control text-center" >
+                <span class="input-group-text">kg</span>
             </div>
         </div>
+
+        <!-- <div class="form-group col-4 offset-4">
+            <label for="shape">Shape</label>
+            <select #shape="ngModel" [(ngModel)]="cust_order.shape" name="shape"  id="shape" class="form-control">
+                <option value="Circular">Circular</option>
+                <option value="Square">Square</option>
+                <option value="Rectangular">Rectangular</option>
+            </select>
+        </div> -->
+        <br/>
+        <div class="text-center">
+          <label for="shape"><b>Shape</b></label>
+          <div class="form-check">
+              <input #shape="ngModel" [(ngModel)]="cust_order.shape" class="form-check-input" type="radio" name="shape" id="shape1" value="Circular" checked>
+              <label class="form-check-label" for="shape1">
+                  Circular
+              </label>
+          </div>
+          <div class="form-check">
+            <input #shape="ngModel" [(ngModel)]="cust_order.shape" class="form-check-input" type="radio" name="shape" id="shape2" value="Square">
+            <label class="form-check-label" for="shape2">
+                Square
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group col-md-6 offset-3">
+          <label for="wording">Wording</label>
+          <textarea #wording="ngModel" [(ngModel)]="cust_order.wording" name="wording" id="wording" rows="1" type="text" class="form-control"></textarea>
+        </div>
+
+        <div class="text-center">
+            <img [src]="imgSrc" alt="upload" class="src" width="180px" height="180px" (click)="fileUploader.click()">
+        </div>
+        <div class="form-group col-md-6 offset-3">
+            <label>Select file to upload</label>
+            <input type="file" accept="image/*" name="imageURL" id="imageURL" class="form-control" #fileUploader (change)="showPreview($event)">
+        </div>
+
+        <div class="form-group">
+            <label for="notes">Additional Notes</label>
+            <textarea #notes="ngModel" [(ngModel)]="cust_order.notes" name="notes" id="notes" type="text" class="form-control"></textarea>
+        </div>
+        <button class="btn btn-primary text-center">Submit</button>
+        </form>
+      </div>
     </div>
+  </div>
+</div>
 <br/>
 </body>
