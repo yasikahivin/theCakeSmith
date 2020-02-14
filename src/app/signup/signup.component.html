@@ -46,7 +46,7 @@
 </body>
 
 
-
+<!--
 
 
 <div class="bg-img" style="background-image: url('../../assets/img/Gallery/background1.jpg');">
@@ -88,12 +88,7 @@
                         <div class="col-lg-12 container text-center">
                             <button [disabled]="form.invalid || password.value!=rePassword.value" class="btn btn-lg btn-block white-text" style="font-size: 150%;background-color: royalblue;" (click)="authService.SignUp(email.value, password.value, firstName.value, lastName.value)"> Get Started </button>
                         </div>
-                        <!-- <div class="formGroup">
-                          <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
-                            <i class="fab fa-google-plus-g"></i>
-                            Continue with Google
-                          </button>
-                        </div> -->
+
                         <div style="color:#f00" *ngIf="(firstName.touched && !firstName.valid) || (lastName.touched && !lastName.valid) || (email.touched && !email.valid) || (rePassword.touched && !rePassword.valid)">*All fields Required </div>
                         <a class="button-cus white-text" style="font-size: 110%;" routerLink="/Signin"> Already an account ? Sign in Here </a>
                 </form>
@@ -101,3 +96,4 @@
         </div>
     </div>
 </div>
+-->
