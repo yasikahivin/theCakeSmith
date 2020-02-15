@@ -4,7 +4,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import {Category} from '../../models/Category';
 import { AngularFireDatabase, AngularFireObject, AngularFireList } from '@angular/fire/database';
 import { Observable } from 'rxjs';
-import { finalize } from "rxjs/operators";
+import { finalize } from 'rxjs/operators';
 import { ProductService } from 'src/app/services/product.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs/operators';
@@ -22,9 +22,9 @@ import { Product } from 'src/app/models/Product';
 
 
 export class ProductFormComponent implements OnInit  {
-  imgSrc : string = '../../../assets/images/upll.png';
-  selectedImage : any = null;
-  isSubmitted : boolean;
+  imgSrc = '../../../assets/images/upll.png';
+  selectedImage: any = null;
+  isSubmitted: boolean;
    // product: Product;
    id: string;
    product: Product = {  id: '', title: '', price: 0, category : '' , weight : 0 , imageURL: '' , description: '' };
@@ -36,7 +36,7 @@ export class ProductFormComponent implements OnInit  {
     weight : new FormControl(0),
     imageURL : new FormControl(''),
     description : new FormControl('')
-  })
+  });
 
   constructor(
     private productService: ProductService,
@@ -54,15 +54,15 @@ export class ProductFormComponent implements OnInit  {
     save(product: any) {
         this.isSubmitted = true;
         if (this.formTemplate.valid) {
-          var filePath = `${product.category}/${this.selectedImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()} `
+          const filePath = `${product.category}/${this.selectedImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()} `;
           const fileRef = this.storage.ref(filePath);
           this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
             finalize (() => {
               fileRef.getDownloadURL().subscribe((url) => {
-                product['imageURL'] = url;
+                product.imageURL = url;
                 this.productService.insert(product);
                 this.resetForm();
-              })
+              });
             })
           ).subscribe();
         }
@@ -86,24 +86,22 @@ export class ProductFormComponent implements OnInit  {
 
     }
 
-    showPreview(event:any){
-      if(event.target.files && event.target.files[0]){
+    showPreview(event: any) {
+      if (event.target.files && event.target.files[0]) {
         const reader = new FileReader();
-        reader.onload= (e:any) => this.imgSrc = e.target.result;
+        reader.onload = (e: any) => this.imgSrc = e.target.result;
         reader.readAsDataURL(event.target.files[0]);
         this.selectedImage = event.target.files[0];
-      }
-      else{
-        this.imgSrc = "../../../assets/images/upll.png";
+      } else {
+        this.imgSrc = '../../../assets/images/upll.png';
         this.selectedImage = null;
       }
     }
 
 
-    get formControls(){
-      return this.formTemplate['controls'];
+    get formControls() {
+      return this.formTemplate.controls;
     }
- 
     resetForm() {
       this.formTemplate.reset();
       this.formTemplate.setValue({
@@ -118,8 +116,8 @@ export class ProductFormComponent implements OnInit  {
       this.imgSrc = '../../../assets/images/upll.png';
       this.selectedImage = null;
       this.isSubmitted = false;
-      
+
     }
 
-  
+
  }

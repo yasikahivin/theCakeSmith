@@ -2,15 +2,16 @@
 <br>
 <br>
 <br/>
+<br/>
 <div class="row">
-  <div class="col-md-4 offset-4">
+  <div class="col-8  offset-2">
     <div class="card">
       <div class="card-body">
         <form #f="ngForm" (ngSubmit)="save(f.value)" novalidate>
         <!-- <div><b>User </b>: {{appUser.name}}</div> -->
         <div class="form-group row">
             <label for="flavor" class="col-sm-4 col-form-label">Flavor</label>
-            <select #flavor="ngModel" [(ngModel)]="cust_order.flavor" name="flavor" id="flavor" class="form-control col-sm-5">
+            <select #flavor="ngModel" [(ngModel)]="custOrder.flavor" name="flavor" id="flavor" class="form-control col-sm-5">
                 <option value="Vanilla">Vanilla</option>
                 <option value="Chocolate">Chocolate</option>
                 <option value="Strawberry">Strawberry</option>
@@ -24,7 +25,7 @@
         </div>
         <div class="form-group row">
           <label for="frosting_type" class="col-sm-4 col-form-label">Frosting Type</label>
-          <select #frosting_type="ngModel" [(ngModel)]="cust_order.frosting_type" name="frosting_type"  id="frosting_type" class="form-control col-sm-4">
+          <select #frosting_type="ngModel" [(ngModel)]="custOrder.frosting_type" name="frosting_type"  id="frosting_type" class="form-control col-sm-4">
               <option value="Vanilla">Buttercream</option>
               <option value="BirthdayCake">Fondant</option>
           </select>
@@ -32,12 +33,12 @@
 
           <div class="form-group row">
             <label for="frosting_color" class="col-sm-4 col-form-label">Frosting color</label>
-            <input #frosting_color="ngModel" [(ngModel)]="cust_order.frosting_color" name="frosting_color" id="frosting_color" type="text" class="input-group form-control col-sm-3 text-center" >
+            <input #frosting_color="ngModel" [(ngModel)]="custOrder.frosting_color" name="frosting_color" id="frosting_color" type="text" class="input-group form-control col-sm-3 text-center" >
           </div>
 
         <div class="row">
             <label for="weight" class="col-sm-4 col-form-label">Weight</label>
-              <input #weight="ngModel" [(ngModel)]="cust_order.weight" name="weight" id="weight" type="number" class="form-control input-group text-center col-sm-5" >
+              <input #weight="ngModel" [(ngModel)]="custOrder.weight" name="weight" id="weight" type="number" class="form-control input-group text-center col-sm-5" >
               <span class="input-group-text">kg</span>
 
         </div>
@@ -46,19 +47,19 @@
           <label for="shape" class="col-sm-4 col-form-label">Shape</label>
           <div class="col-sm-5">
           <div class="form-check">
-              <input #shape="ngModel" [(ngModel)]="cust_order.shape" class="form-check-input" type="radio" name="shape" id="shape1" value="Circular" checked>
+              <input #shape="ngModel" [(ngModel)]="custOrder.shape" class="form-check-input" type="radio" name="shape" id="shape1" value="Circular" checked>
               <label class="form-check-label" for="shape1">Circular</label>
           </div>
           <div class="form-check">
-            <input #shape="ngModel" [(ngModel)]="cust_order.shape" class="form-check-input" type="radio" name="shape" id="shape2" value="Square">
+            <input #shape="ngModel" [(ngModel)]="custOrder.shape" class="form-check-input" type="radio" name="shape" id="shape2" value="Square">
             <label class="form-check-label" for="shape2">Square</label>
           </div>
         </div>
         </div>
 
         <div class="form-group row">
-          <label for="wording" class="col-sm-2 col-form-label">Wording</label>
-          <textarea #wording="ngModel" [(ngModel)]="cust_order.wording" name="wording" id="wording" rows="1" type="text" class="form-control col-sm-6"></textarea>
+          <label for="wording" class="col-sm-4 col-form-label">Wording</label>
+          <textarea #wording="ngModel" [(ngModel)]="custOrder.wording" name="wording" id="wording" rows="1" type="text" class="form-control col-sm-6"></textarea>
         </div>
 
         <div class="text-center">
@@ -71,7 +72,7 @@
 
         <div class="form-group row">
             <label for="notes" class="col-sm-4 col-form-label">Additional Notes</label>
-            <textarea class="form-control col-sm-6" #notes="ngModel" [(ngModel)]="cust_order.notes" name="notes" id="notes" type="text" ></textarea>
+            <textarea class="form-control col-sm-6" #notes="ngModel" [(ngModel)]="custOrder.notes" name="notes" id="notes" type="text" ></textarea>
         </div>
         <button class="btn btn-primary text-center">Submit</button>
         </form>
