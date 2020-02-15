@@ -55,6 +55,7 @@ import { ContactComponent } from './contact/contact.component';
 import { SystemAdminComponent } from './system-admin/system-admin.component';
 // import { SalesManagerComponent } from './staff/sales-manager/sales-manager.component';
 import { DashboardComponent } from './staff/salesManager/dashboard/dashboard.component';
+import { DeliveryComponent } from './delivery/delivery.component';
 
 
 @NgModule({
@@ -83,7 +84,8 @@ import { DashboardComponent } from './staff/salesManager/dashboard/dashboard.com
     ContactComponent,
     SystemAdminComponent,
     // SalesManagerComponent,
-    DashboardComponent
+    DashboardComponent,
+    DeliveryComponent
   ],
   imports: [
     BrowserModule,
