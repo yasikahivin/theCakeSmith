@@ -1,1 +1,79 @@
-<p>new-user works!</p>
+<body style="background-color: #f8bbd0 ;">
+
+    <body style="background-color:rgb(252,228,236)">
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                <div class="card">
+                    <div class="card-body">
+                        <form #f="ngForm" (ngSubmit)="save(f.value)" novalidate>
+
+                            <br> <br>
+
+                            <h2 >  New User </h2>
+                            
+                            
+
+                            <div class="text-center">
+                                <img [src]="imgSrc" alt="upload" class="src" width="180px" height="180px" (click)="fileUploader.click()">
+                            </div>
+                            <div class="form-group col-md-6 offset-3">
+                                <label>Select a photo</label>
+                                <input type="file" accept="image/*" name="imageURL" id="imageURL" class="form-control" #fileUploader (change)="showPreview($event)">
+                            </div>
+
+
+                            <div class="form-group col-8 offset-2">
+                                <label for="fname">First Name</label>
+                                <div class="input-group">
+                                    <input #fname="ngModel" [(ngModel)]="nwusr_fname.lname"   name="fname" id="fname" type="text" class="form-control" >
+                                </div>
+                            </div>
+
+                            <div class="form-group col-8 offset-2">
+                                <label for="lname">Last Name</label>
+                                <div class="input-group">
+                                    <input #lname="ngModel" [(ngModel)]="nwusr_lname.lname"   name="lname" id="lname" type="text" class="form-control" >
+                                </div>
+                            </div>
+
+                            <div class="form-group col-8 offset-2">
+                                <label for="email">Email</label>
+                                <div class="input-group">
+                                    <input #email="ngModel" [(ngModel)]="nwusr.email"   name="email" id="email" type="text" class="form-control" >
+                                </div>
+                            </div>
+        
+
+                            <div class="form-group col-8 offset-2">
+                                    <label for="phone_num">Phone number</label>
+                                    <div class="input-group">
+                                        <input #phone_num="ngModel" [(ngModel)]="nwusr.phone_num"   name="phone_num" id="phone_num" type="text" class="form-control" >
+                                    </div>
+                             </div>
+
+                             <div class="form-group col-8 offset-2">
+                                <label for="phone_num">Address</label>
+                                <div class="input-group">
+                                    <input #address="ngModel" [(ngModel)]="nwusr.address"   name="address" id="address" type="text" class="form-control" >
+                                </div>
+                         </div>
+                            
+
+                           
+                            <button class="btn btn-primary text-center">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        </body>
+        
+        
+
+</body>
