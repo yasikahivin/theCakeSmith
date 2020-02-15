@@ -21,8 +21,7 @@ export class CustomComponent implements OnInit {
   selectedImage: any = null;
   isSubmitted: boolean;
   id: string;
-  // tslint:disable-next-line: variable-name
-  cust_order: Custom = { id: '',
+  custOrder: Custom = { id: '',
                         flavor: '',
                         frosting_type: '',
                         frosting_color: '',
@@ -49,28 +48,28 @@ export class CustomComponent implements OnInit {
     private storage: AngularFireStorage
   ) {
     this.id = this.route.snapshot.paramMap.get('id');
-    if (this.id) { this.customService.get(this.id).pipe(take(1)).subscribe(o => this.cust_order = o ); }
+    if (this.id) { this.customService.get(this.id).pipe(take(1)).subscribe(o => this.custOrder = o ); }
   }
-  save(cust_order: any) {
+  save(custOrder: any) {
     this.isSubmitted = true;
     if (this.formTemplate.valid) {
-      var filePath = `${cust_order}/${this.selectedImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()} `
+      const filePath = `${custOrder}/${this.selectedImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()} `;
       const fileRef = this.storage.ref(filePath);
       this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
         finalize (() => {
           fileRef.getDownloadURL().subscribe((url) => {
-            cust_order.imageURL = url;
-            this.customService.insert(cust_order);
+            custOrder.imageURL = url;
+            this.customService.insert(custOrder);
             this.resetForm();
           });
         })
       ).subscribe();
     }
     if (this.id) {
-        this.customService.update(this.id, cust_order);
+        this.customService.update(this.id, custOrder);
     } else {
     }
-    console.log(cust_order);
+    console.log(custOrder);
     this.router.navigate(['/']);
 }
 
