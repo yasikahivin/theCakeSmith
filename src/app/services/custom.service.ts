@@ -18,11 +18,11 @@ export class CustomService {
   orderRef: AngularFireList<any>;
   orders: Observable<any[]>;
 
-  constructor(private db: AngularFireDatabase) { 
+  constructor(private db: AngularFireDatabase) {
     this.orderRef = db.list('/orders');
 
     this.orders = this.orderRef.snapshotChanges().pipe(
-      map(changes => 
+      map(changes =>
         changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
         )
     );
