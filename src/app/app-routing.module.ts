@@ -21,6 +21,10 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { CustomComponent } from './custom/custom.component';
 import { ContactComponent} from './contact/contact.component';
 import { NewUserComponent } from './signup/new-user/new-user.component';
+import { SalesManagerComponent } from './staff/sales-manager/sales-manager.component';
+import { SalesmanagerAuthGuardService } from './services/salesmanager-auth-guard.service';
+import { ManageOrdersComponent } from './admin/manage-orders/manage-orders.component';
+
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -40,6 +44,9 @@ const routes: Routes = [
   {path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService]},
   {path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuardService]},
 
+  {path: 'staff/sales-manager', component: SalesManagerComponent, canActivate: [AuthGuardService, SalesmanagerAuthGuardService]},
+  {path: 'admin/manage-orders', component: ManageOrdersComponent, canActivate: [AuthGuardService, SalesmanagerAuthGuardService]},
+
   {path: 'admin/products/new', component: ProductFormComponent, canActivate: [AuthGuardService, AdminAuthGuardService]},
   {path: 'admin/products/:id', component: ProductFormComponent, canActivate: [AuthGuardService, AdminAuthGuardService]},
   {path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuardService]},
@@ -52,6 +59,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [AuthGuardService, AdminAuthGuardService]
+  providers: [AuthGuardService, AdminAuthGuardService, SalesmanagerAuthGuardService]
 })
 export class AppRoutingModule { }

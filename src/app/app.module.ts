@@ -54,11 +54,13 @@ import { CustomComponent } from './custom/custom.component';
 import { ContactComponent } from './contact/contact.component';
 import { SystemAdminComponent } from './system-admin/system-admin.component';
 // import { SalesManagerComponent } from './staff/sales-manager/sales-manager.component';
-import { DashboardComponent } from './staff/salesManager/dashboard/dashboard.component';
 
 // import { DeliveryComponent } from './delivery/delivery.component';
 
 import { NewUserComponent } from './signup/new-user/new-user.component';
+import { SalesManagerComponent } from './staff/sales-manager/sales-manager.component';
+import { SalesmanagerAuthGuardService } from './services/salesmanager-auth-guard.service';
+import { ManageOrdersComponent } from './admin/manage-orders/manage-orders.component';
 
 
 
@@ -88,8 +90,9 @@ import { NewUserComponent } from './signup/new-user/new-user.component';
     ContactComponent,
     SystemAdminComponent,
     // SalesManagerComponent,
-    DashboardComponent,
-    NewUserComponent
+    NewUserComponent,
+    SalesManagerComponent,
+    ManageOrdersComponent
 
   ],
   imports: [
@@ -114,6 +117,7 @@ import { NewUserComponent } from './signup/new-user/new-user.component';
     AuthService,
     AuthGuardService,
     AdminAuthGuardService,
+    SalesmanagerAuthGuardService,
     CategoryService,
     ProductService,
     UserService,
