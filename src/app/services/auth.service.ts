@@ -31,18 +31,6 @@ export class AuthService {
     ) {
     this.user$ = afAuth.authState;
 
-    this.afAuth.authState.subscribe(user => {
-      if (user) {
-        this.userData = user;
-        localStorage.setItem('user', this.userData.uid);
-        this.Log = localStorage.getItem('user');
-        this.userSubject.next(true);
-      } else {
-        localStorage.setItem('user', null);
-        this.Log = localStorage.getItem('user');
-        this.userSubject.next(false);
-      }
-    });
   }
 
 
