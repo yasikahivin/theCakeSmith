@@ -34,6 +34,7 @@ const routes: Routes = [
   {path: 'about-us', component: AboutUsComponent},
   {path: 'custom', component: CustomComponent},
   {path: 'contact', component: ContactComponent},
+  {path: 'userProfile', component: NewUserComponent},
 
   {path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuardService]},
   {path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService]},
