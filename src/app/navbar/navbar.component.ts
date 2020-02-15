@@ -31,8 +31,7 @@ export class NavbarComponent implements OnInit  {
     const cart$ = await this.shoppingCartService.getCart();
     cart$.valueChanges().subscribe((cart => {
       this.shoppingCartItemCount = 0;
-      // tslint:disable-next-line: forin
-      for (const productId in cart.items) {
+      for (const productId of Object.keys (cart.items)) {
         this.shoppingCartItemCount += cart.items[productId].quantity;
       }
     }));

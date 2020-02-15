@@ -10,16 +10,16 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
   providedIn: 'root'
 })
 export class CustomService {
-  custOrderCollection: AngularFirestoreCollection<Custom>;
-  custOrderDoc: AngularFirestoreDocument<Custom>;
-  custOrders: Observable<Custom[]>;
-  custOrder: Observable<Custom>;
+  cust_orderCollection: AngularFirestoreCollection<Custom>;
+  cust_orderDoc: AngularFirestoreDocument<Custom>;
+  cust_orders: Observable<Custom[]>;
+  cust_order: Observable<Custom>;
 
   orderRef: AngularFireList<any>;
   orders: Observable<any[]>;
 
   constructor(private db: AngularFireDatabase) {
-    this.orderRef = db.list('/orders');
+    this.orderRef = db.list('/CustomizedOrders');
 
     this.orders = this.orderRef.snapshotChanges().pipe(
       map(changes =>
@@ -28,32 +28,32 @@ export class CustomService {
     );
   }
 
-create(custOrder: any) {
-  this.orderRef.push(custOrder);
+create(cust_order: any) {
+  this.orderRef.push(cust_order);
 }
 
 getall() {
   return this.orders;
 }
 
-get( custOrderID:string ){
-  return this.db.object('/orders/'+ custOrderID).valueChanges();
+get( cust_orderID:string ) {
+  return this.db.object('/CustomizedOrders/' + cust_orderID).valueChanges();
 }
 
-update( custOrderID: string, custOrder: Partial<unknown>){
-  return this.db.object('/orders/'+ custOrderID).update(custOrder);
+update( cust_orderID: string, cust_order: Partial<unknown>) {
+  return this.db.object('/CustomizedOrders/' + cust_orderID).update(cust_order);
 }
 
-delete( custOrderID: string ){
-  return this.db.object('/orders/'+ custOrderID).remove();
+delete( cust_orderID: string ) {
+  return this.db.object('/CustomizedOrders/' + cust_orderID).remove();
 }
 
-insert( custOrders ) {
-  this.orderRef.push(custOrders);
+insert( cust_orders ) {
+  this.orderRef.push(cust_orders);
 }
 
-getorders(){
-  this.orderRef = this.db.list('orders');
+getorders() {
+  this.orderRef = this.db.list('CustomizedOrders');
 }
 
 }

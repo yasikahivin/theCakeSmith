@@ -22,14 +22,14 @@ export class CustomComponent implements OnInit {
   isSubmitted: boolean;
   id: string;
   // tslint:disable-next-line: variable-name
-  custOrder: Custom = { id: '',
-                          flavor: '',
-                          frosting_type: '',
-                          frosting_color: '',
-                          weight: 0, shape: '',
-                          wording: '',
-                          imageURL: '',
-                          notes: '' };
+  cust_order: Custom = { id: '',
+                        flavor: '',
+                        frosting_type: '',
+                        frosting_color: '',
+                        weight: 0, shape: '',
+                        wording: '',
+                        imageURL: '',
+                        notes: '' };
   formTemplate = new FormGroup({
     id : new FormControl(''),
     flavor : new FormControl(''),
@@ -49,30 +49,28 @@ export class CustomComponent implements OnInit {
     private storage: AngularFireStorage
   ) {
     this.id = this.route.snapshot.paramMap.get('id');
-    if (this.id) { this.customService.get(this.id).pipe(take(1)).subscribe(o => this.custOrder = o ); }
+    if (this.id) { this.customService.get(this.id).pipe(take(1)).subscribe(o => this.cust_order = o ); }
   }
-
-  // tslint:disable-next-line: variable-name
-  save(custOrder: any) {
+  save(cust_order: any) {
     this.isSubmitted = true;
     if (this.formTemplate.valid) {
-      const filePath = `{custOrder}/${this.selectedImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()} `;
+      var filePath = `${cust_order}/${this.selectedImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()} `
       const fileRef = this.storage.ref(filePath);
       this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
         finalize (() => {
           fileRef.getDownloadURL().subscribe((url) => {
-            custOrder.imageURL = url;
-            this.customService.insert(custOrder);
+            cust_order.imageURL = url;
+            this.customService.insert(cust_order);
             this.resetForm();
           });
         })
       ).subscribe();
     }
     if (this.id) {
-        this.customService.update(this.id, custOrder);
+        this.customService.update(this.id, cust_order);
     } else {
     }
-    console.log(custOrder);
+    console.log(cust_order);
     this.router.navigate(['/']);
 }
 
