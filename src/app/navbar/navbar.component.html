@@ -4,13 +4,7 @@
 
 
   <img src="../../assets/images/logo2.png" width=150px height=30% alt="TClogo" [routerLink]="['/']" routerLinkActive="router-link-active">
-  <!--  Navbar brand
-    <mdb-navbar-brand>
-      <a class="navbar-brand"  >
 
-      </a>
-    </mdb-navbar-brand>
--->
     <!-- Collapsible content -->
 
     <links>
@@ -49,6 +43,9 @@
                 <span class="sr-only">(current)</span>
               </a>
             </li>
+
+
+
           </ul>
         </div>
 
@@ -58,13 +55,64 @@
 
         <navlinks>
             <ul class="nav navbar-nav nav-flex-icons ml-auto ">
+
+<!-- sales manager options -->
+                <li *ngIf="appUser" class="nav-item ">
+                    <ng-container *ngIf="appUser.isAdmin">
+                        <button mdbBtn type="button" color="info" rounded="true" mdbWavesEffect mdbWavesEffect [routerLink]="['/admin/products']" routerLinkActive="router-link-active" >
+                            <b>All Products</b>
+                        </button>
+                    </ng-container>
+                </li>
+
+
+                <li *ngIf="appUser" class="nav-item ">
+                    <ng-container *ngIf="appUser.isAdmin">
+                        <button mdbBtn type="button" color="info" rounded="true" mdbWavesEffect mdbWavesEffect [routerLink]="['/admin/products/new']" routerLinkActive="router-link-active" >
+                            <b>Add Products</b>
+                        </button>
+                    </ng-container>
+                </li>
+
+
+                <li *ngIf="appUser" class="nav-item ">
+                  <ng-container *ngIf="appUser.isAdmin">
+                      <button mdbBtn type="button" color="info" rounded="true" mdbWavesEffect mdbWavesEffect [routerLink]="['/admin/manage-orders']" routerLinkActive="router-link-active" >
+                          <b>Manage Orders</b>
+                      </button>
+                  </ng-container>
+              </li>
+
+
+                <li *ngIf="appUser" class="nav-item ">
+                    <ng-container *ngIf="appUser.isAdmin">
+                        <button mdbBtn type="button" color="danger" rounded="true" mdbWavesEffect mdbWavesEffect [routerLink]="['/staff/sales-manager']" routerLinkActive="router-link-active" >
+                            <b>Sales Manager Home</b>
+                        </button>
+                    </ng-container>
+                </li>
+<!-- sales manager options/// -->
+
+
+<!--  shopping cart -->
+              <li>
+                <a class="sc-ic" routerLink="/shopping-cart">
+                  <i class="fa fa-shopping-cart" style="font-size: 2em;"></i>
+                  <span class="icon-cart"></span>
+                  <span class="badge badge-pill badge-secondary">
+                  {{ shoppingCartItemCount }}
+                  </span>
+                </a>
+              </li>
+<!-- shopping cart/// -->
+
               <li class="nav-item">
                 <ng-template #anonymousUser>
                   <a class="nav-link" [routerLink]="['/login']" ><b>LOG IN</b></a>
                 </ng-template>
               </li>
 
-            <!-- Dropdown -->
+<!-- Dropdown -->
             <li *ngIf="appUser ; else anonymousUser" class="nav-item dropdown" dropdown>
               <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
                     <div *ngIf="appUser.name; else elseBlock">
@@ -79,24 +127,15 @@
               <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
                 <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/my/orders']" routerLinkActive="router-link-active" >My Orders</a>
                 <ng-container *ngIf="appUser.isAdmin">
-                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/admin/orders']" routerLinkActive="router-link-active" >Manage Orders</a>
-                    <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/admin/products']" routerLinkActive="router-link-active" >Manage Products</a>
+
                     <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/admin/inventory']" routerLinkActive="router-link-active" >Manage Inventory</a>
                 </ng-container>
                 <div class="divider dropdown-divider"></div>
                 <a class="dropdown-item waves-light" mdbWavesEffect (click)="logout()" >Log Out</a>
               </div>
             </li>
+<!-- Dropdown/// -->
 
-            <li>
-              <a class="sc-ic" routerLink="/shopping-cart">
-                <i class="fa fa-shopping-cart" style="font-size: 2em;"></i>
-                <span class="icon-cart"></span>
-                <span class="badge badge-pill badge-secondary">
-                 {{ shoppingCartItemCount }}
-                </span>
-              </a>
-            </li>
 
           </ul>
 
