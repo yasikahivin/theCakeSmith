@@ -1,12 +1,14 @@
 import { Injectable, NgZone} from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase';
-import { Observable, of } from 'rxjs';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from './user.service';
 import { AppUser } from '../models/app-user';
 import { switchMap } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 
 
@@ -14,17 +16,34 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-
+  userData: any;
   user$: Observable<firebase.User>;
+  Log: any ;
+  userSubject = new BehaviorSubject<Boolean>(false);
 
   constructor(
     private userService: UserService,
     private afAuth: AngularFireAuth,
     private route: ActivatedRoute,
     public router: Router,
-    public ngZone: NgZone) {
+    public ngZone: NgZone,
+    private db: AngularFireDatabase
+    ) {
     this.user$ = afAuth.authState;
-   }
+
+    this.afAuth.authState.subscribe(user => {
+      if (user) {
+        this.userData = user;
+        localStorage.setItem('user', this.userData.uid);
+        this.Log = localStorage.getItem('user');
+        this.userSubject.next(true);
+      } else {
+        localStorage.setItem('user', null);
+        this.Log = localStorage.getItem('user');
+        this.userSubject.next(false);
+      }
+    });
+  }
 
 
    async SendVerificationMail() {
@@ -51,22 +70,29 @@ export class AuthService {
     });
   }
 
-  register(email: string, password: string) {
-    return new Promise((resolve, reject) => {
-      this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-
+  register(email: string, password: string, fName: string, lName: string) {
+    console.log(fName);
+    return  this.afAuth.auth.createUserWithEmailAndPassword(email, password)
         .then((result) => {
           if (result.user.emailVerified !== true) {
             this.SendVerificationMail();
-            window.alert('Please validate your email address. Kindly check your inbox.');
           } else {
             this.ngZone.run(() => {
-              this.router.navigate(['<!-- enter your route name here -->']);
+              this.router.navigate(['newUser']);
             });
           }
+      })
+      .catch((error) => {
+        window.alert(error.message);
       });
-    });
+
+    }
+
+    async sendEmailVerification() {
+      await this.afAuth.auth.currentUser.sendEmailVerification();
+      window.alert('Please validate your email address. Kindly check your inbox.');
   }
+
 
 
 
@@ -74,17 +100,17 @@ export class AuthService {
     this.afAuth.auth.signOut();
   }
 
-get appUser$(): Observable<AppUser> {
-  return this.user$.pipe(
-    switchMap(user => {
-      if (user) {
-        return this.userService.get(user.uid);
-      } else {
-        return of(null);
-      }
-    })
-  );
-}
+  get appUser$(): Observable<AppUser> {
+    return this.user$.pipe(
+      switchMap(user => {
+        if (user) {
+          return this.userService.get(user.uid);
+        } else {
+          return of(null);
+        }
+      })
+    );
+  }
 
 
 }

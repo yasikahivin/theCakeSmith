@@ -20,6 +20,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { CustomComponent } from './custom/custom.component';
 import { ContactComponent} from './contact/contact.component';
+import { NewUserComponent } from './signup/new-user/new-user.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path: 'shopping-cart', component: ShoppingCartComponent},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
+  {path: 'newUser', component: NewUserComponent},
   {path: 'menu', component: MenuComponent},
   {path: 'footer', component: FooterComponent},
   {path: 'about-us', component: AboutUsComponent},
