@@ -22,21 +22,21 @@ export class NavbarComponent implements OnInit  {
   constructor(
     private auth: AuthService,
     private shoppingCartService: ShoppingCartService) {
-
+      
    }
 
    async ngOnInit() {
    // throw new Error("Method not implemented.");
     this.auth.appUser$.subscribe(appUser => this.appUser = appUser);
-    const cart$ = await this.shoppingCartService.getCart();
-    cart$.valueChanges().subscribe((cart => {
+    let cart$ = await this.shoppingCartService.getCart();
+    cart$.valueChanges().subscribe((cart =>{
       this.shoppingCartItemCount = 0;
       for (let productId in cart.items){
         this.shoppingCartItemCount += cart.items[productId].quantity
       }
-    }));
+    }));   
   }
-
+  
 
   logout() {
     this.auth.logout();

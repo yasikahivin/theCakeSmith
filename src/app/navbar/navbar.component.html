@@ -67,12 +67,7 @@
             <!-- Dropdown -->
             <li *ngIf="appUser ; else anonymousUser" class="nav-item dropdown" dropdown>
               <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
-                    <div *ngIf="appUser.name; else elseBlock">
-                      {{appUser.name}}.
-                    </div>
-                    <ng-template #elseBlock>
-                      {{appUser.email}}
-                    </ng-template>
+                  {{appUser.name}}
                   <span class="caret"></span>
               </a>
 
@@ -93,7 +88,7 @@
                 <i class="fa fa-shopping-cart" style="font-size: 2em;"></i>
                 <span class="icon-cart"></span>
                 <span class="badge badge-pill badge-secondary">
-                 {{ shoppingCartItemCount }}
+                 {{ shoppingCartItemCount }} 
                 </span>
               </a>
             </li>

@@ -26,12 +26,11 @@ user$: Observable<firebase.User>;
         email: user.email,
         photoURL: user.photoURL
       });
-    }
-
-    get(uid: string): Observable<AppUser> {
-        return this.db.object<AppUser>('/users/' + uid).valueChanges();
-        // console.log('/users/');
-    }
+}
+get(uid: string): Observable<AppUser> {
+    return this.db.object<AppUser>('/users/' + uid).valueChanges();
+    // console.log('/users/');
+}
 
 
 }

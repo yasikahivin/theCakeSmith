@@ -11,8 +11,8 @@ import { NgFlashMessageService } from 'ng-flash-messages';
 export class SignupComponent implements OnInit {
   email: string;
   password: string;
-  fName: string;
-  lName: string;
+  // firstName: string;
+  // lastName: string;
 
   constructor(
     private auth: AuthService,
@@ -24,12 +24,15 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
-    this.auth.register(this.email, this.password, this.fName, this.lName)
+    this.auth.register(this.email, this.password)
     .then(res => {
+      this.flashMessage.showFlashMessage({
+        messages: ['You are registered and now logged in'],
+        type: 'success',
+        timeout: 4000
+      });
       this.router.navigate(['/menu']);
-      window.alert('You are registered and now logged in');
-    }
-    )
+    })
       .catch(err => {
         this.flashMessage.showFlashMessage({
           messages: ['Invalid'],
