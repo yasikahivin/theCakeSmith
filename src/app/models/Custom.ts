@@ -8,6 +8,6 @@ export interface Custom {
     shape?: string;
     wording?: string;
     imageURL?: string;
-    reqDate?: Date;
+    reqDate?: string;
     notes?: string;
 }

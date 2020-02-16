@@ -1,4 +1,4 @@
-import { Component, OnInit,OnDestroy} from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import { ProductService } from '../services/product.service';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
@@ -25,12 +25,9 @@ export class ProductsComponent implements OnInit, OnDestroy {
   subscription: Subscription;
 
   constructor(route: ActivatedRoute,
-              private productService: ProductService,
-              private shoppingCartService: ShoppingCartService,
-              private cdRef: ChangeDetectorRef) {
-      
-      
-
+      private productService: ProductService,
+      private shoppingCartService: ShoppingCartService,
+      private cdRef: ChangeDetectorRef) {
       productService.getall().subscribe(products => {
         this.products = products;
 
@@ -46,16 +43,12 @@ export class ProductsComponent implements OnInit, OnDestroy {
       });
     }
 
-   async ngOnInit()
-     {
+   async ngOnInit() {
       this.subscription = (await this.shoppingCartService.getCart()).valueChanges().subscribe(cart => this.cart = cart);
      }
 
-    ngOnDestroy(){
+    ngOnDestroy() {
       this.subscription.unsubscribe();
-    } 
-
-
-}
+    }}
 
 
