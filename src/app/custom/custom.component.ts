@@ -38,6 +38,7 @@ export class CustomComponent implements OnInit {
     shape : new FormControl(''),
     wording : new FormControl(''),
     imageURL : new FormControl(''),
+    reqDate : new FormControl(''),
     notes : new FormControl('')
   });
 
@@ -114,6 +115,7 @@ resetForm() {
     shape: '',
     wording: '',
     imageURL: '',
+    reqDate: '',
     notes: ''
   });
   this.imgSrc = '../../../assets/images/upll.png';
