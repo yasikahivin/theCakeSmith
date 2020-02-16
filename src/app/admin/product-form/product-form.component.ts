@@ -53,7 +53,7 @@ export class ProductFormComponent implements OnInit  {
 
     save(product: any) {
         this.isSubmitted = true;
-        if (this.formTemplate.valid) {
+        if (this.formTemplate.valid && !this.id) {
           const filePath = `${product.category}/${this.selectedImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()} `;
           const fileRef = this.storage.ref(filePath);
           this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
@@ -65,14 +65,44 @@ export class ProductFormComponent implements OnInit  {
               });
             })
           ).subscribe();
-        }
-        if (this.id) {
+        } else if (this.id) {
             this.productService.update(this.id, product);
-        } else {
-            // this.productService.create(product);
+            const filePath = `${product.category}/${this.selectedImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()} `;
+            const fileRef = this.storage.ref(filePath);
+            this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
+              finalize (() => {
+                fileRef.getDownloadURL().subscribe((url) => {
+                  product.imageURL = url;
+                  this.productService.insert(product);
+                  this.resetForm();
+                });
+              })
+            ).subscribe();
         }
         console.log(product);
         this.router.navigate(['/admin/products']);
+   }
+
+   update(product: any) {
+    if (!confirm('Do you want to update this product?')) { return; }
+    this.isSubmitted = true;
+    if (this.formTemplate.valid && !this.id) {
+      const filePath = `${product.category}/${this.selectedImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()} `;
+      const fileRef = this.storage.ref(filePath);
+      this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
+        finalize (() => {
+          fileRef.getDownloadURL().subscribe((url) => {
+            product.imageURL = url;
+            this.productService.insert(product);
+            this.resetForm();
+          });
+        })
+      ).subscribe();
+    } else if (this.id) {
+        this.productService.update(this.id, product);
+    }
+    console.log(product);
+    this.router.navigate(['/admin/products']);
    }
 
     delete() {

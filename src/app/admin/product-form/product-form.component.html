@@ -71,7 +71,7 @@
                             <label for="description">Description</label>
                             <textarea #description="ngModel" [(ngModel)]="product.description"  name="description" id="description" type="number" class="form-control"></textarea>
                           </div>
-                      <button class="btn btn-primary">Save</button>
+                      <button class="btn btn-primary" (click)="update()">Save</button>
                       <button type="button" (click)="delete()" class="btn btn-danger">Delete</button>
                   </form>
             </div>
