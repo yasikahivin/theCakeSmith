@@ -52,10 +52,8 @@ import { InventoryFormComponent } from './admin/inventory-form/inventory-form.co
 import { AdminInventoryComponent } from './admin/admin-inventory/admin-inventory.component';
 import { CustomComponent } from './custom/custom.component';
 import { ContactComponent } from './contact/contact.component';
-import { SystemAdminComponent } from './system-admin/system-admin.component';
+import { SystemAdminComponent } from './staff/system-admin/system-admin.component';
 // import { SalesManagerComponent } from './staff/sales-manager/sales-manager.component';
-
-// import { DeliveryComponent } from './delivery/delivery.component';
 
 import { NewUserComponent } from './signup/new-user/new-user.component';
 import { SalesManagerComponent } from './staff/sales-manager/sales-manager.component';

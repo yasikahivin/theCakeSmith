@@ -24,7 +24,7 @@ import { NewUserComponent } from './signup/new-user/new-user.component';
 import { SalesManagerComponent } from './staff/sales-manager/sales-manager.component';
 import { SalesmanagerAuthGuardService } from './services/salesmanager-auth-guard.service';
 import { ManageOrdersComponent } from './admin/manage-orders/manage-orders.component';
-import { SystemAdminComponent } from './system-admin/system-admin.component';
+import { SystemAdminComponent } from './staff/system-admin/system-admin.component';
 
 
 const routes: Routes = [
@@ -55,7 +55,7 @@ const routes: Routes = [
   {path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuardService]},
   {path: 'admin/inventory', component: AdminInventoryComponent, canActivate: [AuthGuardService]},
   {path: 'admin/inventories/new', component: InventoryFormComponent, canActivate: [AuthGuardService, AdminAuthGuardService]},
-  {path: 'admin/inventories/:id', component: InventoryFormComponent, canActivate: [AuthGuardService, AdminAuthGuardService]},
+  {path: 'admin/inventories/:id', component: InventoryFormComponent, canActivate: [AuthGuardService]},
   {path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthGuardService]},
 ];
 

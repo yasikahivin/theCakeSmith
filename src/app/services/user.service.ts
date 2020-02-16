@@ -16,7 +16,7 @@ import { AngularFireList } from '@angular/fire/database';
 })
 export class UserService {
 user$: Observable<firebase.User>;
-
+useri: Observable<AppUser>;
 usersRef: AngularFireList<any>;
 users: Observable<any[]>;
 
@@ -45,6 +45,14 @@ users: Observable<any[]>;
 
     getall() {
       return this.users;
+    }
+
+    update(uid: string , useri: Partial<unknown>) {
+      return this.db.object('/users/' + uid).update(useri);
+    }
+
+    delete(uid: string) {
+      return this.db.object('/users/' + uid).remove();
     }
 
 }

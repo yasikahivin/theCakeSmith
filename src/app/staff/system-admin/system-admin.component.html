@@ -1,3 +1,4 @@
+<p>system-admin works!</p>
 <br><br><br><br>
 <div class="col-6">
   <table class="table table-sm">
@@ -6,6 +7,8 @@
         <th scope="col">User Name</th>
         <th scope="col">Email</th>
         <th scope="col">Role</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -13,8 +16,26 @@
         <td>{{ u.name }}</td>
         <td>{{ u.email }}</td>
         <td>{{ u.role }}</td>
+        <td>
+            <select #role="ngModel" [(ngModel)]="u.role" class="form-control">
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+              <option value="salesM">Sales Manager</option>
+              <option value="stockM">Stock Manager</option>
+            </select>
+        </td>
+        <td>
+          <form #f="ngForm" (ngSubmit)="save(f.value)" novalidate>
+            <div class="btn-group" role="group">
+              <button type="button" outline="true" mdbBtn color="success"(click)="save()" mdbWavesEffect class="my-0" size="sm" >Update</button>
+            <button type="button" outline="true" mdbBtn color="danger"(click)="delete()" mdbWavesEffect class="my-0" size="sm" >Delete</button>
+            </div>
+          </form>
+        </td>
       </tr>
     </tbody>
   </table>
 </div>
+
+
 
