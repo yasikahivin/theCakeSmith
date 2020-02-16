@@ -34,6 +34,7 @@ export class ManageOrdersComponent implements OnInit, OnDestroy {
      this.filteredproducts = (query) ?
      this.customizedOrders.filter(c => c.reqDate.toLowerCase().includes(query)) :
      this.customizedOrders;
+     console.log(this.filteredproducts)
   }
 
   ngOnDestroy() {
@@ -41,6 +42,7 @@ export class ManageOrdersComponent implements OnInit, OnDestroy {
   }
   Update(id){
     this.db.object('/CustomizedOrders/' + id).update({confirm:true});
+
   }
 
   ngOnInit() {

@@ -21,10 +21,13 @@ export class SalesManagerComponent implements OnInit {
   totalCount: number;
   total = 0 ;
 
-  constructor( private db: AngularFireDatabase) {
+  constructor( db: AngularFireDatabase) {
+
     this.itemsRef = db.list('/users/');
     this.orderRef = db.list('/CustomizedOrders/');
-    console.log(this.orderRef);
+    // tslint:disable-next-line: triple-equals
+    console.log(db.list('/users/', ref => ref.orderByChild("confirm").equalTo(true)))
+
 
     this.items = this.itemsRef.snapshotChanges().pipe(
       map(changes =>
@@ -36,7 +39,10 @@ export class SalesManagerComponent implements OnInit {
       map(changes =>
         changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
       )
+
     );
+
+    // console.log(this.orders);
 
 // get total users
     this.items.subscribe((dataArray => {
@@ -55,6 +61,7 @@ export class SalesManagerComponent implements OnInit {
 
     this.orders.subscribe((dataArray => {
       this.totalorders = dataArray.length;
+      console.log(dataArray);
     }));
 
 }

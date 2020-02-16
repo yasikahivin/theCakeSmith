@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../app/services/user.service';
+import { UserService } from '../../services/user.service';
 import { Subscription } from 'rxjs';
-import { AppUser } from '../../app/models/app-user';
+import { AppUser } from '../../models/app-user';
 
 @Component({
   selector: 'app-system-admin',
