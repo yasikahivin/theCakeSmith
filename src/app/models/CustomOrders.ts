@@ -1,6 +1,5 @@
 export interface Custom {
     id?: string;
-    uid?: string;
     flavor?: string;
     frosting_type?: string;
     frosting_color?: string;

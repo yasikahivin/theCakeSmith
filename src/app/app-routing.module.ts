@@ -37,7 +37,6 @@ const routes: Routes = [
   {path: 'menu', component: MenuComponent},
   {path: 'footer', component: FooterComponent},
   {path: 'about-us', component: AboutUsComponent},
-  {path: 'custom', component: CustomComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'userProfile', component: NewUserComponent},
   {path: 'check-out', component: CheckOutComponent},
@@ -49,6 +48,10 @@ const routes: Routes = [
 
   {path: 'staff/sales-manager', component: SalesManagerComponent, canActivate: [AuthGuardService, SalesmanagerAuthGuardService]},
   {path: 'admin/manage-orders', component: ManageOrdersComponent, canActivate: [AuthGuardService, SalesmanagerAuthGuardService]},
+
+  {path: 'custom', component: CustomComponent},
+  {path: 'admin/custom/', component: CustomComponent},
+  {path: 'admin/custom/:id', component: CustomComponent, canActivate: [AuthGuardService, AdminAuthGuardService]},
 
   {path: 'admin/products/new', component: ProductFormComponent, canActivate: [AuthGuardService, AdminAuthGuardService]},
   {path: 'admin/products/:id', component: ProductFormComponent, canActivate: [AuthGuardService, AdminAuthGuardService]},

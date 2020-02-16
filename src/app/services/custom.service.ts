@@ -17,15 +17,29 @@ export class CustomService {
 
   orderRef: AngularFireList<any>;
   orders: Observable<any[]>;
-
+  data=[];
   constructor(private db: AngularFireDatabase) {
     this.orderRef = db.list('/CustomizedOrders');
 
     this.orders = this.orderRef.snapshotChanges().pipe(
-      map(changes =>
-        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-        )
+       map(changes =>
+         changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+         )
     );
+
+    // this.orderRef.snapshotChanges().subscribe(data => {
+    //   // this.temp=data;
+    //   console.log(data)
+    //   data.forEach(element=>{
+    //     let temp: Custom;
+    //     temp = element.payload.val();
+    //     temp.id = element.payload.key;
+    //     this.data.push(temp);
+
+    //     // console.log(temp)
+    //   });
+    // });
+
   }
 
 create(custOrder: any) {

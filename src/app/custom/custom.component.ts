@@ -9,6 +9,9 @@ import { take } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { Custom } from 'src/app/models/CustomOrders';
+import { AppUser } from '../models/app-user';
+import { AuthService } from '../services/auth.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-custom',
@@ -21,6 +24,7 @@ export class CustomComponent implements OnInit {
   selectedImage: any = null;
   isSubmitted: boolean;
   id: string;
+  appUser: AppUser;
   custOrder: Custom = { id: '',
                         flavor: '',
                         frosting_type: '',
@@ -52,9 +56,13 @@ export class CustomComponent implements OnInit {
     private customService: CustomService,
     private router: Router,
     private route: ActivatedRoute,
-    private storage: AngularFireStorage
+    private storage: AngularFireStorage,
+    private auth: AuthService,
+    private afAuth: AngularFireAuth
   ) {
-    this.id = this.route.snapshot.paramMap.get('id');
+    this.id = this.afAuth.auth.currentUser.uid ;
+    // this.id = this.route.snapshot.paramMap.get('id');
+    console.log(this.id);
     if (this.id) { this.customService.get(this.id).pipe(take(1)).subscribe(o => this.custOrder = o ); }
   }
   save(custOrder: any) {
@@ -91,6 +99,8 @@ delete() {
 }
 
 ngOnInit() {
+  this.auth.appUser$.subscribe(appUser => this.appUser = appUser);
+
   this.custOrder.confirm = false ;
 }
 

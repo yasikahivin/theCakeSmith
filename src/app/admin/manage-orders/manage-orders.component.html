@@ -39,7 +39,8 @@ pending Customized Orders
             <td>{{ c.confirm }} </td>
             <td>{{ c.price }} </td>
             <td class="center">
-              <button type="button" color="success" outline="true" mdbWavesEffect mdbBtn color="success" outline="true"  class="my-0"size="sm" (click)="onClickMe(c.id,true)" >
+
+              <button type="button" color="success" outline="true" mdbWavesEffect mdbBtn color="success" outline="true"  class="my-0"size="sm" (click)="Update(c.key)" >
                   confirm
               </button>
             </td>
