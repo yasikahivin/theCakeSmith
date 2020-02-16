@@ -10,4 +10,5 @@ export interface Custom {
     imageURL?: string;
     reqDate?: string;
     notes?: string;
+    confirm?: boolean;
 }

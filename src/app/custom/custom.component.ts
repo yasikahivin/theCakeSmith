@@ -8,7 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { Custom } from 'src/app/models/Custom';
+import { Custom } from 'src/app/models/CustomOrders';
 
 @Component({
   selector: 'app-custom',
@@ -28,7 +28,9 @@ export class CustomComponent implements OnInit {
                         weight: 0, shape: '',
                         wording: '',
                         imageURL: '',
-                        notes: '' };
+                        notes: '' ,
+                        confirm: false
+                      };
   formTemplate = new FormGroup({
     id : new FormControl(''),
     flavor : new FormControl(''),
@@ -115,8 +117,8 @@ resetForm() {
     shape: '',
     wording: '',
     imageURL: '',
-    reqDate: '',
-    notes: ''
+    notes: '',
+    confirm: ''
   });
   this.imgSrc = '../../../assets/images/upll.png';
   this.selectedImage = null;
