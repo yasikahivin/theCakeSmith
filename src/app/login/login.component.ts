@@ -39,12 +39,14 @@ export class LoginComponent  implements OnInit {
           timeout: 4000
         });
         this.router.navigate(['/menu']);
+        if (!confirm('You are now logged in to the system')) { return; }
       })
         .catch(err => {
           this.flashMessage.showFlashMessage({
             messages: ['Invalid'],
             type: 'danger', timeout: 4000
         });
+          if (!confirm('Incorrect login info!!! Recheck your username and password')) { return; }
   });
 }
 

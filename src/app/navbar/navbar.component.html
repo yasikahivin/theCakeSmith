@@ -58,7 +58,7 @@
 
 <!-- sales manager options -->
                 <li *ngIf="appUser" class="nav-item ">
-                    <ng-container *ngIf="appUser.isAdmin">
+                    <ng-container *ngIf="appUser.isSalesM">
                         <button mdbBtn type="button" color="info" rounded="true" mdbWavesEffect mdbWavesEffect [routerLink]="['/admin/products']" routerLinkActive="router-link-active" >
                             <b>All Products</b>
                         </button>
@@ -67,7 +67,7 @@
 
 
                 <li *ngIf="appUser" class="nav-item ">
-                    <ng-container *ngIf="appUser.isAdmin">
+                    <ng-container *ngIf="appUser.isSalesM">
                         <button mdbBtn type="button" color="info" rounded="true" mdbWavesEffect mdbWavesEffect [routerLink]="['/admin/products/new']" routerLinkActive="router-link-active" >
                             <b>Add Products</b>
                         </button>
@@ -76,8 +76,8 @@
 
 
                 <li *ngIf="appUser" class="nav-item ">
-                  <ng-container *ngIf="appUser.isAdmin">
-                      <button mdbBtn type="button" color="info" rounded="true" mdbWavesEffect mdbWavesEffect [routerLink]="['/admin/manage-orders']" routerLinkActive="router-link-active" >
+                  <ng-container *ngIf="appUser.isSalesM">
+                      <button mdbBtn type="button" color="info" rounded="true" mdbWavesEffect mdbWavesEffect [routerLink]="['admin/manage-orders']" routerLinkActive="router-link-active" >
                           <b>Manage Orders</b>
                       </button>
                   </ng-container>
@@ -85,13 +85,61 @@
 
 
                 <li *ngIf="appUser" class="nav-item ">
-                    <ng-container *ngIf="appUser.isAdmin">
+                    <ng-container *ngIf="appUser.isSalesM">
                         <button mdbBtn type="button" color="danger" rounded="true" mdbWavesEffect mdbWavesEffect [routerLink]="['/staff/sales-manager']" routerLinkActive="router-link-active" >
                             <b>Sales Manager Home</b>
                         </button>
                     </ng-container>
                 </li>
 <!-- sales manager options/// -->
+
+<!-- stock manager options -->
+<li *ngIf="appUser" class="nav-item ">
+  <ng-container *ngIf="appUser.isStockM">
+      <button mdbBtn type="button" gradient="purple" rounded="true" mdbWavesEffect mdbWavesEffect [routerLink]="['/admin/inventory']" routerLinkActive="router-link-active" >
+          <b>View Inventory</b>
+      </button>
+  </ng-container>
+</li>
+
+
+<li *ngIf="appUser" class="nav-item ">
+  <ng-container *ngIf="appUser.isStockM">
+      <button mdbBtn type="button" gradient="purple" rounded="true" mdbWavesEffect mdbWavesEffect [routerLink]="['/admin/inventories/new']" routerLinkActive="router-link-active" >
+          <b>Add a new item to Inventory</b>
+      </button>
+  </ng-container>
+</li>
+
+
+<li *ngIf="appUser" class="nav-item ">
+  <ng-container *ngIf="appUser.isStockM">
+      <button mdbBtn type="button" color="purple" rounded="true" mdbWavesEffect mdbWavesEffect [routerLink]="['/']" routerLinkActive="router-link-active" >
+          <b>Stock Manager Home</b>
+      </button>
+  </ng-container>
+</li>
+<!-- stock manager options/// -->
+
+<!-- system admin options -->
+
+<li *ngIf="appUser" class="nav-item ">
+  <ng-container *ngIf="appUser.isAdmin">
+      <button mdbBtn type="button" gradient="purple" rounded="true" mdbWavesEffect mdbWavesEffect [routerLink]="['/systemAdmin']" routerLinkActive="router-link-active" >
+          <b>Manage Users</b>
+      </button>
+  </ng-container>
+</li>
+
+
+<li *ngIf="appUser" class="nav-item ">
+  <ng-container *ngIf="appUser.isAdmin">
+      <button mdbBtn type="button" color="purple" rounded="true" mdbWavesEffect mdbWavesEffect [routerLink]="['/']" routerLinkActive="router-link-active" >
+          <b>System Admin Home</b>
+      </button>
+  </ng-container>
+</li>
+<!-- system admin options/// -->
 
 
 <!--  shopping cart -->

@@ -56,6 +56,5 @@ insert(products) {
 getproducts() {
     this.itemsRef = this.db.list('products');
 }
-
 }
 

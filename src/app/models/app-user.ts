@@ -4,4 +4,6 @@ export interface AppUser {
   isAdmin: boolean ;
   isSalesM: boolean ;
   isStockM: boolean ;
+  isUser: boolean ;
+  role: string;
 }

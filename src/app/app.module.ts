@@ -55,13 +55,12 @@ import { ContactComponent } from './contact/contact.component';
 import { SystemAdminComponent } from './staff/system-admin/system-admin.component';
 // import { SalesManagerComponent } from './staff/sales-manager/sales-manager.component';
 
-// import { DeliveryComponent } from './delivery/delivery.component';
-
 import { NewUserComponent } from './signup/new-user/new-user.component';
 import { SalesManagerComponent } from './staff/sales-manager/sales-manager.component';
 import { SalesmanagerAuthGuardService } from './services/salesmanager-auth-guard.service';
 import { ManageOrdersComponent } from './admin/manage-orders/manage-orders.component';
 import { ContactService } from './services/contact.service';
+import { StockManagerComponent } from './staff/stock-manager/stock-manager.component';
 
 
 
@@ -93,7 +92,8 @@ import { ContactService } from './services/contact.service';
     // SalesManagerComponent,
     NewUserComponent,
     SalesManagerComponent,
-    ManageOrdersComponent
+    ManageOrdersComponent,
+    StockManagerComponent
 
   ],
   imports: [
