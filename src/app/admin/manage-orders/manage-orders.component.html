@@ -1,27 +1,46 @@
 <br><br><br><br>
 
 
-Customized Orders
-
+pending Customized Orders
+<p>
+  <input
+      #query
+      (keyup)="filter(query.value)"
+      type="date" class="form-control" placeholder="Search...">
+</p>
 <div class="card rgba-white-light">
   <div class="card-body">
     <table class="table" width=75%>
         <thead class="blue-grey lighten-3 white-text">
           <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Category</th>
+            <th scope="col">flavor</th>
+            <th scope="col">frosting_type</th>
+            <th scope="col">frosting_color</th>
+            <th scope="col">weight</th>
+            <th scope="col">shape</th>
+            <th scope="col">wording</th>
+            <th scope="col">imageURL</th>
+            <th scope="col">notes</th>
             <th scope="col">Price</th>
             <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let p of filteredproducts">
-            <td>{{ p.title }}</td>
-            <td>{{ p.category}}</td>
-            <td>{{ p.price }} </td>
+          <tr *ngFor="let c of filteredproducts">
+            <td>{{ c.flavor }}</td>
+            <td>{{ c.frosting_type}}</td>
+            <td>{{ c.frosting_color }} </td>
+            <td>{{ c.weight }} </td>
+            <td>{{ c.shape }} </td>
+            <td>{{ c.wording }} </td>
+            <td><img src="{{ c.imageURL }}" alt="no image" width="50" > </td>
+            <td>{{ c.notes }} </td>
+            <td>{{ c.price }} </td>
             <td class="center">
-              <!-- <a [routerLink]="['/admin/products/', p.key]" routerLinkActive="router-link-active" >Edit</a> -->
-              <button type="button" color="success" outline="true" mdbWavesEffect mdbBtn color="success" outline="true"  class="my-0"size="sm" [routerLink]="['/admin/products/', p.key]" routerLinkActive="router-link-active" >Edit</button>
+             <!--   <a [routerLink]="['/admin/products/', p.key]" routerLinkActive="router-link-active" >Edit</a>
+             <button type="button" color="success" outline="true" mdbWavesEffect mdbBtn color="success" outline="true"  class="my-0"size="sm" [routerLink]="['/admin/products/', p.key]" routerLinkActive="router-link-active" >
+                    Edit
+                  </button>-->
             </td>
           </tr>
       </tbody>

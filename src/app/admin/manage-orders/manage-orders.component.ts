@@ -21,9 +21,9 @@ export class ManageOrdersComponent implements OnInit {
   }
 
   filter(query: string) {
-    // this.filteredproducts = (query) ?
-    // this.customizedOrders.filter(p => p.title.toLowerCase().includes(query)) :
-    // this.customizedOrders;
+     this.filteredproducts = (query) ?
+     this.customizedOrders.filter(c => c.reqDate.toLowerCase().includes(query)) :
+     this.customizedOrders;
   }
 
   ngOnInit() {
