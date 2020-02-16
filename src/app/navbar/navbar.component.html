@@ -121,6 +121,26 @@
 </li>
 <!-- stock manager options/// -->
 
+<!-- system admin options -->
+
+<li *ngIf="appUser" class="nav-item ">
+  <ng-container *ngIf="appUser.isAdmin">
+      <button mdbBtn type="button" gradient="purple" rounded="true" mdbWavesEffect mdbWavesEffect [routerLink]="['/systemAdmin']" routerLinkActive="router-link-active" >
+          <b>Manage Users</b>
+      </button>
+  </ng-container>
+</li>
+
+
+<li *ngIf="appUser" class="nav-item ">
+  <ng-container *ngIf="appUser.isAdmin">
+      <button mdbBtn type="button" color="purple" rounded="true" mdbWavesEffect mdbWavesEffect [routerLink]="['/']" routerLinkActive="router-link-active" >
+          <b>System Admin Home</b>
+      </button>
+  </ng-container>
+</li>
+<!-- system admin options/// -->
+
 
 <!--  shopping cart -->
               <li>

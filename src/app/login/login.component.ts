@@ -46,7 +46,7 @@ export class LoginComponent  implements OnInit {
             messages: ['Invalid'],
             type: 'danger', timeout: 4000
         });
-        if (!confirm('Incorrect login info!!! Recheck your username and password')) { return; }
+          if (!confirm('Incorrect login info!!! Recheck your username and password')) { return; }
   });
 }
 
