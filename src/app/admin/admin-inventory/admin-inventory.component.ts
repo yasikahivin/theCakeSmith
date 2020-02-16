@@ -17,7 +17,6 @@ export class AdminInventoryComponent implements OnInit {
     this.subscription = this.inventoryService.getall()
       .subscribe(inventories => this.filteredinventories = this.inventories = inventories);
    }
-  
   filter(query: string) {
     this.filteredinventories = (query) ?
     this.inventories.filter(i => i.name.toLowerCase().includes(query)) :
@@ -30,5 +29,4 @@ export class AdminInventoryComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
