@@ -61,6 +61,7 @@ import { NewUserComponent } from './signup/new-user/new-user.component';
 import { SalesManagerComponent } from './staff/sales-manager/sales-manager.component';
 import { SalesmanagerAuthGuardService } from './services/salesmanager-auth-guard.service';
 import { ManageOrdersComponent } from './admin/manage-orders/manage-orders.component';
+import { ContactService } from './services/contact.service';
 
 
 
@@ -123,7 +124,8 @@ import { ManageOrdersComponent } from './admin/manage-orders/manage-orders.compo
     UserService,
     ShoppingCartService,
     InventoryService,
-    CustomService
+    CustomService,
+    ContactService
   ],
   bootstrap: [AppComponent]
 })
