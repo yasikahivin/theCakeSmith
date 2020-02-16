@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { AppUser } from 'src/app/models/app-user';
 
 @Component({
   selector: 'app-sales-manager',
@@ -6,9 +10,40 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sales-manager.component.scss']
 })
 export class SalesManagerComponent implements OnInit {
+  users: AppUser[] = [];
+  itemsRef: AngularFireList<any>;
+  items: Observable<any[]>;
 
-  constructor() { }
+  totalCount: number;
+  total = 0 ;
 
+  constructor( private db: AngularFireDatabase) {
+    this.itemsRef = db.list('/users/');
+
+    this.items = this.itemsRef.snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+      )
+    );
+
+
+// get total users
+    this.items.subscribe((dataArray => {
+      this.totalCount = dataArray.length;
+
+      this.users = dataArray.map(item => {
+        this.total ++ ;
+        console.log(this.total);
+        return {id : item.payload.doc.id,
+        ...item.payload.doc.data()
+        } as AppUser;
+      });
+    }));
+
+// get total orders
+
+
+}
   ngOnInit() {
   }
 

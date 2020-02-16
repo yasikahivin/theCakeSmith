@@ -3,7 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { Custom } from '../models/Custom';
+import { Custom } from '../models/CustomOrders';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 
 @Injectable({

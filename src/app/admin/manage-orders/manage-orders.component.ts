@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Custom } from 'src/app/models/CustomOrders';
+import { Subscription } from 'rxjs';
+import { CustomService } from 'src/app/services/custom.service';
 
 @Component({
   selector: 'app-manage-orders',
@@ -7,7 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageOrdersComponent implements OnInit {
 
-  constructor() { }
+  customizedOrders: Custom[] ;
+  subscription: Subscription;
+  filteredproducts: any[];
+
+  constructor(private customService: CustomService) {
+    this.subscription = this.customService.getall()
+      .subscribe(customizedOrders => this.filteredproducts = this.customizedOrders = customizedOrders);
+
+  }
+
+  filter(query: string) {
+    // this.filteredproducts = (query) ?
+    // this.customizedOrders.filter(p => p.title.toLowerCase().includes(query)) :
+    // this.customizedOrders;
+  }
 
   ngOnInit() {
   }

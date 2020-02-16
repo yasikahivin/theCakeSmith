@@ -9,4 +9,5 @@ export interface Custom {
     wording?: string;
     imageURL?: string;
     notes?: string;
+    confirm?: boolean;
 }

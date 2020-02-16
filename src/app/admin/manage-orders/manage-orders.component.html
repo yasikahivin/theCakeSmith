@@ -1,1 +1,32 @@
-<p>manage-orders works!</p>
+<br><br><br><br>
+
+
+Customized Orders
+
+<div class="card rgba-white-light">
+  <div class="card-body">
+    <table class="table" width=75%>
+        <thead class="blue-grey lighten-3 white-text">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Price</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of filteredproducts">
+            <td>{{ p.title }}</td>
+            <td>{{ p.category}}</td>
+            <td>{{ p.price }} </td>
+            <td class="center">
+              <!-- <a [routerLink]="['/admin/products/', p.key]" routerLinkActive="router-link-active" >Edit</a> -->
+              <button type="button" color="success" outline="true" mdbWavesEffect mdbBtn color="success" outline="true"  class="my-0"size="sm" [routerLink]="['/admin/products/', p.key]" routerLinkActive="router-link-active" >Edit</button>
+            </td>
+          </tr>
+      </tbody>
+
+      </table>
+
+  </div>
+</div>
