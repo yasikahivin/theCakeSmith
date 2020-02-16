@@ -77,7 +77,7 @@
 
                 <li *ngIf="appUser" class="nav-item ">
                   <ng-container *ngIf="appUser.isSalesM">
-                      <button mdbBtn type="button" color="info" rounded="true" mdbWavesEffect mdbWavesEffect [routerLink]="['/admin/manage-orders']" routerLinkActive="router-link-active" >
+                      <button mdbBtn type="button" color="info" rounded="true" mdbWavesEffect mdbWavesEffect [routerLink]="['admin/manage-orders']" routerLinkActive="router-link-active" >
                           <b>Manage Orders</b>
                       </button>
                   </ng-container>
@@ -106,7 +106,7 @@
 <li *ngIf="appUser" class="nav-item ">
   <ng-container *ngIf="appUser.isStockM">
       <button mdbBtn type="button" color="info" rounded="true" mdbWavesEffect mdbWavesEffect [routerLink]="['/admin/inventories/new']" routerLinkActive="router-link-active" >
-          <b>View Inventory</b>
+          <b>Add a new item to Inventory</b>
       </button>
   </ng-container>
 </li>

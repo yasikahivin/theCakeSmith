@@ -60,6 +60,7 @@ import { SalesManagerComponent } from './staff/sales-manager/sales-manager.compo
 import { SalesmanagerAuthGuardService } from './services/salesmanager-auth-guard.service';
 import { ManageOrdersComponent } from './admin/manage-orders/manage-orders.component';
 import { ContactService } from './services/contact.service';
+import { StockManagerComponent } from './staff/stock-manager/stock-manager.component';
 
 
 
@@ -91,7 +92,8 @@ import { ContactService } from './services/contact.service';
     // SalesManagerComponent,
     NewUserComponent,
     SalesManagerComponent,
-    ManageOrdersComponent
+    ManageOrdersComponent,
+    StockManagerComponent
 
   ],
   imports: [

@@ -24,6 +24,9 @@ import { NewUserComponent } from './signup/new-user/new-user.component';
 import { SalesManagerComponent } from './staff/sales-manager/sales-manager.component';
 import { SalesmanagerAuthGuardService } from './services/salesmanager-auth-guard.service';
 import { ManageOrdersComponent } from './admin/manage-orders/manage-orders.component';
+import { StockManagerComponent } from './staff/stock-manager/stock-manager.component';
+import { StockmanagerAuthGuardService } from './services/stockmanager-auth-guard.service';
+
 import { SystemAdminComponent } from './staff/system-admin/system-admin.component';
 
 
@@ -46,19 +49,21 @@ const routes: Routes = [
   {path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuardService]},
   {path: 'systemAdmin', component: SystemAdminComponent},
 
-  {path: 'staff/sales-manager', component: SalesManagerComponent, canActivate: [AuthGuardService, SalesmanagerAuthGuardService]},
-  {path: 'admin/manage-orders', component: ManageOrdersComponent, canActivate: [AuthGuardService, SalesmanagerAuthGuardService]},
-
   {path: 'custom', component: CustomComponent},
   {path: 'admin/custom/', component: CustomComponent},
   {path: 'admin/custom/:id', component: CustomComponent, canActivate: [AuthGuardService, AdminAuthGuardService]},
 
-  {path: 'admin/products/new', component: ProductFormComponent, canActivate: [AuthGuardService, AdminAuthGuardService]},
-  {path: 'admin/products/:id', component: ProductFormComponent, canActivate: [AuthGuardService, AdminAuthGuardService]},
-  {path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuardService]},
-  {path: 'admin/inventory', component: AdminInventoryComponent, canActivate: [AuthGuardService]},
-  {path: 'admin/inventories/new', component: InventoryFormComponent, canActivate: [AuthGuardService, AdminAuthGuardService]},
-  {path: 'admin/inventories/:id', component: InventoryFormComponent, canActivate: [AuthGuardService]},
+  {path: 'admin/products/new', component: ProductFormComponent, canActivate: [AuthGuardService, SalesmanagerAuthGuardService]},
+  {path: 'admin/products/:id', component: ProductFormComponent, canActivate: [AuthGuardService, SalesmanagerAuthGuardService]},
+  {path: 'admin/products', component: AdminProductsComponent, canActivate: [AuthGuardService, SalesmanagerAuthGuardService]},
+  {path: 'staff/sales-manager', component: SalesManagerComponent, canActivate: [AuthGuardService, SalesmanagerAuthGuardService]},
+  {path: 'admin/manage-orders', component: ManageOrdersComponent, canActivate: [AuthGuardService, SalesmanagerAuthGuardService]},
+
+  {path: 'admin/inventory', component: AdminInventoryComponent, canActivate: [AuthGuardService, StockmanagerAuthGuardService]},
+  {path: 'admin/inventories/new', component: InventoryFormComponent, canActivate: [AuthGuardService, StockmanagerAuthGuardService]},
+  {path: 'admin/inventories/:id', component: InventoryFormComponent, canActivate: [AuthGuardService, StockmanagerAuthGuardService]},
+  {path: 'staff/stock-manager', component: StockManagerComponent, canActivate: [AuthGuardService, StockmanagerAuthGuardService]},
+
   {path: 'admin/orders', component: AdminOrdersComponent, canActivate: [AuthGuardService]},
 ];
 
