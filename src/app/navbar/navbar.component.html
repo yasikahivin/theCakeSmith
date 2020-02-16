@@ -125,14 +125,8 @@
               </a>
 
               <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
-
-
-                <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/systemAdmin']" routerLinkActive="router-link-active" >System Admin</a>
-
-
                 <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/my/orders']" routerLinkActive="router-link-active" >My Orders</a>
                 <ng-container *ngIf="appUser.isAdmin">
-
                     <a class="dropdown-item waves-light" mdbWavesEffect [routerLink]="['/admin/inventory']" routerLinkActive="router-link-active" >Manage Inventory</a>
                 </ng-container>
                 <div class="divider dropdown-divider"></div>

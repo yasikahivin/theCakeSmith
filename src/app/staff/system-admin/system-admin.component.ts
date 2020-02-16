@@ -18,6 +18,17 @@ export class SystemAdminComponent implements OnInit {
       .subscribe(users => this.SysUsers = this.users = users);
   }
 
+  filter(query: string) {
+    this.SysUsers = (query) ?
+    this.users.filter(i => i.name.toLowerCase().includes(query)) :
+    this.users;
+  }
+
+  // ngOnDestroy() {
+  //   this.subscription.unsubscribe();
+  // }
+
+
   ngOnInit() {
   }
 

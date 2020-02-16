@@ -3,6 +3,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase';
 import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
 import { AngularFirestore } from '@angular/fire/firestore';
+
+import { map } from 'rxjs/operators';
 import { AppUser } from '../models/app-user';
 import { Observable } from 'rxjs/internal/Observable';
 
@@ -20,6 +22,12 @@ users: Observable<any[]>;
 
     constructor(private db: AngularFireDatabase) {
       this.usersRef = db.list('/users');
+
+      this.users = this.usersRef.snapshotChanges().pipe(
+        map(changes =>
+          changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+        )
+      );
     }
 
     Save(user: firebase.User) {

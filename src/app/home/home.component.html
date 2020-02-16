@@ -48,35 +48,32 @@
     <a [routerLink]="['/menu']" [queryParams]="{ category: 'BirthdayCake' }">
       <img src="../../assets/images/armysolldier.jpg" alt="bday" width=100% height=100% >
     </a>
+    <button mdbBtn type="button" class="btn btn-outline-secondary bg-transparent" [routerLink]="['/menu']" [queryParams]="{ category: 'BirthdayCake' }"><b>SHOP BIRTHDAY CAKES</b></button>
   </div>
   <div class="card">
     <a [routerLink]="['/menu']" [queryParams]="{ category: 'Cupcake' }">
     <img src="../../assets/images/cupcake.jpg" alt="cupcake" width=100% height=100%>
     </a>
+    <button mdbBtn type="button" class="btn btn-outline-secondary" [routerLink]="['/menu']" [queryParams]="{ category: 'Cupcake' }"><b>SHOP CUPCAKES</b></button>
   </div>
   <div class="card">
     <a [routerLink]="['/menu']" [queryParams]="{ category: 'SimpleCake' }">
     <img src="../../assets/images/cakeslice.jpg" alt="SimpleCake" width=100% height=100% >
     </a>
+    <button mdbBtn type="button" class="btn btn-outline-secondary" [routerLink]="['/menu']" [queryParams]="{ category: 'SimpleCake' }"><b>SHOP SIMPLE CAKES</b></button>
   </div>
   <div class="card">
     <a [routerLink]="['/menu']" [queryParams]="{ category: 'Sweets' }">
     <img src="../../assets/images/churros.jpg" alt="Sweets" width=100% height=100% >
     </a>
-  </div>
-</div>
-
-<div class="card-deck mt-5 ml-5 mr-5 mb-5">
-  <div class="card">
-    <button mdbBtn type="button" class="btn btn-outline-secondary" [routerLink]="['/menu']" [queryParams]="{ category: 'BirthdayCake' }"><b>SHOP BIRTHDAY CAKES</b></button>
-  </div>
-  <div class="card">
-    <button mdbBtn type="button" class="btn btn-outline-secondary" [routerLink]="['/menu']" [queryParams]="{ category: 'Cupcake' }"><b>SHOP CUPCAKES</b></button>
-  </div>
-  <div class="card">
-    <button mdbBtn type="button" class="btn btn-outline-secondary" [routerLink]="['/menu']" [queryParams]="{ category: 'SimpleCake' }"><b>SHOP SIMPLE CAKES</b></button>
-  </div>
-  <div class="card">
     <button mdbBtn type="button" class="btn btn-outline-secondary" [routerLink]="['/menu']" [queryParams]="{ category: 'Sweets' }"><b>SHOP SWEETS</b></button>
   </div>
 </div>
+
+
+<li class="nav-item ">
+  <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/systemAdmin']" routerLinkActive="router-link-active" >
+    <b>System Admin DashBoard</b>
+    <span class="sr-only">(current)</span>
+  </a>
+</li>

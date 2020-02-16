@@ -40,12 +40,11 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'userProfile', component: NewUserComponent},
   {path: 'check-out', component: CheckOutComponent},
-  {path: 'systemAdmin', component: SystemAdminComponent},
 
   {path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuardService]},
   {path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService]},
   {path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuardService]},
-  {path: 'systemAdmin', component: SystemAdminComponent, canActivate: [AuthGuardService]},
+  {path: 'systemAdmin', component: SystemAdminComponent},
 
   {path: 'staff/sales-manager', component: SalesManagerComponent, canActivate: [AuthGuardService, SalesmanagerAuthGuardService]},
   {path: 'admin/manage-orders', component: ManageOrdersComponent, canActivate: [AuthGuardService, SalesmanagerAuthGuardService]},
