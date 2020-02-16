@@ -96,7 +96,7 @@
 <!-- stock manager options -->
 <li *ngIf="appUser" class="nav-item ">
   <ng-container *ngIf="appUser.isStockM">
-      <button mdbBtn type="button" color="info" rounded="true" mdbWavesEffect mdbWavesEffect [routerLink]="['/admin/inventory']" routerLinkActive="router-link-active" >
+      <button mdbBtn type="button" gradient="purple" rounded="true" mdbWavesEffect mdbWavesEffect [routerLink]="['/admin/inventory']" routerLinkActive="router-link-active" >
           <b>View Inventory</b>
       </button>
   </ng-container>
@@ -105,7 +105,7 @@
 
 <li *ngIf="appUser" class="nav-item ">
   <ng-container *ngIf="appUser.isStockM">
-      <button mdbBtn type="button" color="info" rounded="true" mdbWavesEffect mdbWavesEffect [routerLink]="['/admin/inventories/new']" routerLinkActive="router-link-active" >
+      <button mdbBtn type="button" gradient="purple" rounded="true" mdbWavesEffect mdbWavesEffect [routerLink]="['/admin/inventories/new']" routerLinkActive="router-link-active" >
           <b>Add a new item to Inventory</b>
       </button>
   </ng-container>
@@ -114,7 +114,7 @@
 
 <li *ngIf="appUser" class="nav-item ">
   <ng-container *ngIf="appUser.isStockM">
-      <button mdbBtn type="button" color="danger" rounded="true" mdbWavesEffect mdbWavesEffect [routerLink]="['/']" routerLinkActive="router-link-active" >
+      <button mdbBtn type="button" color="purple" rounded="true" mdbWavesEffect mdbWavesEffect [routerLink]="['/']" routerLinkActive="router-link-active" >
           <b>Stock Manager Home</b>
       </button>
   </ng-container>
