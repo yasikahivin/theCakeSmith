@@ -23,9 +23,9 @@ export class AdminInventoryComponent implements OnInit {
     this.inventories;
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   this.subscription.unsubscribe();
+  // }
 
   ngOnInit() {
   }
