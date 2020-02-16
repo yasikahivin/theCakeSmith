@@ -25,7 +25,6 @@ export class SalesManagerComponent implements OnInit {
 
     this.itemsRef = db.list('/users/');
     this.orderRef = db.list('/CustomizedOrders/');
-    // tslint:disable-next-line: triple-equals
     console.log(db.list('/users/', ref => ref.orderByChild("confirm").equalTo(true)))
 
 
@@ -50,7 +49,7 @@ export class SalesManagerComponent implements OnInit {
 
       // this.users = dataArray.map(item => {
       //   //this.total ++ ;
-      //   // console.log(this.total);
+      //   console.log(this.totalCount.);
       //   return {id : item.payload.doc.id,
       //   ...item.payload.doc.data()
       //   } as AppUser;
@@ -63,6 +62,8 @@ export class SalesManagerComponent implements OnInit {
       this.totalorders = dataArray.length;
       console.log(dataArray);
     }));
+
+
 
 }
   ngOnInit() {
