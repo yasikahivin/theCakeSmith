@@ -6,7 +6,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AppUser } from '../models/app-user';
 import { Observable } from 'rxjs/internal/Observable';
 
-// didn't used yet
+import { AngularFireList } from '@angular/fire/database';
 
 
 @Injectable({
@@ -15,8 +15,12 @@ import { Observable } from 'rxjs/internal/Observable';
 export class UserService {
 user$: Observable<firebase.User>;
 
+usersRef: AngularFireList<any>;
+users: Observable<any[]>;
+
     constructor(private db: AngularFireDatabase) {
-                }
+      this.usersRef = db.list('/users');
+    }
 
     Save(user: firebase.User) {
       this.db.object('/users/' + user.uid).update
@@ -31,5 +35,8 @@ user$: Observable<firebase.User>;
         return this.db.object<AppUser>('/users/' + uid).valueChanges();
     }
 
+    getall() {
+      return this.users;
+    }
 
 }

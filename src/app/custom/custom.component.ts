@@ -59,6 +59,7 @@ export class CustomComponent implements OnInit {
   }
   save(custOrder: any) {
     this.isSubmitted = true;
+    custOrder.confirm = false;
     if (this.formTemplate.valid) {
       const filePath = `${custOrder}/${this.selectedImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()} `;
       const fileRef = this.storage.ref(filePath);
@@ -90,7 +91,7 @@ delete() {
 }
 
 ngOnInit() {
-
+  this.custOrder.confirm = false ;
 }
 
 showPreview(event: any) {
