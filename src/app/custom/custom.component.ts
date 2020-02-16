@@ -28,8 +28,10 @@ export class CustomComponent implements OnInit {
                         weight: 0, shape: '',
                         wording: '',
                         imageURL: '',
+                        reqDate: '',
                         notes: '' ,
-                        confirm: false
+                        confirm: false,
+                        price: 0
                       };
   formTemplate = new FormGroup({
     id : new FormControl(''),
@@ -41,7 +43,9 @@ export class CustomComponent implements OnInit {
     wording : new FormControl(''),
     imageURL : new FormControl(''),
     reqDate : new FormControl(''),
-    notes : new FormControl('')
+    notes : new FormControl(''),
+    confirm : new FormControl(),
+    price : new FormControl(0)
   });
 
   constructor(
@@ -117,8 +121,10 @@ resetForm() {
     shape: '',
     wording: '',
     imageURL: '',
+    reqDate: '',
     notes: '',
-    confirm: ''
+    confirm: '',
+    price: 0
   });
   this.imgSrc = '../../../assets/images/upll.png';
   this.selectedImage = null;

@@ -66,43 +66,22 @@ export class ProductFormComponent implements OnInit  {
             })
           ).subscribe();
         } else if (this.id) {
-            this.productService.update(this.id, product);
-            const filePath = `${product.category}/${this.selectedImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()} `;
-            const fileRef = this.storage.ref(filePath);
-            this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
-              finalize (() => {
-                fileRef.getDownloadURL().subscribe((url) => {
-                  product.imageURL = url;
-                  this.productService.insert(product);
-                  this.resetForm();
-                });
-              })
-            ).subscribe();
+          this.productService.delete(this.id);
+          const filePath = `${product.category}/${this.selectedImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()} `;
+          const fileRef = this.storage.ref(filePath);
+          this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
+            finalize (() => {
+              fileRef.getDownloadURL().subscribe((url) => {
+                product.imageURL = url;
+                this.productService.update(this.id, product);
+                this.resetForm();
+              });
+            })
+          ).subscribe();
+          // this.productService.update(this.id, product);
         }
         console.log(product);
         this.router.navigate(['/admin/products']);
-   }
-
-   update(product: any) {
-    if (!confirm('Do you want to update this product?')) { return; }
-    this.isSubmitted = true;
-    if (this.formTemplate.valid && !this.id) {
-      const filePath = `${product.category}/${this.selectedImage.name.split('.').slice(0, -1).join('.')}_${new Date().getTime()} `;
-      const fileRef = this.storage.ref(filePath);
-      this.storage.upload(filePath, this.selectedImage).snapshotChanges().pipe(
-        finalize (() => {
-          fileRef.getDownloadURL().subscribe((url) => {
-            product.imageURL = url;
-            this.productService.insert(product);
-            this.resetForm();
-          });
-        })
-      ).subscribe();
-    } else if (this.id) {
-        this.productService.update(this.id, product);
-    }
-    console.log(product);
-    this.router.navigate(['/admin/products']);
    }
 
     delete() {

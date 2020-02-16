@@ -11,4 +11,5 @@ export interface Custom {
     reqDate?: string;
     notes?: string;
     confirm?: boolean;
+    price?: number;
 }
