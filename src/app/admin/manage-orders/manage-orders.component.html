@@ -21,6 +21,7 @@ pending Customized Orders
             <th scope="col">wording</th>
             <th scope="col">imageURL</th>
             <th scope="col">notes</th>
+            <th scope="col">confirm</th>
             <th scope="col">Price</th>
             <th scope="col"></th>
           </tr>
@@ -35,12 +36,12 @@ pending Customized Orders
             <td>{{ c.wording }} </td>
             <td><img src="{{ c.imageURL }}" alt="no image" width="50" > </td>
             <td>{{ c.notes }} </td>
+            <td>{{ c.confirm }} </td>
             <td>{{ c.price }} </td>
             <td class="center">
-             <!--   <a [routerLink]="['/admin/products/', p.key]" routerLinkActive="router-link-active" >Edit</a>
-             <button type="button" color="success" outline="true" mdbWavesEffect mdbBtn color="success" outline="true"  class="my-0"size="sm" [routerLink]="['/admin/products/', p.key]" routerLinkActive="router-link-active" >
-                    Edit
-                  </button>-->
+              <button type="button" color="success" outline="true" mdbWavesEffect mdbBtn color="success" outline="true"  class="my-0"size="sm" (click)="onClickMe(c.id,true)" >
+                  confirm
+              </button>
             </td>
           </tr>
       </tbody>
