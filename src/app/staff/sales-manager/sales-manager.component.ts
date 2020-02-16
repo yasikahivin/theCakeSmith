@@ -14,11 +14,17 @@ export class SalesManagerComponent implements OnInit {
   itemsRef: AngularFireList<any>;
   items: Observable<any[]>;
 
+  orderRef: AngularFireList<any>;
+  orders: Observable<any[]>;
+  totalorders: number;
+
   totalCount: number;
   total = 0 ;
 
   constructor( private db: AngularFireDatabase) {
     this.itemsRef = db.list('/users/');
+    this.orderRef = db.list('/CustomizedOrders/');
+    console.log(this.orderRef);
 
     this.items = this.itemsRef.snapshotChanges().pipe(
       map(changes =>
@@ -26,22 +32,30 @@ export class SalesManagerComponent implements OnInit {
       )
     );
 
+    this.orders = this.orderRef.snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+      )
+    );
 
 // get total users
     this.items.subscribe((dataArray => {
       this.totalCount = dataArray.length;
 
-      this.users = dataArray.map(item => {
-        this.total ++ ;
-        console.log(this.total);
-        return {id : item.payload.doc.id,
-        ...item.payload.doc.data()
-        } as AppUser;
-      });
+      // this.users = dataArray.map(item => {
+      //   //this.total ++ ;
+      //   // console.log(this.total);
+      //   return {id : item.payload.doc.id,
+      //   ...item.payload.doc.data()
+      //   } as AppUser;
+      // });
     }));
 
 // get total orders
 
+    this.orders.subscribe((dataArray => {
+      this.totalorders = dataArray.length;
+    }));
 
 }
   ngOnInit() {

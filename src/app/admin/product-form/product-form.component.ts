@@ -46,6 +46,7 @@ export class ProductFormComponent implements OnInit  {
     ) {
 
         this.id = this.route.snapshot.paramMap.get('id');
+        console.log(this.id);
         if (this.id) { this.productService.get(this.id).pipe(take(1)).subscribe(p => this.product = p); }
 
         // this.product = new Product();
@@ -78,7 +79,6 @@ export class ProductFormComponent implements OnInit  {
               });
             })
           ).subscribe();
-          // this.productService.update(this.id, product);
         }
         console.log(product);
         this.router.navigate(['/admin/products']);

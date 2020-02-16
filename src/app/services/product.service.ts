@@ -53,7 +53,7 @@ insert(products) {
   this.itemsRef.push(products);
 }
 
-getproducts(){
+getproducts() {
     this.itemsRef = this.db.list('products');
 }
 
