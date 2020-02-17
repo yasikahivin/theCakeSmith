@@ -24,7 +24,9 @@
                             <div class="form-group col-8 offset-2">
                                     <label for="phone_num">Phone number</label>
                                     <div class="input-group">
-                                        <input #phone_num="ngModel" [(ngModel)]="appuser.contactNum"   name="phone_num" id="phone_num" type="text" class="form-control" >
+                                        <input #phone_num="ngModel" pattern="^\d{10}$"
+                                        [class.is-invalid]="phone_num.invalid && phone_num.touched" [(ngModel)]="appuser.contactNum"   name="phone_num" id="phone_num" type="text" class="form-control" >
+                                        <small class="text-danger" [class.d.none]="phone_num.valid || phone_num.untouched">Phone number is required and Phone number must be 10 digits</small>
                                     </div>
                              </div>
 
