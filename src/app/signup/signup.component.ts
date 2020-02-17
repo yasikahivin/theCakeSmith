@@ -13,6 +13,8 @@ export class SignupComponent implements OnInit {
   password: string;
   fName: string;
   lName: string;
+  role: 'user';
+  isUser: true;
 
   constructor(
     private auth: AuthService,
@@ -24,7 +26,7 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
-    this.auth.register(this.email, this.password, this.fName)
+    this.auth.register(this.email, this.password, this.fName, this.role, this.isUser )
     .then(res => {
       this.router.navigate(['/menu']);
     }
