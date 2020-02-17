@@ -11,17 +11,28 @@
                     <div class="form-group row">
                       <label for="name" class="col-form-label col-sm-4">Name</label>
                       <input #name="ngModel" [(ngModel)]="service.formData.name"   name="name" id="name" type="text" class="form-control col-sm-6">
+                      <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                        <div *ngIf="f.name.errors.required">Name is required</div>
+                    </div>
                     </div>
                     <br/><br/>
                     <div class="form-group row">
                       <label for="email" class="col-form-label col-sm-4">Email</label>
                       <input #email="ngModel" [(ngModel)]="service.formData.email"   name="email" id="email" type="text" class="form-control col-sm-6">
+                      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">email is required</div>
+                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                    </div>
                     </div>
                     <br/><br/>
 
                     <div class="form-group row">
                       <label for="phone_num" class="col-form-label col-sm-4">Phone number</label>
                       <input #phone_num="ngModel" [(ngModel)]="service.formData.phone_num" name="phone_num" id="phone_num" type="text" class="form-control col-sm-6">
+                      <div *ngIf="submitted && f.phone_num.errors" class="invalid-feedback">
+                        <div *ngIf="f.phone_num.errors.required">phone no is required</div>
+                        <div *ngIf="f.password.errors.minlength">phone_num must be at least 10 characters</div>
+                    </div>
                     </div>
                     <br/><br/>
 
