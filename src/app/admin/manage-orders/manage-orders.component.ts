@@ -12,29 +12,24 @@ import { AngularFireDatabase } from '@angular/fire/database';
 export class ManageOrdersComponent implements OnInit, OnDestroy {
 
   customizedOrders: Custom[] ;
+  customizedConfirmOrders: Custom[] ;
+  Confirmfilteredorder: any[]=[];
   subscription: Subscription;
-  filteredproducts: any[];
+  filteredorder: any[]=[];
   isSubmitted: boolean;
 
 
 
   constructor(private customService: CustomService,private db: AngularFireDatabase) {
-      this.subscription = this.customService.getall()
-      .subscribe(customizedOrders => {
-        this.filteredproducts = this.customizedOrders = customizedOrders;
-        console.log(this.filteredproducts)
-      }
-
-        );
 
 
   }
 
   filter(query: string) {
-     this.filteredproducts = (query) ?
+     this.filteredorder = (query) ?
      this.customizedOrders.filter(c => c.reqDate.toLowerCase().includes(query)) :
      this.customizedOrders;
-     console.log(this.filteredproducts)
+     console.log(this.filteredorder)
   }
 
   ngOnDestroy() {
@@ -46,7 +41,39 @@ export class ManageOrdersComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    // this.filteredproducts=this.customService.data;
+
+    this.subscription = this.customService.getall()
+    .subscribe(data => {
+     // console.log(data);
+      this.customizedOrders = data;
+      this.filteredorder = [];
+      this.customizedOrders.forEach(element => {
+        if (!element.confirm) {
+          this.filteredorder.push(element);
+        }
+        console.log(element.confirm);
+      });
+      // this.filteredorder = this.customizedOrders = customizedOrders;
+      // console.log(this.filteredorder)
+      }
+    );
+
+    this.subscription = this.customService.getall()
+    .subscribe(data => {
+     // console.log(data);
+      this.customizedConfirmOrders = data;
+      this.Confirmfilteredorder = [];
+      this.customizedConfirmOrders.forEach(element => {
+        if (element.confirm) {
+          this.Confirmfilteredorder.push(element);
+        }
+        console.log(element.confirm);
+      });
+      // this.filteredorder = this.customizedOrders = customizedOrders;
+      // console.log(this.filteredorder)
+      }
+    );
+
 
   }
 

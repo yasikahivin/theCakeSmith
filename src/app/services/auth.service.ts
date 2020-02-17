@@ -58,12 +58,13 @@ export class AuthService {
     });
   }
 
-  register(email: string, password: string, fName: string, lName: string) {
+  register(email: string, password: string, fName: string) {
     console.log(fName);
     return  this.afAuth.auth.createUserWithEmailAndPassword(email, password)
         .then((result) => {
           if (result.user.emailVerified !== true) {
             this.SendVerificationMail();
+            window.alert('You are registered and now logged in');
           } else {
             this.ngZone.run(() => {
               this.router.navigate(['newUser']);

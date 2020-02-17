@@ -24,10 +24,9 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit() {
-    this.auth.register(this.email, this.password, this.fName, this.lName)
+    this.auth.register(this.email, this.password, this.fName)
     .then(res => {
       this.router.navigate(['/menu']);
-      window.alert('You are registered and now logged in');
     }
     )
       .catch(err => {
