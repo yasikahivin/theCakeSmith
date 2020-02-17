@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireDatabase,AngularFireObject, AngularFireList} from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireObject, AngularFireList} from '@angular/fire/database';
 import {Observable} from 'rxjs';
+import { Subscription } from 'rxjs';
 import {UserService} from 'src/app/services/user.service';
 import {Router, ActivatedRoute } from '@angular/router';
 import { take} from 'rxjs/operators';
 import { CommonModule} from '@angular/common';
 
 import {AppUser} from 'src/app/models/app-user';
+import { AuthService } from 'src/app/services/auth.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 
 @Component({
@@ -16,29 +19,44 @@ import {AppUser} from 'src/app/models/app-user';
 })
 export class NewUserComponent implements OnInit {
   id: string;
+  users: AppUser[] ;
+  subscription: Subscription;
   SysUsers: any[];
   appuser: AppUser = {name: '', email: '', isAdmin: false, isSalesM: false, isStockM: false, isUser: true, role: '', contactNum: ''};
 
   constructor(
     private userService: UserService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private auth: AuthService,
+    private afAuth: AngularFireAuth
   ) {
-      this.id = this.route.snapshot.paramMap.get('id');
-      if (this.id) { this.userService.get(this.id).pipe(take(1)).subscribe(i => this.appuser =i); }
+    this.subscription = this.userService.getall()
+    .subscribe(users => {
+      this.SysUsers = this.users = users;
+      // console.log(this.SysUsers);
+    }
+    );
+    this.id = this.afAuth.auth.currentUser.uid;
+    console.log(this.id);
+
+    // console.log(this.subscription);
    }
+
 
    save(appuser: any) {
      if (this.id) {
-       this.userService.update(this.id, appuser);
+      this.id = this.afAuth.auth.currentUser.uid;
+      this.userService.update(this.id, appuser);
      } else {
       //  this.userService.create(appuser);
      }
      console.log(appuser);
+     console.log(this.id);
      this.router.navigate(['/menu']);
    }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
+
 
 }

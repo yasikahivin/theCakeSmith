@@ -25,9 +25,9 @@ export class SystemAdminComponent implements OnInit, OnDestroy {
     this.subscription = this.userService.getall()
     .subscribe(users => {
       this.SysUsers = this.users = users;
-      console.log(this.SysUsers);
-    } );
 
+    } );
+    //console.log(this.SysUsers);
 
   }
 
@@ -36,7 +36,7 @@ export class SystemAdminComponent implements OnInit, OnDestroy {
     this.SysUsers = (query) ?
     this.users.filter(u => u.name.toLowerCase().includes(query)) :
     this.users;
-    console.log(this.SysUsers);
+   // console.log(this.SysUsers);
   }
 
   ngOnDestroy() {
@@ -57,6 +57,7 @@ export class SystemAdminComponent implements OnInit, OnDestroy {
 
   delete(id) {
     if (!confirm('Do you want to delete this user from the system?')) { return; }
+    this.db.object('/users/'+ id);
     this.userService.delete(this.id);
     this.router.navigate(['/']);
   }
