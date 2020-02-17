@@ -63,7 +63,6 @@ import { ContactService } from './services/contact.service';
 import { StockManagerComponent } from './staff/stock-manager/stock-manager.component';
 import { CustomDescriptionComponent } from './custom/custom-description/custom-description.component';
 import { TermsConditionsComponent } from './Policies/terms-conditions/terms-conditions.component';
-import { RefundPolicyComponent } from './Policies/refund-policy/refund-policy.component';
 import { PrivacyPolicyComponent } from './Policies/privacy-policy/privacy-policy.component';
 
 
@@ -100,7 +99,6 @@ import { PrivacyPolicyComponent } from './Policies/privacy-policy/privacy-policy
     StockManagerComponent,
     CustomDescriptionComponent,
     TermsConditionsComponent,
-    RefundPolicyComponent,
     PrivacyPolicyComponent
 
   ],
