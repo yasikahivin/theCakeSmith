@@ -3,6 +3,8 @@ import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AppUser } from 'src/app/models/app-user';
+import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+import { Label, Color } from 'ng2-charts';
 
 @Component({
   selector: 'app-sales-manager',
@@ -22,6 +24,27 @@ export class SalesManagerComponent implements OnInit {
 
   totalCount: number;
   total = 0 ;
+
+  // lineChartData: ChartDataSets[] = [
+  //   { data: [85, 72, 78, 75, 77, 75], label: 'Crude oil prices' },
+  // ];
+
+  // lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June'];
+
+  // lineChartOptions = {
+  //   responsive: true,
+  // };
+
+  // lineChartColors: Color[] = [
+  //   {
+  //     borderColor: 'black',
+  //     backgroundColor: 'rgba(255,255,0,0.28)',
+  //   },
+  // ];
+
+  // lineChartLegend = true;
+  // lineChartPlugins = [];
+  // lineChartType = 'line';
 
   constructor( db: AngularFireDatabase) {
 
@@ -64,5 +87,4 @@ export class SalesManagerComponent implements OnInit {
 }
   ngOnInit() {
   }
-
 }

@@ -11,27 +11,28 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class ContactComponent implements OnInit {
 
-  constructor(private service: ContactService,
-    private firestore: AngularFirestore) { }
+  constructor(public service: ContactService,
+              private firestore: AngularFirestore) { }
 
   ngOnInit() {
     this.resetForm();
   }
 
-  resetForm(form?: NgForm){
-    if(form!= null)
+  resetForm(form?: NgForm) {
+    if (form != null) {
     form.resetForm();
+    }
     this.service.formData = {
       id: null,
-      name:'',
-      email:'',
-      phone_num:'',
-      message:'',
-    }
+      name: '',
+      email: '',
+      phone_num: '',
+      message: '',
+    };
   }
 
-  onSubmit(form: NgForm){
-    let data = form.value;
+  onSubmit(form: NgForm) {
+    const data = form.value;
     this.firestore.collection('contact').add(data);
     this.resetForm(form);
   }

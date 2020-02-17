@@ -16,6 +16,7 @@ import { NgFlashMessagesModule } from 'ng-flash-messages';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
+import { ChartsModule } from 'ng2-charts';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
@@ -110,7 +111,8 @@ import { StockManagerComponent } from './staff/stock-manager/stock-manager.compo
     NgFlashMessagesModule.forRoot(),
     FormsModule,
     NgbModule,
-    CustomFormsModule
+    CustomFormsModule,
+    ChartsModule
     // HttpModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
