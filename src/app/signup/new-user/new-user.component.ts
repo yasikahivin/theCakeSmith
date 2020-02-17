@@ -16,7 +16,8 @@ import {AppUser} from 'src/app/models/app-user';
 })
 export class NewUserComponent implements OnInit {
   id: string;
-  appuser: AppUser = {name: '', email: '',isAdmin: false, isSalesM: false, isStockM:false, isUser:true, role:''};
+  SysUsers: any[];
+  appuser: AppUser = {name: '', email: '', isAdmin: false, isSalesM: false, isStockM: false, isUser: true, role: '', contactNum: ''};
 
   constructor(
     private userService: UserService,
@@ -27,15 +28,14 @@ export class NewUserComponent implements OnInit {
       if (this.id) { this.userService.get(this.id).pipe(take(1)).subscribe(i => this.appuser =i); }
    }
 
-   save(appuser: any){
-     if(this.id){
+   save(appuser: any) {
+     if (this.id) {
        this.userService.update(this.id, appuser);
-     }
-     else {
-       this.userService.create(appuser);
+     } else {
+      //  this.userService.create(appuser);
      }
      console.log(appuser);
-     this.router.navigate(['/signup/new-user']);
+     this.router.navigate(['/menu']);
    }
 
   ngOnInit() {

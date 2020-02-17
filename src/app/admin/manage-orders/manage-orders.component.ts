@@ -18,11 +18,12 @@ export class ManageOrdersComponent implements OnInit, OnDestroy {
 
 
 
-  constructor(private customService: CustomService,private db: AngularFireDatabase) {
+  constructor(private customService: CustomService,
+              private db: AngularFireDatabase) {
       this.subscription = this.customService.getall()
       .subscribe(customizedOrders => {
         this.filteredproducts = this.customizedOrders = customizedOrders;
-        console.log(this.filteredproducts)
+        console.log(this.filteredproducts);
       }
 
         );
@@ -34,14 +35,14 @@ export class ManageOrdersComponent implements OnInit, OnDestroy {
      this.filteredproducts = (query) ?
      this.customizedOrders.filter(c => c.reqDate.toLowerCase().includes(query)) :
      this.customizedOrders;
-     console.log(this.filteredproducts)
+     console.log(this.filteredproducts);
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
   Update(id){
-    this.db.object('/CustomizedOrders/' + id).update({confirm:true});
+    this.db.object('/CustomizedOrders/' + id).update({confirm: true});
 
   }
 
