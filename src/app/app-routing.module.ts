@@ -28,7 +28,7 @@ import { SystemAdminComponent } from './staff/system-admin/system-admin.componen
 import { StockManagerComponent } from './staff/stock-manager/stock-manager.component';
 import { StockmanagerAuthGuardService } from './services/stockmanager-auth-guard.service';
 import { TermsConditionsComponent} from './Policies/terms-conditions/terms-conditions.component';
-import {PrivacyPolicyComponent } from './Policies/privacy-policy/privacy-policy.component';
+import { PrivacyPolicyComponent } from './Policies/privacy-policy/privacy-policy.component';
 
 
 const routes: Routes = [
@@ -44,6 +44,8 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'userProfile', component: NewUserComponent},
   {path: 'check-out', component: CheckOutComponent},
+  {path: 'terms', component: TermsConditionsComponent},
+  {path: 'privacy-policy', component: PrivacyPolicyComponent},
 
   {path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuardService]},
   {path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService]},
