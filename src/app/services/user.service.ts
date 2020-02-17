@@ -35,7 +35,9 @@ users: Observable<any[]>;
       ({
         name: user.displayName,
         email: user.email,
-        photoURL: user.photoURL
+        photoURL: user.photoURL,
+        role: 'user',
+        isUser: true
       });
     }
 
@@ -53,6 +55,10 @@ users: Observable<any[]>;
 
     delete(uid: string) {
       return this.db.object('/users/' + uid).remove();
+    }
+
+    create(useri: any) {
+      this.usersRef.push(useri);
     }
 
 }

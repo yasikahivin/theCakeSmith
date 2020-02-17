@@ -15,25 +15,13 @@
         <td>{{ u.email }}</td>
         <td>{{ u.role }}</td>
         <td>
-          <form #f="ngForm" (ngSubmit)="save(f.value)">
-            <div class="row">
-            <div class="col-6">
-              <select #role="ngModel" [(ngModel)]="u.role" name="role" class="form-control">
-                <option selected value=" {{u.role}} "></option>
-                <option value="user">User</option>
-                <option value="admin">Admin</option>
-                <option value="salesM">Sales Manager</option>
-                <option value="stockM">Stock Manager</option>
-              </select>
-            </div>
             <div class="btn-group col-6" role="group">
-              <!-- <button type="button" outline="true" mdbBtn color="success"(click)="save()" mdbWavesEffect width="30%" height="30%" size="sm" ><i class="fa fa-edit" style="font-size: 2em;"></i></button>
-              <button type="button" outline="true" mdbBtn color="danger"(click)="delete()" mdbWavesEffect  width="30%" height="30%" size="sm" ><i class="fa fa-trash" style="font-size: 2em;"></i></button> -->
-              <button type="button" (click)="save()" mdbWavesEffect size="sm" ><i class="fa fa-edit" style="font-size: 2em;"></i></button>
-              <button type="button" (click)="delete()" mdbWavesEffect  size="sm" ><i class="fa fa-trash" style="font-size: 2em;"></i></button>
+              <button type="button" (click)="UpdateAdmin(u.key)" mdbWavesEffect size="sm" >Ad</button>
+              <button type="button" (click)="UpdateSalesM(u.key)" mdbWavesEffect size="sm" >SaM</button>
+              <button type="button" (click)="UpdateStockM(u.key)" mdbWavesEffect size="sm" >StM</button>
+              <button type="button" (click)="delete(u.key)" mdbWavesEffect  size="sm" ><i class="fa fa-trash" style="font-size: 2em;"></i></button>
             </div>
-          </div>
-          </form>
+
         </td>
       </tr>
     </tbody>

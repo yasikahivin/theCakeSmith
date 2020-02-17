@@ -35,8 +35,8 @@ export class ManageOrdersComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
-  Update(id){
-    this.db.object('/CustomizedOrders/' + id).update({confirm:true});
+  Update(id) {
+    this.db.object('/CustomizedOrders/' + id).update({confirm: true});
 
   }
 

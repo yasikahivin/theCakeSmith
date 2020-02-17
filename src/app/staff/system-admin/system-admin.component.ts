@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { Subscription } from 'rxjs';
 import { AppUser } from '../../../app/models/app-user';
 import { Router, ActivatedRoute } from '@angular/router';
-import { take } from 'rxjs/operators';
-import { finalize } from 'rxjs/operators';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 
 @Component({
@@ -13,56 +12,60 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   templateUrl: './system-admin.component.html',
   styleUrls: ['./system-admin.component.scss']
 })
-export class SystemAdminComponent implements OnInit {
+export class SystemAdminComponent implements OnInit, OnDestroy {
   users: AppUser[] ;
   subscription: Subscription;
   SysUsers: any[];
   isSubmitted: boolean;
   id: string;
-  userdetail: AppUser = { name: '', email: '', isAdmin: false , isSalesM: false , isStockM: false , isUser: true , role: ''  };
-  formTemplate = new FormGroup({
-    isAdmin : new FormControl(false),
-    isUser : new FormControl(true),
-    isStockM : new FormControl(false),
-    isSalesM : new FormControl(false),
-  });
 
   constructor(
     private userService: UserService,
+    private db: AngularFireDatabase,
     private router: Router,
-    private  route: ActivatedRoute) {
+    private afAuth: AngularFireAuth) {
     this.subscription = this.userService.getall()
-      .subscribe(users => this.SysUsers = this.users = users);
+    .subscribe(users => {
+      this.SysUsers = this.users = users;
 
-    this.id = this.route.snapshot.paramMap.get('id');
-    if (this.id) { this.userService.get(this.id).pipe(take(1)).subscribe(u => this.userdetail = u ); }
+    } );
+    // console.log(this.SysUsers);
+
   }
 
-  save(userdetail: any) {
-    this.isSubmitted = true;
-    this.userService.update(this.id, userdetail);
-    if (this.id) {
-      this.userService.update(this.id, userdetail.role);
-    }
-    console.log(userdetail);
-}
 
   filter(query: string) {
     this.SysUsers = (query) ?
-    this.users.filter(i => i.name.toLowerCase().includes(query)) :
+    this.users.filter(u => u.name.toLowerCase().includes(query)) :
     this.users;
+   // console.log(this.SysUsers);
   }
 
-  delete() {
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
+  UpdateAdmin(id) {
+    this.db.object('/users/' + id).update({isAdmin: true , isSalesM: false, isStockM: false, role: 'Admin'});
+  }
+
+  UpdateSalesM(id) {
+    this.db.object('/users/' + id).update({isSalesM: true , isAdmin: false , isStockM: false, role: 'SalesM'});
+  }
+
+  UpdateStockM(id) {
+    this.db.object('/users/' + id).update({isStockM: true, isAdmin: false , isSalesM: false, role: 'stockM'});
+  }
+
+  delete(id) {
     if (!confirm('Do you want to delete this user from the system?')) { return; }
-    this.userService.delete(this.id);
+    this.db.object('/users/' + id).remove();
+    // this.userService.delete(this.id);
+    this.router.navigate(['/systemAdmin']);
   }
 
-  // ngOnDestroy() {
-  //   this.subscription.unsubscribe();
-  // }
 
 
-  ngOnInit() {}
+    ngOnInit() {}
 
 }
