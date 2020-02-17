@@ -62,6 +62,9 @@ import { SalesmanagerAuthGuardService } from './services/salesmanager-auth-guard
 import { ManageOrdersComponent } from './admin/manage-orders/manage-orders.component';
 import { ContactService } from './services/contact.service';
 import { StockManagerComponent } from './staff/stock-manager/stock-manager.component';
+import { CustomDescriptionComponent } from './custom/custom-description/custom-description.component';
+import { TermsConditionsComponent } from './Policies/terms-conditions/terms-conditions.component';
+import { PrivacyPolicyComponent } from './Policies/privacy-policy/privacy-policy.component';
 
 
 
@@ -94,7 +97,10 @@ import { StockManagerComponent } from './staff/stock-manager/stock-manager.compo
     NewUserComponent,
     SalesManagerComponent,
     ManageOrdersComponent,
-    StockManagerComponent
+    StockManagerComponent,
+    CustomDescriptionComponent,
+    TermsConditionsComponent,
+    PrivacyPolicyComponent
 
   ],
   imports: [
