@@ -19,6 +19,7 @@ import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { CustomComponent } from './custom/custom.component';
+import { CustomDescriptionComponent } from './custom/custom-description/custom-description.component';
 import { ContactComponent} from './contact/contact.component';
 import { NewUserComponent } from './signup/new-user/new-user.component';
 import { SalesManagerComponent } from './staff/sales-manager/sales-manager.component';
@@ -29,6 +30,7 @@ import { StockManagerComponent } from './staff/stock-manager/stock-manager.compo
 import { StockmanagerAuthGuardService } from './services/stockmanager-auth-guard.service';
 import { TermsConditionsComponent} from './Policies/terms-conditions/terms-conditions.component';
 import { PrivacyPolicyComponent } from './Policies/privacy-policy/privacy-policy.component';
+
 
 
 const routes: Routes = [
@@ -53,6 +55,7 @@ const routes: Routes = [
   {path: 'systemAdmin', component: SystemAdminComponent},
 
   {path: 'custom', component: CustomComponent},
+  {path: 'custom/desc', component: CustomDescriptionComponent},
   {path: 'admin/custom/', component: CustomComponent},
   {path: 'admin/custom/:id', component: CustomComponent, canActivate: [AuthGuardService, AdminAuthGuardService]},
 
