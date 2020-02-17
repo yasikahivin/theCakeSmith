@@ -55,4 +55,8 @@ users: Observable<any[]>;
       return this.db.object('/users/' + uid).remove();
     }
 
+    create(useri: any) {
+      this.usersRef.push(useri);
+    }
+
 }
