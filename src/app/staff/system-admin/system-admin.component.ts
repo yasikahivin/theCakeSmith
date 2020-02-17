@@ -27,7 +27,7 @@ export class SystemAdminComponent implements OnInit, OnDestroy {
       this.SysUsers = this.users = users;
 
     } );
-    //console.log(this.SysUsers);
+    // console.log(this.SysUsers);
 
   }
 

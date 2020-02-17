@@ -49,7 +49,6 @@ export class NewUserComponent implements OnInit {
       this.id = this.afAuth.auth.currentUser.uid;
       this.userService.update(this.id, appuser);
      } else {
-      //  this.userService.create(appuser);
      }
      console.log(appuser);
      console.log(this.id);
