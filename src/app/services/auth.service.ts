@@ -19,7 +19,7 @@ export class AuthService {
   userData: any;
   user$: Observable<firebase.User>;
   Log: any ;
-  userSubject = new BehaviorSubject<Boolean>(false);
+  userSubject = new BehaviorSubject< boolean >(false);
 
   constructor(
     private userService: UserService,
@@ -58,7 +58,7 @@ export class AuthService {
     });
   }
 
-  register(email: string, password: string, fName: string) {
+  register(email: string, password: string, fName: string, role: string, isUser: boolean) {
     console.log(fName);
     return  this.afAuth.auth.createUserWithEmailAndPassword(email, password)
         .then((result) => {
@@ -86,6 +86,7 @@ export class AuthService {
 
 
   logout() {
+    this.router.navigate(['/home']);
     this.afAuth.auth.signOut();
   }
 

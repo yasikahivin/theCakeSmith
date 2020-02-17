@@ -25,26 +25,26 @@ export class SalesManagerComponent implements OnInit {
   totalCount: number;
   total = 0 ;
 
-  // lineChartData: ChartDataSets[] = [
-  //   { data: [85, 72, 78, 75, 77, 75], label: 'Crude oil prices' },
-  // ];
+  lineChartData: ChartDataSets[] = [
+    { data: [32, 18, 0, 0, 0, 0] , label: 'Orders' },
+  ];
 
-  // lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June'];
+  lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June'];
 
-  // lineChartOptions = {
-  //   responsive: true,
-  // };
+  lineChartOptions = {
+    responsive: true,
+  };
 
-  // lineChartColors: Color[] = [
-  //   {
-  //     borderColor: 'black',
-  //     backgroundColor: 'rgba(255,255,0,0.28)',
-  //   },
-  // ];
+  lineChartColors: Color[] = [
+    {
+      borderColor: 'black',
+      backgroundColor: 'rgba(155,150,200,1)',
+    },
+  ];
 
-  // lineChartLegend = true;
-  // lineChartPlugins = [];
-  // lineChartType = 'line';
+  lineChartLegend = true;
+  lineChartPlugins = [];
+  lineChartType = 'line';
 
   constructor( db: AngularFireDatabase) {
 

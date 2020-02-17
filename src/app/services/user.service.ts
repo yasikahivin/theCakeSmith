@@ -36,8 +36,8 @@ users: Observable<any[]>;
         name: user.displayName,
         email: user.email,
         photoURL: user.photoURL,
-        role: 'user',
-        isUser: true
+      //   role: 'user',
+      // isUser: true
       });
     }
 
