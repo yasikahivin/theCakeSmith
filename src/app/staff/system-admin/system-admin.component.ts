@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { AppUser } from '../../../app/models/app-user';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 
 @Component({
@@ -21,7 +22,8 @@ export class SystemAdminComponent implements OnInit, OnDestroy {
   constructor(
     private userService: UserService,
     private db: AngularFireDatabase,
-    private router: Router) {
+    private router: Router,
+    private afAuth: AngularFireAuth) {
     this.subscription = this.userService.getall()
     .subscribe(users => {
       this.SysUsers = this.users = users;
@@ -44,22 +46,22 @@ export class SystemAdminComponent implements OnInit, OnDestroy {
   }
 
   UpdateAdmin(id) {
-    this.db.object('/users/' + id).update({isAdmin: true , role: 'Admin'});
+    this.db.object('/users/' + id).update({isAdmin: true , isSalesM: false, isStockM: false, role: 'Admin'});
   }
 
   UpdateSalesM(id) {
-    this.db.object('/users/' + id).update({isSalesM: true , role: 'SalesM'});
+    this.db.object('/users/' + id).update({isSalesM: true , isAdmin: false , isStockM: false, role: 'SalesM'});
   }
 
   UpdateStockM(id) {
-    this.db.object('/users/' + id).update({isStockM: true, role: 'stockM'});
+    this.db.object('/users/' + id).update({isStockM: true, isAdmin: false , isSalesM: false, role: 'stockM'});
   }
 
   delete(id) {
     if (!confirm('Do you want to delete this user from the system?')) { return; }
-    this.db.object('/users/'+ id);
-    this.userService.delete(this.id);
-    this.router.navigate(['/']);
+    this.db.object('/users/' + id).remove();
+    // this.userService.delete(this.id);
+    this.router.navigate(['/systemAdmin']);
   }
 
 
