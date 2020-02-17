@@ -6,4 +6,5 @@ export interface AppUser {
   isStockM: boolean ;
   isUser: boolean ;
   role: string;
+  contactNum: string;
 }
