@@ -1,2 +1,9 @@
-<p>check-out works!</p>
-
+<h2>Proceeding CheckOut</h2>
+<div class="row" *ngIf="cart$ | async as cart">
+  <div class="col-6">
+    <app-checkout-data-form [cart]="cart"></app-checkout-data-form>
+  </div>
+  <div class="col-6">
+    <shopping-cart-summary [cart]="cart"></shopping-cart-summary>
+  </div>
+</div>

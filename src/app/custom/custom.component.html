@@ -79,8 +79,8 @@
 
         <div class="form-group row">
           <label for="date" class="col-sm-4 col-form-label">Required Date</label>
-          <input type="date" name="reqDate" [(ngModel)]="custOrder.reqDate" required pattern="\d{2}-\d{2}-\d{4}" class="form-control col-sm-2">
-          <span class="validity"></span>
+          <input type="date" name="reqDate" [(ngModel)]="custOrder.reqDate" required pattern="\d{2}-\d{2}-\d{4}" class="form-control col-sm-4">
+          <span >{{dateError}}</span>
         </div>
 
         <div class="form-group row">

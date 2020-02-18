@@ -21,7 +21,13 @@
         <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
           At least 6 characters should be there for a valid password
         </small>
-       </div>
+      </div>
+      <div class="form-group">
+        <input type="confpassword" class="form-control input-lg" name="confpassword" placeholder="Repeat your Password" [(ngModel)]="confpassword" required="required" >
+        <small id="confdefaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+          Re-enter the password to confirm
+        </small>
+      </div>
       <div class="form-group">
           <button type="submit" class="btn btn-success btn-lg btn-block signup-btn">Sign up</button>
       </div>

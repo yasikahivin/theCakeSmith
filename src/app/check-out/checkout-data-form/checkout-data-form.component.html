@@ -1,0 +1,47 @@
+<form #f="ngForm">
+  <div class="form-group">
+    <label for="">Name</label>
+    <!-- #name="ngModel" [(ngModel)]="checkoutData.name" -->
+    <input name="name" type="text" class="form-control" required>
+    <!-- <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+      <div *ngIf="name.errors.required">Name is required.</div>
+    </div> -->
+  </div>
+  <div class="form-group">
+    <label for="">Contact Number</label>
+    <!-- #addressLine1="ngModel"  [(ngModel)]="checkoutData.addressLine1" -->
+    <input name="addressLine1" type="text" class="form-control" placeholder="Line 1" required>
+    <!-- <div class="alert alert-danger" *ngIf="addressLine1.touched && addressLine1.invalid">
+      <div *ngIf="addressLine1.errors.required">Address Line 1 is required.</div>
+    </div> -->
+  </div>
+  <div class="form-group">
+    <label for="">Pickup Option</label>
+    <!-- #addressLine2="ngModel" [(ngModel)]="checkoutData.addressLine2" -->
+    <input  name="addressLine2" type="text" class="form-control" placeholder="Line 2" required>
+    <!-- <div class="alert alert-danger" *ngIf="addressLine2.touched && addressLine2.invalid">
+      <div *ngIf="addressLine2.errors.required">Address Line 2 is required.</div>
+    </div> -->
+  </div>
+  <div class="form-group">
+    <label for="">Pickup Date</label>
+    <!-- #city="ngModel"  [(ngModel)]="checkoutData.city" -->
+    <input name="city" type="text" class="form-control" required>
+    <!-- <div class="alert alert-danger" *ngIf="city.touched && city.invalid">
+      <div *ngIf="city.errors.required">City is required.</div>
+    </div> -->
+  </div>
+  <div class="form-group">
+    <label for="">Pickup Time</label>
+    <!-- #addressLine2="ngModel"  [(ngModel)]="checkoutData.addressLine2" -->
+    <input name="addressLine2" type="text" class="form-control" placeholder="Line 2" required>
+    <!-- <div class="alert alert-danger" *ngIf="addressLine2.touched && addressLine2.invalid">
+      <div *ngIf="addressLine2.errors.required">Address Line 2 is required.</div>
+    </div> -->
+  </div>
+  <button
+    [disabled]="!f.valid"
+    (click)="placeOrder()"
+    class="btn btn-primary">Place Order</button>
+</form>
+

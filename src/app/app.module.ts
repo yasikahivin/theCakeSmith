@@ -65,7 +65,8 @@ import { StockManagerComponent } from './staff/stock-manager/stock-manager.compo
 import { CustomDescriptionComponent } from './custom/custom-description/custom-description.component';
 import { TermsConditionsComponent } from './Policies/terms-conditions/terms-conditions.component';
 import { PrivacyPolicyComponent } from './Policies/privacy-policy/privacy-policy.component';
-//import { FullCalendarModule } from '@fullcalendar/angular';
+import { CheckoutDataFormComponent } from './check-out/checkout-data-form/checkout-data-form.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 
 
@@ -101,7 +102,8 @@ import { PrivacyPolicyComponent } from './Policies/privacy-policy/privacy-policy
     StockManagerComponent,
     CustomDescriptionComponent,
     TermsConditionsComponent,
-    PrivacyPolicyComponent
+    PrivacyPolicyComponent,
+    CheckoutDataFormComponent
 
   ],
   imports: [
