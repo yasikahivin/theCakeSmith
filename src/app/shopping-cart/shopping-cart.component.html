@@ -1,6 +1,57 @@
-
 <br><br><br>
-<h1>Shopping Cart</h1>
+
+<div class="col-md-8 mx-auto pink lighten-5">
+  <br/>
+  <div class="card rgba-white-light">
+    <div class="card-body">
+      <table class="table" width=75%>
+          <thead class="blue-grey lighten-3 white-text">
+            <tr>
+              <th scope="col">Product Name</th>
+              <th scope="col">Weight</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Chocolate Drip Cake</td>
+              <td>2Kg</td>
+              <td>1</td>
+              <td>Rs.2500</td>
+            </tr>
+            <tr>
+              <td>XOXO LOVE Cup Cake Pack</td>
+              <td>1Kg</td>
+              <td>1</td>
+              <td>Rs.2200</td>
+            </tr>
+
+        </tbody>
+        <tfooter>
+          <tr>
+            <td colspan="3">Total Price</td>
+            <td>  </td>
+            <td>  </td>
+            <td> Rs.4700 </td>
+          </tr>
+        </tfooter>
+
+
+
+        </table>
+
+    </div>
+  </div>
+  <br/>
+</div>
+<div class="col-md-2 mx-auto"></div>
+<br/>
+<div class="text-center">
+  <a  routerLink="/check-out"  class="btn btn-secondary">Check Out</a  >
+</div>
+
+<!-- <h1>Shopping Cart</h1>
 <div class="row col-10" *ngIf="cart$ | async as cart">
   <p>
     You have {{ cart.totalItemsCount }} items in your shopping cart.
@@ -44,11 +95,11 @@
   <button
     (click)="clearCart()"
     class="btn btn-danger btn-sm">Clear Shopping Cart</button>
-</div>
+</div> -->
 
 
 
 
 
 <!-- *ngif="cart.items.length"  -->
-<a  routerLink="/check-out"  class="btn btn-primary">Check Out</a  >
+<!-- <a  routerLink="/check-out"  class="btn btn-primary">Check Out</a  > -->

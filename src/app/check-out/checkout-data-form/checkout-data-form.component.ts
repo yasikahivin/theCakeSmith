@@ -13,23 +13,17 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./checkout-data-form.component.scss']
 })
 export class CheckoutDataFormComponent implements OnInit, OnDestroy {
-  // @Input('cart') cart: ShoppingCart;
-  checkoutData = {};
-  userSubscription: Subscription;
-  userId: string;
+  id; string;
 
-  constructor(
-    private router: Router,
-    private authService: AuthService,
-    // private orderService: OrderService
-  ) { }
+  constructor() { }
 
   ngOnInit() {
-    this.userSubscription = this.authService.user$.subscribe(user => this.userId = user.uid);
+    //
   }
 
   ngOnDestroy() {
-    this.userSubscription.unsubscribe();
+    // this.userSubscription = this.authService.user$.subscribe(user => this.userId = user.uid);
+    // this.userSubscription.unsubscribe();
   }
 
   async placeOrder() {
