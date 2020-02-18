@@ -16,9 +16,9 @@ export class CheckOutComponent implements OnInit {
 
  // constructor(private shoppingCartService: ShoppingCartService) {}
 
- // public async ngOnInit() {
-    //this.cart$ = await this.shoppingCartService.getCart();
-  //}
+  async ngOnInit() {
+    // this.cart$ = await this.shoppingCartService.getCart();
+  }
 
 
 }

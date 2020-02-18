@@ -11,10 +11,12 @@ import { NgFlashMessageService } from 'ng-flash-messages';
 export class SignupComponent implements OnInit {
   email: string;
   password: string;
+  confpassword: string;
   fName: string;
   lName: string;
   role: 'user';
   isUser: true;
+  error="";
 
   constructor(
     private auth: AuthService,
@@ -25,18 +27,27 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() {
-    this.auth.register(this.email, this.password, this.fName, this.role, this.isUser )
-    .then(res => {
-      this.router.navigate(['/menu']);
-    }
-    )
-      .catch(err => {
-        this.flashMessage.showFlashMessage({
-          messages: ['Invalid'],
-          type: 'danger', timeout: 4000
-      });
-});
+  onSubmit(value) {
+      console.log(value);
+      if(value.password !== value.confpassword){
+        window.alert ('Passwords don\'t match') ;
+        this.error = 'Passwords don\'t match';
+        return;
+      }
+      this.email = value.email;
+      this.password = value.password;
+
+      this.auth.register(this.email, this.password, this.fName, this.role, this.isUser )
+      .then(res => {
+        this.router.navigate(['/menu']);
+      }
+      )
+        .catch(err => {
+          this.flashMessage.showFlashMessage({
+            messages: ['Invalid'],
+            type: 'danger', timeout: 4000
+        });
+  });
   }
 
 }

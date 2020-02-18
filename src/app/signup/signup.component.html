@@ -3,7 +3,7 @@
 <br/>
 <br/>
 <div class="signup-form">
-    <form (submit)="onSubmit()" class="text-center border border-light p-5" autocomplete="off">
+    <form (submit)="onSubmit(log.value)" class="text-center border border-light p-5" autocomplete="off" #log="ngForm">
 
       <h2>Sign up</h2>
       <p class="hint-text">Sign up with your Google account</p>
@@ -14,14 +14,20 @@
 
       <div class="or-seperator"><b>OR</b></div>
       <div class="form-group">
-        <input type="email" class="form-control input-lg" name="email" placeholder="Email" [(ngModel)]="email"  required="required">
+        <input type="email" class="form-control input-lg" name="email" placeholder="Email"   required="required" ngModel>
       </div>
       <div class="form-group">
-        <input type="password" class="form-control input-lg" name="password" placeholder="Password" [(ngModel)]="password" required="required" >
+        <input type="password" class="form-control input-lg" name="password" placeholder="Password"  required="required" ngModel>
         <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
           At least 6 characters should be there for a valid password
         </small>
-       </div>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control input-lg" name="confpassword" placeholder="Repeat your Password"  required="required" ngModel>
+        <small id="confdefaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+          Re-enter the password to confirm
+        </small>
+      </div>
       <div class="form-group">
           <button type="submit" class="btn btn-success btn-lg btn-block signup-btn">Sign up</button>
       </div>
