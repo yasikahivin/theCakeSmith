@@ -33,20 +33,7 @@ async clearCart() {
 }
 
 
-// async getCart(): Observable<ShoppingCart> {
-//   return this.getOrCreateCartId()
-//     .pipe(
-//       switchMap((cartId: string) => {
-//         const cart = this.db.doc<ShoppingCart>('shopping-carts/' + cartId);
-//         return cart.valueChanges();
-//       })
-//     )
-// }
-
-// private getItem(cartId: string, productId: string) {
-//   return this.db.object('/shopping-cart/' + cartId + '/Items/' + productId);
-// }
-
+// craete cart id for each shopping cart
 private async getOrCreateCartId(): Promise<string> {
   const cartId = localStorage.getItem('cartId');
   if (cartId) {return cartId; }
