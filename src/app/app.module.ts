@@ -65,7 +65,8 @@ import { StockManagerComponent } from './staff/stock-manager/stock-manager.compo
 import { CustomDescriptionComponent } from './custom/custom-description/custom-description.component';
 import { TermsConditionsComponent } from './Policies/terms-conditions/terms-conditions.component';
 import { PrivacyPolicyComponent } from './Policies/privacy-policy/privacy-policy.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FullCalendarModule } from '@fullcalendar/angular';
+
 
 
 @NgModule({
@@ -118,8 +119,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     NgbModule,
     CustomFormsModule,
-    ChartsModule,
-    ReactiveFormsModule
+    FullCalendarModule
     // HttpModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
