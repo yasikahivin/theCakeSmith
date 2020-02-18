@@ -12,6 +12,7 @@ export class ShoppingCartService {
 
   constructor(private db: AngularFireDatabase) { }
 
+// create shopping cart
 private create() {
   return this.db.list('/shopping-carts').push({
     dataCreated: new Date().getTime()
@@ -19,12 +20,13 @@ private create() {
 
 }
 
+//remove items in cart
 async clearCart() {
   const cartId = await this.getOrCreateCartId();
   this.db.object('/shopping-carts/' + cartId + '/items').remove();
 }
 
-
+// get the cartId from shopping cart
  async getCart(): Promise<AngularFireObject<ShoppingCart>> {
   const cartId = await this.getOrCreateCartId();
   return this.db.object('/shopping-carts/' + cartId)
@@ -54,7 +56,7 @@ private async getOrCreateCartId(): Promise<string> {
   return result.key;
 
   }
-//// suprime solution (yasika)
+//// increase quantity when items add to cart
   async addToCart(product: Product) {
     const cartId = await this.getOrCreateCartId();
     const item$ = this.db.object('/shopping-carts/' + cartId + '/items/' + product.key);
@@ -66,7 +68,8 @@ private async getOrCreateCartId(): Promise<string> {
       }
     });
   }
-
+  
+  //remove items from shopping cart
   async removeFromCart(product: Product){
     const cartId = await this.getOrCreateCartId();
     const item$ = this.db.object('/shopping-carts/' + cartId + '/items/' + product.key);
