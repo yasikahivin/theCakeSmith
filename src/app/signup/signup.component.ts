@@ -29,7 +29,8 @@ export class SignupComponent implements OnInit {
 
   onSubmit(value) {
       console.log(value);
-      if(value.password !== value.confpassword){
+      // VALIDATION FOR PASSWPRD CONFIRMATION
+      if (value.password !== value.confpassword){
         window.alert ('Passwords don\'t match') ;
         // this.error = 'Passwords don\'t match';
         return;
@@ -38,6 +39,7 @@ export class SignupComponent implements OnInit {
       this.password = value.password;
       this.isUser = true ;
 
+      // SUBMITTING VALUES TO DATABASE USING REGISTER FUNCTION THROUGH APPUSER MODEL USING AUTHSERVICE
       this.auth.register(this.email, this.password, this.fName, this.role, this.isUser )
       .then(res => {
         this.router.navigate(['/menu']);

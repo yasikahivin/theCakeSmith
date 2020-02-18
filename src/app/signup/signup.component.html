@@ -1,18 +1,15 @@
 <body>
-<br/>
-<br/>
-<br/>
+<br/><br/><br/>
 <div class="signup-form">
     <form (submit)="onSubmit(log.value)" class="text-center border border-light p-5" autocomplete="off" #log="ngForm">
-
       <h2>Sign up</h2>
       <p class="hint-text">Sign up with your Google account</p>
-
       <a type="button" class="light-blue-text mx-2">
         <i class="fa fa-google"></i>
       </a>
-
-      <div class="or-seperator"><b>OR</b></div>
+      <div class="or-seperator">
+        <b>OR</b>
+      </div>
       <div class="form-group">
         <input type="email" class="form-control input-lg" name="email" placeholder="Email"   required="required" ngModel>
       </div>
@@ -29,14 +26,14 @@
         </small>
       </div>
       <div class="form-group">
-          <button type="submit" class="btn btn-success btn-lg btn-block signup-btn">Sign up</button>
+        <button type="submit" class="btn btn-success btn-lg btn-block signup-btn">Sign up</button>
       </div>
       <p>By clicking
       <em>Sign up</em> you agree to our
-      <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/terms']" routerLinkActive="router-link-active">terms of service</a></p>
-  </form>
-<br/>
-<br/>
+      <a class="nav-link waves-light" mdbWavesEffect [routerLink]="['/terms']" routerLinkActive="router-link-active">terms of service</a>
+      </p>
+    </form>
+<br/><br/>
 </div>
 </body>
 
