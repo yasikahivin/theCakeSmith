@@ -20,7 +20,8 @@ export class ManageOrdersComponent implements OnInit, OnDestroy {
 
 
 
-  constructor(private customService: CustomService,private db: AngularFireDatabase) {
+  constructor(private customService: CustomService,
+              private db: AngularFireDatabase) {
 
 
   }
@@ -44,7 +45,7 @@ export class ManageOrdersComponent implements OnInit, OnDestroy {
 
     this.subscription = this.customService.getall()
     .subscribe(data => {
-     // console.log(data);
+     console.log("xxxxxxxxxx",data);
       this.customizedOrders = data;
       this.filteredorder = [];
       this.customizedOrders.forEach(element => {

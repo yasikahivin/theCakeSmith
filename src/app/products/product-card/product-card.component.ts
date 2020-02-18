@@ -10,13 +10,14 @@ import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
   styleUrls: ['./product-card.component.scss']
 })
 export class ProductCardComponent  {
-  // tslint:disable-next-line: no-input-rename
   @Input('product') product: Product;
+  @Input('show-actions') showActions = true;
   @Input('shopping-cart') ShoppingCart;
   closeResult: string;
+  // showAction = true;
 
   constructor(private modalService: NgbModal,
-              private shoppingCartService: ShoppingCartService) { }
+              private cartService: ShoppingCartService) { }
 
       open(content: any) {
         this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result: any) => {
@@ -27,28 +28,26 @@ export class ProductCardComponent  {
       }
 
       addToCart() {
-
-        this.shoppingCartService.addToCart(this.product);
-
-      }  
-
-      removeFromCart(){
-        this.shoppingCartService.removeFromCart(this.product) 
+        this.cartService.addToCart(this.product);
       }
 
-      getQuantity(){
-      if (!this.ShoppingCart) return 0;
-      let item = this.ShoppingCart.items[this.product.key];
-      return item ? item.quantity : 0;
-    }
+      removeFromCart() {// set to () :removeFromCart(this.product);
+        this.cartService.removeFromCart(this.product);
+      }
 
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return  `with: ${reason}`;
-    }
-  }
+      getQuantity() {
+        if (!this.ShoppingCart) { return 0; }
+        const item = this.ShoppingCart.items[this.product.key];
+        return item ? item.quantity : 0;
+      }
+
+      private getDismissReason(reason: any): string {
+        if (reason === ModalDismissReasons.ESC) {
+          return 'by pressing ESC';
+        } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+          return 'by clicking on a backdrop';
+        } else {
+          return  `with: ${reason}`;
+        }
+      }
 }

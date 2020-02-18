@@ -65,6 +65,7 @@ import { CustomDescriptionComponent } from './custom/custom-description/custom-d
 import { TermsConditionsComponent } from './Policies/terms-conditions/terms-conditions.component';
 import { RefundPolicyComponent } from './Policies/refund-policy/refund-policy.component';
 import { PrivacyPolicyComponent } from './Policies/privacy-policy/privacy-policy.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 
 
@@ -118,7 +119,8 @@ import { PrivacyPolicyComponent } from './Policies/privacy-policy/privacy-policy
     NgFlashMessagesModule.forRoot(),
     FormsModule,
     NgbModule,
-    CustomFormsModule
+    CustomFormsModule,
+    FullCalendarModule
     // HttpModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
