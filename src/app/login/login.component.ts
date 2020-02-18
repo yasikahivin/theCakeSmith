@@ -38,7 +38,7 @@ export class LoginComponent  implements OnInit {
           type: 'success',
           timeout: 4000
         });
-        this.router.navigate(['/menu']);
+        this.router.navigate(['/userProfile']);
         if (!confirm('You are now logged in to the system')) { return; }
       })
         .catch(err => {

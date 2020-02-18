@@ -5,11 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './check-out.component.html',
   styleUrls: ['./check-out.component.scss']
 })
-export class CheckOutComponent implements OnInit {
+export class CheckOutComponent{
 
-  constructor() { }
 
-  ngOnInit() {
-  }
 
 }

@@ -16,6 +16,7 @@ import { NgFlashMessagesModule } from 'ng-flash-messages';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
+import { ChartsModule } from 'ng2-charts';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
@@ -63,7 +64,6 @@ import { ContactService } from './services/contact.service';
 import { StockManagerComponent } from './staff/stock-manager/stock-manager.component';
 import { CustomDescriptionComponent } from './custom/custom-description/custom-description.component';
 import { TermsConditionsComponent } from './Policies/terms-conditions/terms-conditions.component';
-import { RefundPolicyComponent } from './Policies/refund-policy/refund-policy.component';
 import { PrivacyPolicyComponent } from './Policies/privacy-policy/privacy-policy.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 
@@ -101,7 +101,6 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     StockManagerComponent,
     CustomDescriptionComponent,
     TermsConditionsComponent,
-    RefundPolicyComponent,
     PrivacyPolicyComponent
 
   ],

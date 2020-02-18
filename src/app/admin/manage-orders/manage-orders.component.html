@@ -13,6 +13,7 @@ pending Customized Orders
     <table class="table" width=75%>
         <thead class="blue-grey lighten-3 white-text">
           <tr>
+            <th scope="col">Required Date</th>
             <th scope="col">flavor</th>
             <th scope="col">frosting_type</th>
             <th scope="col">frosting_color</th>
@@ -28,6 +29,7 @@ pending Customized Orders
         </thead>
         <tbody>
           <tr *ngFor="let c of filteredorder">
+            <td>{{ c.reqDate }}</td>
             <td>{{ c.flavor }}</td>
             <td>{{ c.frosting_type}}</td>
             <td>{{ c.frosting_color }} </td>
@@ -59,6 +61,7 @@ pending Customized Orders
     <table class="table" width=75%>
         <thead class="blue-grey lighten-3 white-text">
           <tr>
+            <th scope="col">Required Date</th>
             <th scope="col">flavor</th>
             <th scope="col">frosting_type</th>
             <th scope="col">frosting_color</th>
@@ -73,6 +76,7 @@ pending Customized Orders
         </thead>
         <tbody>
           <tr *ngFor="let c of Confirmfilteredorder">
+            <td>{{ c.reqDate }}</td>
             <td>{{ c.flavor }}</td>
             <td>{{ c.frosting_type}}</td>
             <td>{{ c.frosting_color }} </td>
@@ -95,3 +99,5 @@ pending Customized Orders
 
   </div>
 </div>
+
+

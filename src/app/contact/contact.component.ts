@@ -31,8 +31,8 @@ export class ContactComponent implements OnInit {
     };
   }
 
-  onSubmit(form: NgForm){
-    let data = form.value;
+  onSubmit(form: NgForm) {
+    const data = form.value;
     this.firestore.collection('contact').add(data);
     this.resetForm(form);
   }

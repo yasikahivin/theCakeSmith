@@ -13,16 +13,14 @@ export class ManageOrdersComponent implements OnInit, OnDestroy {
 
   customizedOrders: Custom[] ;
   customizedConfirmOrders: Custom[] ;
-  Confirmfilteredorder: any[]=[];
+  Confirmfilteredorder: any[] = [];
   subscription: Subscription;
-  filteredorder: any[]=[];
+  filteredorder: any[] = [];
   isSubmitted: boolean;
 
 
 
-  constructor(private customService: CustomService,
-              private db: AngularFireDatabase) {
-
+  constructor(private customService: CustomService, private db: AngularFireDatabase) {
 
   }
 
@@ -30,7 +28,7 @@ export class ManageOrdersComponent implements OnInit, OnDestroy {
      this.filteredorder = (query) ?
      this.customizedOrders.filter(c => c.reqDate.toLowerCase().includes(query)) :
      this.customizedOrders;
-     console.log(this.filteredorder)
+     console.log(this.filteredorder);
   }
 
   ngOnDestroy() {

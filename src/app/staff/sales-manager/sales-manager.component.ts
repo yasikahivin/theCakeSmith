@@ -3,15 +3,9 @@ import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { tap, map } from 'rxjs/operators';
 import { AppUser } from 'src/app/models/app-user';
-import {  OnChanges } from '@angular/core';
-import dayGridPlugin from '@fullcalendar/daygrid';
+import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+import { Label, Color } from 'ng2-charts';
 import { CustomService } from 'src/app/services/custom.service';
-
-// import { VenueCalendarService } from 'app/venue-calendar.service';
-// import { AngularFirestore } from '@angular/fire/firestore';
-// import { LoginService } from 'app/services/login.services';
-// import { Observable } from 'rxjs';
-// import { tap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-sales-manager',
@@ -25,7 +19,7 @@ export class SalesManagerComponent implements OnInit {
   items: Observable<any[]>;
 
   calendarEvents: any[] = [];
-  calendarPlugins = [dayGridPlugin];
+ /////////////////////// calendarPlugins = [dayGridPlugin];
   // public venue_name: any;
   count: any = 1;
   i: any;
@@ -39,9 +33,29 @@ export class SalesManagerComponent implements OnInit {
   totalCount: number;
   total = 0 ;
 
+  // lineChartData: ChartDataSets[] = [
+  //   { data: [32, 18, 0, 0, 0, 0] , label: 'Orders' },
+  // ];
+
+  // lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June'];
+
+  // lineChartOptions = {
+  //   responsive: true,
+  // };
+
+  // lineChartColors: Color[] = [
+  //   {
+  //     borderColor: 'black',
+  //     backgroundColor: 'rgba(155,150,200,1)',
+  //   },
+  // ];
+
+  // lineChartLegend = true;
+  // lineChartPlugins = [];
+  // lineChartType = 'line';
+
   constructor( db: AngularFireDatabase,
-               private customService: CustomService,
-               ) {
+               private customService: CustomService,) {
 
     this.itemsRef = db.list('/users/');
     this.orderRef = db.list('/CustomizedOrders/');
@@ -104,8 +118,10 @@ export class SalesManagerComponent implements OnInit {
   getData(): Observable<any[]> {
 
     return this.customService.getall().pipe(
-      tap(events => console.log('filtered - ', events)), //this is added to observe the data which are retrieving from the database and passed to the 'events' array
-      map(events => events.map(event => { // the data retrived from the database are retrieved as timestamp. So here it's getting map to a date format
+      tap(events => console.log('filtered - ', events)),
+      // this is added to observe the data which are retrieving from the database and passed to the 'events' array
+      map(events => events.map(event => {
+        // the data retrived from the database are retrieved as timestamp. So here it's getting map to a date format
         const data: any = event;
         data.start = data.reqDate.toDate();
        // data.end = data.reqDate.toDate();
@@ -118,5 +134,4 @@ export class SalesManagerComponent implements OnInit {
       }))
     );
   }
-
 }
