@@ -39,8 +39,6 @@ export class NewUserComponent implements OnInit {
     );
     this.id = this.afAuth.auth.currentUser.uid;
     console.log(this.id);
-
-    // console.log(this.subscription);
    }
 
 
