@@ -49,6 +49,10 @@ export class SystemAdminComponent implements OnInit, OnDestroy {
     this.db.object('/users/' + id).update({isAdmin: true , isSalesM: false, isStockM: false, isUser: false, role: 'Admin'});
   }
 
+  UpdateUser(id) {
+    this.db.object('/users/' + id).update({isUser: true , isSalesM: false, isStockM: false, isAdmin: false, role: 'User'});
+  }
+
   UpdateSalesM(id) {
     this.db.object('/users/' + id).update({isSalesM: true , isAdmin: false , isStockM: false, isUser: false, role: 'SalesM'});
   }

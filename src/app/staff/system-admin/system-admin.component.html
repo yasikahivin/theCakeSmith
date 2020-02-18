@@ -16,9 +16,10 @@
         <td>{{ u.role }}</td>
         <td>
             <div class="btn-group col-6" role="group">
-              <button type="button" (click)="UpdateAdmin(u.key)" mdbWavesEffect size="sm" >Ad</button>
-              <button type="button" (click)="UpdateSalesM(u.key)" mdbWavesEffect size="sm" >SaM</button>
-              <button type="button" (click)="UpdateStockM(u.key)" mdbWavesEffect size="sm" >StM</button>
+              <button type="button" (click)="UpdateUser(u.key)" mdbWavesEffect size="sm" >User</button>
+              <button type="button" (click)="UpdateAdmin(u.key)" mdbWavesEffect size="sm" >Admin</button>
+              <button type="button" (click)="UpdateSalesM(u.key)" mdbWavesEffect size="sm" >SalesM</button>
+              <button type="button" (click)="UpdateStockM(u.key)" mdbWavesEffect size="sm" >StockM</button>
               <button type="button" (click)="delete(u.key)" mdbWavesEffect  size="sm" ><i class="fa fa-trash" style="font-size: 2em;"></i></button>
             </div>
 
