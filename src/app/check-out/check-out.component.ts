@@ -9,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./check-out.component.scss']
 })
 export class CheckOutComponent implements OnInit {
-  cart$: Observable<ShoppingCart>;
+  ngOnInit(): void {
+    throw new Error("Method not implemented.");
+  }
+ // cart$: Observable<ShoppingCart>;
 
-  constructor(private shoppingCartService: ShoppingCartService) {}
+ // constructor(private shoppingCartService: ShoppingCartService) {}
 
   async ngOnInit() {
     // this.cart$ = await this.shoppingCartService.getCart();
