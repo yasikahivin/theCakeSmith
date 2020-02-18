@@ -66,6 +66,7 @@ import { CustomDescriptionComponent } from './custom/custom-description/custom-d
 import { TermsConditionsComponent } from './Policies/terms-conditions/terms-conditions.component';
 import { PrivacyPolicyComponent } from './Policies/privacy-policy/privacy-policy.component';
 import { CheckoutDataFormComponent } from './check-out/checkout-data-form/checkout-data-form.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 
 
@@ -120,7 +121,7 @@ import { CheckoutDataFormComponent } from './check-out/checkout-data-form/checko
     FormsModule,
     NgbModule,
     CustomFormsModule,
-    ChartsModule
+    FullCalendarModule
     // HttpModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
