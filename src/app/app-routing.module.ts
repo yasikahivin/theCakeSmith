@@ -30,6 +30,8 @@ import { StockManagerComponent } from './staff/stock-manager/stock-manager.compo
 import { StockmanagerAuthGuardService } from './services/stockmanager-auth-guard.service';
 import { TermsConditionsComponent} from './Policies/terms-conditions/terms-conditions.component';
 import { PrivacyPolicyComponent } from './Policies/privacy-policy/privacy-policy.component';
+import { CheckoutDataFormComponent } from './check-out/checkout-data-form/checkout-data-form.component';
+
 
 
 
@@ -46,6 +48,7 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'userProfile', component: NewUserComponent},
   {path: 'check-out', component: CheckOutComponent},
+  {path: 'check-out-form', component: CheckoutDataFormComponent},
   {path: 'terms', component: TermsConditionsComponent},
   {path: 'privacy-policy', component: PrivacyPolicyComponent},
 
