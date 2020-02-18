@@ -11,10 +11,12 @@ import { NgFlashMessageService } from 'ng-flash-messages';
 export class SignupComponent implements OnInit {
   email: string;
   password: string;
+  confpassword: string;
   fName: string;
   lName: string;
   role: 'user';
   isUser: true;
+  pwderr: '';
 
   constructor(
     private auth: AuthService,

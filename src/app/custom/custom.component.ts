@@ -24,6 +24,7 @@ export class CustomComponent implements OnInit {
   selectedImage: any = null;
   isSubmitted: boolean;
   id: string;
+  dateError = '';
   appUser: AppUser;
   custOrder: Custom = { id: '',
                         flavor: '',
@@ -66,6 +67,16 @@ export class CustomComponent implements OnInit {
     if (this.id) { this.customService.get(this.id).pipe(take(1)).subscribe(o => this.custOrder = o ); }
   }
   save(custOrder: any) {
+    const date = new Date();
+    const enterdate = custOrder.reqDate.split('-');
+    // tslint:disable-next-line: radix
+    const a = new Date(parseInt(enterdate[0]), parseInt(enterdate[1]) - 1 , parseInt(enterdate[2]));
+    if (date > a) {
+      this.dateError = 'Error' ;
+      window.alert('Enter a future date for the required date');
+      return ;
+    }
+
     this.isSubmitted = true;
     custOrder.confirm = false;
     if (this.formTemplate.valid) {
