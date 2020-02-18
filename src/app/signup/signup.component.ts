@@ -16,7 +16,7 @@ export class SignupComponent implements OnInit {
   lName: string;
   role: 'user';
   isUser: true;
-  error="";
+  error: '';
 
   constructor(
     private auth: AuthService,
@@ -31,11 +31,12 @@ export class SignupComponent implements OnInit {
       console.log(value);
       if(value.password !== value.confpassword){
         window.alert ('Passwords don\'t match') ;
-        this.error = 'Passwords don\'t match';
+        // this.error = 'Passwords don\'t match';
         return;
       }
       this.email = value.email;
       this.password = value.password;
+      this.isUser = true ;
 
       this.auth.register(this.email, this.password, this.fName, this.role, this.isUser )
       .then(res => {
