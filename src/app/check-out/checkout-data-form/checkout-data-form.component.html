@@ -1,47 +1,130 @@
-<form #f="ngForm">
-  <div class="form-group">
-    <label for="">Name</label>
-    <!-- #name="ngModel" [(ngModel)]="checkoutData.name" -->
-    <input name="name" type="text" class="form-control" required>
-    <!-- <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
-      <div *ngIf="name.errors.required">Name is required.</div>
-    </div> -->
+<body style="background-color:rgb(252,228,236)">
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+
+  <div class="row">
+      <div class="col-md-6 mx-auto offset-2">
+          <div class="card">
+              <div class="card-body">
+                      <form #f="ngForm" (ngSubmit)="save(f.value)" novalidate>
+                      <div class="row">
+                      <div class="form-group col-6 offset-3">
+                          <label for="title">Name</label>
+                          <input [(ngModel)]="<body style="background-color:rgb(252,228,236)">
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <div class="row">
+        <div class="col-md-6 mx-auto offset-2">
+            <div class="card">
+                <div class="card-body">
+                        <form #f="ngForm" (ngSubmit)="save(f.value)" novalidate>
+                        <div class="row">
+                        <div class="form-group col-6 offset-3">
+                            <label for="title">Name</label>
+                            <input [(ngModel)]="checkout.name" #name="ngModel"  name="name" id="name" type="text" class="form-control">
+                        </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-4 offset-4">
+                                <label for="unit_price">Unit Price</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">LKR</span>
+                                    <input [(ngModel)]="checkout.unit_price" #price="ngModel" name="unit_price" id="unit_price" type="number" class="form-control" size="8">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-4 offset-4">
+                                <label for="unit_weight">Weight</label>
+                                <div class="input-group">
+                                    <input #unit_weight="ngModel" [(ngModel)]="checkout.unit_weight"   name="unit_weight" id="unit_weight" type="number" class="form-control text-center" >
+                                    <span class="input-group-text">kg</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                        <div class="form-group col-4 offset-4">
+                            <label for="quantity">Quantity</label>
+                            <div class="input-group">
+                                <input #weight="ngModel" [(ngModel)]="checkout.quantity"   name="quantity" id="quantity" type="number" class="form-control text-center" >
+                            </div>
+                        </div>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div class="row">
+                            <div class="col-3"></div>
+                            <button class="btn btn-primary col-2">Save</button>
+                            <div class="col-2"></div>
+                            <button type="button" (click)="delete()" class="btn btn-danger col-2">Delete</button>
+                            <div class="col-3"></div>
+                        </div>
+
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    </body>
+
+.name" #name="ngModel"  name="name" id="name" type="text" class="form-control">
+                      </div>
+                      </div>
+
+                      <div class="row">
+                          <div class="form-group col-4 offset-4">
+                              <label for="unit_price">Unit Price</label>
+                              <div class="input-group">
+                                  <span class="input-group-text">LKR</span>
+                                  <input [(ngModel)]="checkout.unit_price" #price="ngModel" name="unit_price" id="unit_price" type="number" class="form-control" size="8">
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="row">
+                          <div class="form-group col-4 offset-4">
+                              <label for="unit_weight">Weight</label>
+                              <div class="input-group">
+                                  <input #unit_weight="ngModel" [(ngModel)]="checkout.unit_weight"   name="unit_weight" id="unit_weight" type="number" class="form-control text-center" >
+                                  <span class="input-group-text">kg</span>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="row">
+                      <div class="form-group col-4 offset-4">
+                          <label for="quantity">Quantity</label>
+                          <div class="input-group">
+                              <input #weight="ngModel" [(ngModel)]="checkout.quantity"   name="quantity" id="quantity" type="number" class="form-control text-center" >
+                          </div>
+                      </div>
+                      </div>
+                      <br/>
+                      <br/>
+                      <div class="row">
+                          <div class="col-3"></div>
+                          <button class="btn btn-primary col-2">Save</button>
+                          <div class="col-2"></div>
+                          <button type="button" (click)="delete()" class="btn btn-danger col-2">Delete</button>
+                          <div class="col-3"></div>
+                      </div>
+
+                    </form>
+              </div>
+          </div>
+      </div>
   </div>
-  <div class="form-group">
-    <label for="">Contact Number</label>
-    <!-- #addressLine1="ngModel"  [(ngModel)]="checkoutData.addressLine1" -->
-    <input name="addressLine1" type="text" class="form-control" placeholder="Line 1" required>
-    <!-- <div class="alert alert-danger" *ngIf="addressLine1.touched && addressLine1.invalid">
-      <div *ngIf="addressLine1.errors.required">Address Line 1 is required.</div>
-    </div> -->
-  </div>
-  <div class="form-group">
-    <label for="">Pickup Option</label>
-    <!-- #addressLine2="ngModel" [(ngModel)]="checkoutData.addressLine2" -->
-    <input  name="addressLine2" type="text" class="form-control" placeholder="Line 2" required>
-    <!-- <div class="alert alert-danger" *ngIf="addressLine2.touched && addressLine2.invalid">
-      <div *ngIf="addressLine2.errors.required">Address Line 2 is required.</div>
-    </div> -->
-  </div>
-  <div class="form-group">
-    <label for="">Pickup Date</label>
-    <!-- #city="ngModel"  [(ngModel)]="checkoutData.city" -->
-    <input name="city" type="text" class="form-control" required>
-    <!-- <div class="alert alert-danger" *ngIf="city.touched && city.invalid">
-      <div *ngIf="city.errors.required">City is required.</div>
-    </div> -->
-  </div>
-  <div class="form-group">
-    <label for="">Pickup Time</label>
-    <!-- #addressLine2="ngModel"  [(ngModel)]="checkoutData.addressLine2" -->
-    <input name="addressLine2" type="text" class="form-control" placeholder="Line 2" required>
-    <!-- <div class="alert alert-danger" *ngIf="addressLine2.touched && addressLine2.invalid">
-      <div *ngIf="addressLine2.errors.required">Address Line 2 is required.</div>
-    </div> -->
-  </div>
-  <button
-    [disabled]="!f.valid"
-    (click)="placeOrder()"
-    class="btn btn-primary">Place Order</button>
-</form>
+  <br/>
+  </body>
 
