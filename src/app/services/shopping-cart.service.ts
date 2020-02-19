@@ -12,19 +12,20 @@ export class ShoppingCartService {
 
   constructor(private db: AngularFireDatabase) { }
 
+  // create cart
   private create() {
     return this.db.list('/shopping-carts').push({
       dataCreated: new Date().getTime()
     });
 
   }
-
+  // clear cart
   async clearCart() {
     const cartId = await this.getOrCreateCartId();
     this.db.object('/shopping-carts/' + cartId + '/items').remove();
   }
 
-
+// get cart
   async getCart(): Promise<AngularFireObject<ShoppingCart>> {
     const cartId = await this.getOrCreateCartId();
     return this.db.object('/shopping-carts/' + cartId)
