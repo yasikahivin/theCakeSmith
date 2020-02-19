@@ -6,7 +6,7 @@ import { UserService } from '../services/user.service';
 import { AuthService } from '../services/auth.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { ShoppingCartItem } from '../models/shopping-cart-item';
-import{ ShoppingCart} from "../models/shopping-cart";
+import { ShoppingCart } from "../models/shopping-cart";
 import { map } from 'rxjs/operators';
 import { AppUser } from '../models/app-user';
 
@@ -21,7 +21,7 @@ export class ShoppingCartComponent implements OnInit {
   appUser: AppUser;
 
   constructor(private shoppingCartService: ShoppingCartService,
-              auth: AuthService) { }
+    auth: AuthService) { }
 
   async ngOnInit() {
 
@@ -31,15 +31,15 @@ export class ShoppingCartComponent implements OnInit {
     // console.log ()
 
 
-  //  this.auth.appUser$.subscribe(appUser => this.appUser = appUser);
+    //  this.auth.appUser$.subscribe(appUser => this.appUser = appUser);
 
-// tslint:disable-next-line: align
-// console.log  (
-//     cart$.valueChanges().subscribe(cart => {
-//         for (const productId of Object.keys (cart.items)) {
-//           this.cart.items[productId].;
-//         }
-//       }))
+    // tslint:disable-next-line: align
+    // console.log  (
+    //     cart$.valueChanges().subscribe(cart => {
+    //         for (const productId of Object.keys (cart.items)) {
+    //           this.cart.items[productId].;
+    //         }
+    //       }))
 
     // cart$.valueChanges().subscribe((cart => {
     //   for (const productId of Object.keys (cart.items)) {
@@ -49,6 +49,6 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   clearCart() {
-    this.shoppingCartService.clearCart();
+    // this.shoppingCartService.clearCart();
   }
 }

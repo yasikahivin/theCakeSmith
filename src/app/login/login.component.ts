@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { NgFlashMessageService } from 'ng-flash-messages';
+import { AppUser } from '../models/app-user';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,7 @@ import { NgFlashMessageService } from 'ng-flash-messages';
 export class LoginComponent  implements OnInit {
   email: string;
   password: string;
+  appUser: AppUser;
 
   constructor(
     private auth: AuthService,
@@ -38,7 +40,7 @@ export class LoginComponent  implements OnInit {
           type: 'success',
           timeout: 4000
         });
-        this.router.navigate(['/userProfile']);
+
         if (!confirm('You are now logged in to the system')) { return; }
       })
         .catch(err => {

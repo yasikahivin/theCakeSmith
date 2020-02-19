@@ -10,11 +10,10 @@ import { Router } from '@angular/router';
 import { AngularFirestoreDocument } from '@angular/fire/firestore';
 import { AngularFireDatabase } from '@angular/fire/database';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
   userData: any;
   user$: Observable<firebase.User>;
@@ -28,10 +27,7 @@ export class AuthService {
     public router: Router,
     public ngZone: NgZone,
     private db: AngularFireDatabase
-    ) {
-    this.user$ = afAuth.authState;
-
-  }
+    ) {this.user$ = afAuth.authState;}
 
 
    async SendVerificationMail() {
@@ -39,7 +35,7 @@ export class AuthService {
     this.router.navigate(['./login']);
   }
 
-
+  // LOGIN WITH GOOGLE AUTH PROVIDER
   login() {
     const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
     localStorage.setItem('returnUrl', returnUrl );
@@ -47,6 +43,7 @@ export class AuthService {
 
   }
 
+  // NORMAL LOGIN
   login2(email: string, password: string) {
     const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
     localStorage.setItem('returnUrl', returnUrl );
@@ -90,6 +87,8 @@ export class AuthService {
     this.afAuth.auth.signOut();
   }
 
+  // pipe takes in data as input and transforms it to a desired output
+  // switchMap on each emission the previous inner observable (the result of the function) is cancelled and the new observable is subscribed
   get appUser$(): Observable<AppUser> {
     return this.user$.pipe(
       switchMap(user => {
