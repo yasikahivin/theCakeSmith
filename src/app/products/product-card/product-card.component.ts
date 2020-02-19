@@ -48,7 +48,7 @@ export class ProductCardComponent {
 
   addToCart() {
     this.cartService.addToCart(this.product);
-    //  this. db.list('/cartnew').push.
+
 
   }
 
