@@ -43,7 +43,7 @@ export class ManageOrdersComponent implements OnInit, OnDestroy {
 
     this.subscription = this.customService.getall()
     .subscribe(data => {
-     console.log("xxxxxxxxxx",data);
+    // console.log("xxxxxxxxxx",data);
       this.customizedOrders = data;
       this.filteredorder = [];
       this.customizedOrders.forEach(element => {

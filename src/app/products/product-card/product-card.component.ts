@@ -3,6 +3,8 @@ import { Product } from 'src/app/models/Product';
 import { ShoppingCartComponent } from 'src/app/shopping-cart/shopping-cart.component';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-card',
@@ -16,8 +18,24 @@ export class ProductCardComponent  {
   closeResult: string;
   // showAction = true;
 
+  products: Product[] = [];
+  prodRef: AngularFireList<any>;
+  prod: Observable<any[]>;
+
+  order: Product={key: '',
+                  id: '',
+                  title: '',
+                  price: 0,
+                  category: '',
+                  weight: 0,
+                  imageURL: '',
+                  description: '',
+
+                  };
+
   constructor(private modalService: NgbModal,
-              private cartService: ShoppingCartService) { }
+              private cartService: ShoppingCartService,
+              private db: AngularFireDatabase) { }
 
       open(content: any) {
         this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result: any) => {
@@ -29,6 +47,8 @@ export class ProductCardComponent  {
 
       addToCart() {
         this.cartService.addToCart(this.product);
+        this. db.list('/cartnew').push.
+
       }
 
       removeFromCart() {// set to () :removeFromCart(this.product);

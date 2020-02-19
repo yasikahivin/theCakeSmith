@@ -129,7 +129,7 @@ export class SalesManagerComponent implements OnInit {
         // data.end++;
         return data;
         // let obj={title:data.event_name,start:new Date(data.date)}
-        // return obj;
+
 
       }))
     );
