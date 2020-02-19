@@ -44,7 +44,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
       });
     }
-//// suprime solution (yasika)
+// get cart for calculate item quantity
     async ngOnInit() {
       this.subscription = (await this.shoppingCartService.getCart())
           .valueChanges()
