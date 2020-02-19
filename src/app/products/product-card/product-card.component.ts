@@ -47,9 +47,9 @@ export class ProductCardComponent  {
 
       addToCart() {
         this.cartService.addToCart(this.product);
-        this. db.list('/cartnew').push.
-
       }
+      
+      
 
       removeFromCart() {// set to () :removeFromCart(this.product);
         this.cartService.removeFromCart(this.product);
