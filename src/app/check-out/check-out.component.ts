@@ -9,7 +9,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./check-out.component.scss']
 })
 export class CheckOutComponent implements OnInit {
-  
  // cart$: Observable<ShoppingCart>;
 
  // constructor(private shoppingCartService: ShoppingCartService) {}

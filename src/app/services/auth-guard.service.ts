@@ -9,15 +9,15 @@ import { map, take } from 'rxjs/operators';
 })
 export class AuthGuardService implements CanActivate {
 
-  constructor(private auth: AuthService , private router: Router) { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     return this.auth.user$.pipe(
       take(1),
       map(user => {
         if (user) { return true; }
-
-        this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
+        // redirect to signin component if authentication is needed
+        this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
         return false;
       })
     );

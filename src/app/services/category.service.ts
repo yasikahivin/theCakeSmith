@@ -17,6 +17,7 @@ export class CategoryService {
 
   constructor(private db: AngularFirestore) { }
 
+  // get categories from database
   getCategories() {
     return this.db.collection('categories').snapshotChanges();
   }

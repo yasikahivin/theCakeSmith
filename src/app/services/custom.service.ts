@@ -17,14 +17,14 @@ export class CustomService {
 
   orderRef: AngularFireList<any>;
   orders: Observable<any[]>;
-  data=[];
+  data = [];
   constructor(private db: AngularFireDatabase) {
     this.orderRef = db.list('/CustomizedOrders');
 
     this.orders = this.orderRef.snapshotChanges().pipe(
-       map(changes =>
-         changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
-         )
+      map(changes =>
+        changes.map(c => ({ key: c.payload.key, ...c.payload.val() }))
+      )
     );
 
     // this.orderRef.snapshotChanges().subscribe(data => {
@@ -42,33 +42,38 @@ export class CustomService {
 
   }
 
-create(custOrder: any) {
-  this.orderRef.push(custOrder);
-}
+  // create customised order
+  create(custOrder: any) {
+    this.orderRef.push(custOrder);
+  }
 
-getall() {
-  return this.orders;
-}
+  // get all cutomised orders
+  getall() {
+    return this.orders;
+  }
 
-get( custOrderID: string ) {
-  return this.db.object('/CustomizedOrders/' + custOrderID).valueChanges();
-}
+  // get customized order
+  get(custOrderID: string) {
+    return this.db.object('/CustomizedOrders/' + custOrderID).valueChanges();
+  }
 
-update( custOrderID: string, custOrder: Partial<unknown>) {
-  return this.db.object('/CustomizedOrders/' + custOrderID).update(custOrder);
-}
+  // update customized order
+  update(custOrderID: string, custOrder: Partial<unknown>) {
+    return this.db.object('/CustomizedOrders/' + custOrderID).update(custOrder);
+  }
 
-delete( custOrderID: string ) {
-  return this.db.object('/CustomizedOrders/' + custOrderID).remove();
-}
+  // delete customized order
+  delete(custOrderID: string) {
+    return this.db.object('/CustomizedOrders/' + custOrderID).remove();
+  }
 
-insert( custOrders ) {
-  this.orderRef.push(custOrders);
-}
+  insert(custOrders) {
+    this.orderRef.push(custOrders);
+  }
 
-getorders() {
-  this.orderRef = this.db.list('CustomizedOrders');
-}
+  getorders() {
+    this.orderRef = this.db.list('CustomizedOrders');
+  }
 
 
 

@@ -1,53 +1,68 @@
-<body background="../../../assets/images/dd2.jpg" >
-    <br/>
-    <br/>
-    <br/>
-    <br/>
+<body background="../../../assets/images/dd2.jpg">
+  <br />
+  <br />
+  <br />
+  <br />
 
-    <!-- <div class="col-md-2 mx-auto">
+  <!-- <div class="col-md-2 mx-auto">
       <p>
         <a routerLink="/admin/inventories/new" class="btn btn-primary blue-grey lighten-3">Add new item to inventory</a>
       </p>
     </div> -->
-    <div class="col-md-8 mx-auto pink lighten-5">
-      <br/>
-        <p>
-            <input
-                #query
-                (keyup)="filter(query.value)"
-                type="text" class="form-control" placeholder="Search...">
-        </p>
-      <div class="card rgba-white-light">
-        <div class="card-body">
-          <table class="table" width=75%>
-              <thead class="blue-grey lighten-3 white-text">
-                <tr>
-                  <th scope="col">Name</th>
-                  <th scope="col">Unit Price</th>
-                  <th scope="col">Unit Weight</th>
-                  <th scope="col">Quantity</th>
-                  <th scope="col"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let i of filteredinventories">
-                  <td>{{ i.name }}</td>
-                  <td>{{ i.unit_price}}</td>
-                  <td>{{ i.unit_weight }} </td>
-                  <td>{{ i.quantity }} </td>
-                  <td class="center">
-                    <!-- <a [routerLink]="['/admin/products/', p.key]" routerLinkActive="router-link-active" >Edit</a> -->
-                    <button type="button" color="success" outline="true" mdbWavesEffect mdbBtn color="success" outline="true"  class="my-0"size="sm" [routerLink]="['/admin/inventories/', i.key]" routerLinkActive="router-link-active" >Edit</button>
-                  </td>
-                </tr>
-            </tbody>
-
-            </table>
-
-        </div>
+  <div class="col-md-8 mx-auto pink lighten-5">
+    <br />
+    <p>
+      <input
+        #query
+        (keyup)="filter(query.value)"
+        type="text"
+        class="form-control"
+        placeholder="Search..."
+      />
+    </p>
+    <div class="card rgba-white-light">
+      <div class="card-body">
+        <table class="table" width="75%">
+          <thead class="blue-grey lighten-3 white-text">
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Unit Price</th>
+              <th scope="col">Unit Weight</th>
+              <th scope="col">Quantity</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let i of filteredinventories">
+              <td>{{ i.name }}</td>
+              <td>{{ i.unit_price }}</td>
+              <td>{{ i.unit_weight }}</td>
+              <td>{{ i.quantity }}</td>
+              <td class="center">
+                <!-- <a [routerLink]="['/admin/products/', p.key]" routerLinkActive="router-link-active" >Edit</a> -->
+                <button
+                  type="button"
+                  color="success"
+                  outline="true"
+                  mdbWavesEffect
+                  mdbBtn
+                  color="success"
+                  outline="true"
+                  class="my-0"
+                  size="sm"
+                  [routerLink]="['/admin/inventories/', i.key]"
+                  routerLinkActive="router-link-active"
+                >
+                  Edit
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <br/>
     </div>
-    <div class="col-md-2 mx-auto"></div>
-    <br/>
-    </body>
+    <br />
+  </div>
+  <div class="col-md-2 mx-auto"></div>
+  <br />
+</body>
