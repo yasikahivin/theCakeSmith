@@ -8,16 +8,18 @@ import { UserService } from './user.service';
 @Injectable({
   providedIn: 'root'
 })
-// error
+// system admin authenticatin guard
 
 export class AdminAuthGuardService implements CanActivate {
 
-  constructor(private auth: AuthService ) { }
+  constructor(private auth: AuthService) { }
 
+
+  // admin authenticaton checker
   canActivate(): Observable<boolean> {
     return this.auth.appUser$
-    .pipe(map(appUser => appUser.isAdmin));
-    }
+      .pipe(map(appUser => appUser.isAdmin));
+  }
 
   /*
   canActivate(): Observable<boolean> {
@@ -31,7 +33,7 @@ export class AdminAuthGuardService implements CanActivate {
     );
   }
   */
-  }
+}
 
 
 

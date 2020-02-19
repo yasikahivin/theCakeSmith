@@ -11,8 +11,8 @@ import { AngularFireDatabase } from '@angular/fire/database';
 })
 export class ManageOrdersComponent implements OnInit, OnDestroy {
 
-  customizedOrders: Custom[] ;
-  customizedConfirmOrders: Custom[] ;
+  customizedOrders: Custom[];
+  customizedConfirmOrders: Custom[];
   Confirmfilteredorder: any[] = [];
   subscription: Subscription;
   filteredorder: any[] = [];
@@ -25,52 +25,52 @@ export class ManageOrdersComponent implements OnInit, OnDestroy {
   }
 
   filter(query: string) {
-     this.filteredorder = (query) ?
-     this.customizedOrders.filter(c => c.reqDate.toLowerCase().includes(query)) :
-     this.customizedOrders;
-     console.log(this.filteredorder);
+    this.filteredorder = (query) ?
+      this.customizedOrders.filter(c => c.reqDate.toLowerCase().includes(query)) :
+      this.customizedOrders;
+    console.log(this.filteredorder);
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
-  Update(id) {
-    this.db.object('/CustomizedOrders/' + id).update({confirm: true});
 
+  Update(id) {
+    this.db.object('/CustomizedOrders/' + id).update({ confirm: true });
   }
 
   ngOnInit() {
 
     this.subscription = this.customService.getall()
-    .subscribe(data => {
-     this.customizedOrders = data;
-     this.filteredorder = [];
-     this.customizedOrders.forEach(element => {
-        if (!element.confirm) {
-          this.filteredorder.push(element);
-        }
-        console.log(element.confirm);
-      });
-      // this.filteredorder = this.customizedOrders = customizedOrders;
-      // console.log(this.filteredorder)
+      .subscribe(data => {
+        this.customizedOrders = data;
+        this.filteredorder = [];
+        this.customizedOrders.forEach(element => {
+          if (!element.confirm) {
+            this.filteredorder.push(element);
+          }
+          console.log(element.confirm);
+        });
+        // this.filteredorder = this.customizedOrders = customizedOrders;
+        // console.log(this.filteredorder)
       }
-    );
+      );
 
     this.subscription = this.customService.getall()
-    .subscribe(data => {
-     // console.log(data);
-      this.customizedConfirmOrders = data;
-      this.Confirmfilteredorder = [];
-      this.customizedConfirmOrders.forEach(element => {
-        if (element.confirm) {
-          this.Confirmfilteredorder.push(element);
-        }
-        console.log(element.confirm);
-      });
-      // this.filteredorder = this.customizedOrders = customizedOrders;
-      // console.log(this.filteredorder)
+      .subscribe(data => {
+        // console.log(data);
+        this.customizedConfirmOrders = data;
+        this.Confirmfilteredorder = [];
+        this.customizedConfirmOrders.forEach(element => {
+          if (element.confirm) {
+            this.Confirmfilteredorder.push(element);
+          }
+          console.log(element.confirm);
+        });
+        // this.filteredorder = this.customizedOrders = customizedOrders;
+        // console.log(this.filteredorder)
       }
-    );
+      );
 
 
   }
