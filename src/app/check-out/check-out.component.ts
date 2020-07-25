@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './check-out.component.html',
   styleUrls: ['./check-out.component.scss']
 })
+
 export class CheckOutComponent implements OnInit {
   ngOnInit(): void {
     throw new Error("Method not implemented.");
@@ -16,9 +17,6 @@ export class CheckOutComponent implements OnInit {
 
  // constructor(private shoppingCartService: ShoppingCartService) {}
 
-  async ngOnInit() {
-    // this.cart$ = await this.shoppingCartService.getCart();
-  }
-
+  
 
 }

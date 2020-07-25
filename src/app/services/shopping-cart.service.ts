@@ -15,7 +15,7 @@ export class ShoppingCartService {
 // create shopping cart
 private create() {
   return this.db.list('/shopping-carts').push({
-    dataCreated: new Date().getTime()
+    dateCreated: new Date().getTime()
   });
 
 }
@@ -27,9 +27,13 @@ async clearCart() {
 }
 
 // get the cartId from shopping cart
- async getCart(): Promise<AngularFireObject<ShoppingCart>> {
-  const cartId = await this.getOrCreateCartId();
-  return this.db.object('/shopping-carts/' + cartId)
+async getCart(): Promise<Observable<ShoppingCart>> {
+  let cartId = await this.getOrCreateCartId();
+  return this.db
+      .object('/shopping-carts/' + cartId)
+      .valueChanges()
+      .pipe(map((x)=> (x) ? new ShoppingCart(( x as any).items): (x as any)
+));
 }
 
 
@@ -43,49 +47,39 @@ private async getOrCreateCartId(): Promise<string> {
   return result.key;
 
   }
+
+  private getItem(cartId: string, productId: string) {
+    return this.db.object('/shopping-carts/' + cartId + '/items/' + productId);
+}  
 //// increase quantity when items add to cart
-  async addToCart(product: Product) {
-    const cartId = await this.getOrCreateCartId();
-    const item$ = this.db.object('/shopping-carts/' + cartId + '/items/' + product.key);
-    item$.snapshotChanges().pipe(take(1)).subscribe((item) => {
-      if (item.payload.exists()) {
-        item$.update({ quantity: (item.payload.exportVal().quantity || 0) + 1 });
-      } else {
-        item$.set({ product: product, quantity: 1 });
-      }
-    });
-  }
+async addToCart(product: Product) {
+  this.updateItem(product, 1);
+}
+
+async removeFromCart(product: Product) {
+  this.updateItem(product, -1);
+}
   
   //remove items from shopping cart
-  async removeFromCart(product: Product){
-    const cartId = await this.getOrCreateCartId();
-    const item$ = this.db.object('/shopping-carts/' + cartId + '/items/' + product.key);
-
+  private async updateItem(product: Product, change: number) {
+    let cartId = await this.getOrCreateCartId();
+    let item$ = this.getItem(cartId, product.key);
     item$.snapshotChanges().pipe(take(1)).subscribe((item) => {
-      if (item.payload.exists()) {
-        item$.update({ quantity: (item.payload.exportVal().quantity || 0)  - 1 });
-      } else {
-        item$.set({ product: product, quantity: 1 });
-      }
+        if (item.payload.exists()) {
+            let quantity = item.payload.exportVal().quantity + change;
+            if (quantity === 0) item$.remove();
+            else
+                item$.update({
+                    product: product,
+                    quantity: quantity
+                });
+        } else {
+            item$.set({ product: product, quantity: 1 });
+        }
     });
-  }
+}
 
-  // private async updateItemQuantity(product: Product, change: number){
-  //   const cartId = await this.getOrCreateCartId();
-  //   const item$ = this.getItem(cartId, product.key);
-
-  //   item$
-  //     .valueChanges() // convert firebase object to observable
-  //     .pipe(take(1)) // take 1 instance of an item
-  //     .subscribe((item: any) => {
-  //       // $exists() is deprecated. Just check if item is truthy.
-  //        if (item) {
-  //           item$.update({ quantity: item.quantity + change });
-  //        } else {
-  //         // since key and value are the same (eg, product: product) you can omit the value part.
-  //           item$.set({product, quantity: 1 }); }
-  //    });
-  // }
+ 
 
 
 }

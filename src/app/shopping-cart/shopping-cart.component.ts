@@ -13,17 +13,17 @@ import { ShoppingCartItem } from '../models/shopping-cart-item';
   styleUrls: ['./shopping-cart.component.scss']
 })
 export class ShoppingCartComponent implements OnInit {
-  // cart$;
+  cart$;
 
   constructor(
-    // private shoppingCartService: ShoppingCartService
+    private shoppingCartService: ShoppingCartService
     ) { }
 
   async ngOnInit() {
-    // this.cart$ = await this.shoppingCartService.getCart();
+     this.cart$ = await this.shoppingCartService.getCart();
   }
 
   clearCart() {
-    // this.shoppingCartService.clearCart();
+    this.shoppingCartService.clearCart();
   }
 }

@@ -1,6 +1,54 @@
 <br><br><br>
 
-<div class="col-md-8 mx-auto pink lighten-5">
+<h1>Shopping cart</h1>
+<ng-container *ngIf="cart$ | async as cart">
+  <nav class="navbar navbar-dark secondary-color lighten-5">
+    <span class="navbar-text white-text">
+      You have {{cart.totalItemsCount}} items in your shopping cart.
+    </span>
+  </nav>
+  <div class="col-md-8 mx-auto pink lighten-5">
+  
+  <div class="card rgba-white-light">
+    <div class="card-body">
+  <table class="table table-sm">
+    <thead class="black white-text">
+      <tr>
+        <th></th>
+        <th>Product</th>
+        <th class="text-center" style="width: 230px;">Quantity</th>
+        <th class="text-right" style="width: 200px;">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cart.items">
+        <td>
+          <div [style.backgroundImage]="'url(' + item.imageUrl + ')'" class="thumbnail">
+          </div>
+        </td>
+        <td>{{ item.product.title}}</td>
+        <td><product-qty [product]="item.product" [shopping-cart]="cart"></product-qty></td>
+        <td class="text-right">{{ item.totalPrice | currency:'LKR':true}}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th class="text-right">{{ cart.totalPrice | currency:'LKR':true}}</th>
+      </tr>
+    </tfoot>
+  </table>
+  <button (click)="clearCart()" class="btn btn-danger btn-sm">Clear cart</button>
+  <a  routerLink="/shopping-cart/cart-checkout"  class="btn btn-secondary btn-sm">Check Out</a  >
+  </div>
+    </div>
+  </div>
+  </ng-container>
+
+
+<!--<div class="col-md-8 mx-auto pink lighten-5">
   <br/>
   <div class="card rgba-white-light">
     <div class="card-body">
@@ -49,7 +97,7 @@
 <br/>
 <div class="text-center">
   <a  routerLink="/check-out"  class="btn btn-secondary">Check Out</a  >
-</div>
+</div>-->
 
 <!-- <h1>Shopping Cart</h1>
 <div class="row col-10" *ngIf="cart$ | async as cart">

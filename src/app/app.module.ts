@@ -67,6 +67,8 @@ import { TermsConditionsComponent } from './Policies/terms-conditions/terms-cond
 import { PrivacyPolicyComponent } from './Policies/privacy-policy/privacy-policy.component';
 import { CheckoutDataFormComponent } from './check-out/checkout-data-form/checkout-data-form.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { ProductQtyComponent } from './product-qty/product-qty.component';
+import { CartCheckoutComponent } from './shopping-cart/cart-checkout/cart-checkout.component';
 
 
 
@@ -103,7 +105,9 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     CustomDescriptionComponent,
     TermsConditionsComponent,
     PrivacyPolicyComponent,
-    CheckoutDataFormComponent
+    CheckoutDataFormComponent,
+    ProductQtyComponent,
+    CartCheckoutComponent
 
   ],
   imports: [

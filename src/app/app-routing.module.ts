@@ -30,7 +30,7 @@ import { StockManagerComponent } from './staff/stock-manager/stock-manager.compo
 import { StockmanagerAuthGuardService } from './services/stockmanager-auth-guard.service';
 import { TermsConditionsComponent} from './Policies/terms-conditions/terms-conditions.component';
 import { PrivacyPolicyComponent } from './Policies/privacy-policy/privacy-policy.component';
-
+import { CartCheckoutComponent } from './shopping-cart/cart-checkout/cart-checkout.component';
 
 
 const routes: Routes = [
@@ -74,6 +74,7 @@ const routes: Routes = [
 
   {path: 'policies/terms-condition', component: TermsConditionsComponent},
   {path: 'policies/privacy-policies', component: PrivacyPolicyComponent},
+  {path: 'shopping-cart/cart-checkout', component: CartCheckoutComponent},
 ];
 
 @NgModule({

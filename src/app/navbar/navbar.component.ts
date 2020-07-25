@@ -3,6 +3,8 @@ import { AuthService } from '../services/auth.service';
 import { AppUser } from '../models/app-user';
 import { HostListener } from '@angular/core';
 import { ShoppingCartService } from '../services/shopping-cart.service';
+import { Observable } from 'rxjs';
+import { ShoppingCart } from '../models/shopping-cart';
 // import { HostListener } from '@angular/core';
 
 @Component({
@@ -12,7 +14,7 @@ import { ShoppingCartService } from '../services/shopping-cart.service';
 })
 export class NavbarComponent implements OnInit  {
   appUser: AppUser;
-  shoppingCartItemCount: number;
+  cart$: Observable<ShoppingCart>;
 
   constructor(
     private auth: AuthService,
@@ -21,16 +23,11 @@ export class NavbarComponent implements OnInit  {
    }
 
    async ngOnInit() {
-   // throw new Error("Method not implemented.");
-    this.auth.appUser$.subscribe(appUser => this.appUser = appUser);
-    const cart$ = await this.shoppingCartService.getCart();
-    cart$.valueChanges().subscribe((cart => {
-      this.shoppingCartItemCount = 0;
-      for (const productId of Object.keys (cart.items)) {
-        this.shoppingCartItemCount += cart.items[productId].quantity;
-      }
-    }));
-  }
+    // throw new Error("Method not implemented.");
+     this.auth.appUser$.subscribe(appUser => this.appUser = appUser);
+     this.cart$ = await this.shoppingCartService.getCart();
+    
+   }
 
 
   logout() {

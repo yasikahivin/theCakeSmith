@@ -40,32 +40,14 @@
                                 <button
                                 *ngIf="getQuantity() === 0; else updateQuantity"
                                 (click)="addToCart()"
-                                class="btn btn-secondary btn-block"  routerLink ="/customer" >Add to Cart
+                                class="btn btn-secondary btn-block" >Add to Cart
                                   <div routerLink></div>
                                 </button>
 
 
 
                                 <ng-template #updateQuantity>
-                                      <div class="row no-gutters">
-
-                                            <div class="col-2">
-                                              <button
-                                              (click)="removeFromCart()"
-                                              class="btn btn-secondary btn-block">-</button>
-                                            </div>
-
-                                            <div class="col text-center">
-                                              {{getQuantity() }}
-                                              in Cart
-                                            </div>
-
-                                            <div class="col-2">
-                                              <button
-                                              (click)="addToCart()"
-                                              class="btn btn-secondary btn-block">+</button>
-                                            </div>
-                                      </div>
+                                <product-qty [product]="product" [shopping-cart]="shoppingCart"></product-qty>      
                                 </ng-template>
                         </div>
 
