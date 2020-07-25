@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireObject} from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireObject } from '@angular/fire/database';
 import { Product } from '../models/Product';
 import { take, map, switchMap } from 'rxjs/operators';
 import { ShoppingCart } from '../models/shopping-cart';
@@ -18,7 +18,8 @@ private create() {
     dateCreated: new Date().getTime()
   });
 
-}
+  }
+ 
 
 //remove items in cart
 async clearCart() {
@@ -36,6 +37,9 @@ async getCart(): Promise<Observable<ShoppingCart>> {
 ));
 }
 
+  // private getItem(cartId: string, productId: string) {
+  //   return this.db.object('/shopping-cart/' + cartId + '/Items/' + productId);
+  // }
 
 // craete cart id for each shopping cart
 private async getOrCreateCartId(): Promise<string> {

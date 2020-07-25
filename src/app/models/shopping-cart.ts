@@ -35,4 +35,18 @@ export class ShoppingCart {
       }
       return count;
     }
+  // constructor(data?: Partial<ShoppingCart>) {
+  //   Object.assign(this, data);
+  // }
+
+    // get totalItemsCount() {
+
+    //   let count = 0;
+    //   for (const productId of Object.keys (this.items)) {
+    //     count += this.items[productId].quantity;
+    //   }
+    //   return count;
+    // }
+
+
 }

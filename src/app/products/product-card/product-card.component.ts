@@ -4,18 +4,36 @@ import { ShoppingCartComponent } from 'src/app/shopping-cart/shopping-cart.compo
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { ShoppingCart } from 'src/app/models/shopping-cart';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss']
 })
-export class ProductCardComponent  {
+export class ProductCardComponent {
   @Input('product') product: Product;
   @Input('show-actions') showActions = true;
   @Input('shopping-cart') shoppingCart: ShoppingCart;
   closeResult: string;
   // showAction = true;
+
+  products: Product[] = [];
+  prodRef: AngularFireList<any>;
+  prod: Observable<any[]>;
+
+  order: Product = {
+    key: '',
+    id: '',
+    title: '',
+    price: 0,
+    category: '',
+    weight: 0,
+    imageURL: '',
+    description: '',
+
+  };
 
   constructor(private modalService: NgbModal,
               private cartService: ShoppingCartService) { }

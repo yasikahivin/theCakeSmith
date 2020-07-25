@@ -12,7 +12,7 @@ import { ShoppingCart } from '../models/shopping-cart';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit  {
+export class NavbarComponent implements OnInit {
   appUser: AppUser;
   cart$: Observable<ShoppingCart>;
 
@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit  {
     private auth: AuthService,
     private shoppingCartService: ShoppingCartService) {
 
-   }
+  }
 
    async ngOnInit() {
     // throw new Error("Method not implemented.");
@@ -36,7 +36,7 @@ export class NavbarComponent implements OnInit  {
 
   @HostListener('window:scroll', ['$event'])
 
-onWindowScroll(e) {
+  onWindowScroll(e) {
     const element = document.querySelector('.navbar');
     if (window.pageYOffset > element.clientHeight) {
       element.classList.add('navbar-inverse');

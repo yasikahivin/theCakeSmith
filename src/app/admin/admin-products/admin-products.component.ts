@@ -9,7 +9,7 @@ import { Product } from '../../models/Product';
   styleUrls: ['./admin-products.component.scss']
 })
 export class AdminProductsComponent implements OnInit, OnDestroy {
-  products: Product[] ;
+  products: Product[];
   subscription: Subscription;
   filteredproducts: any[];
 
@@ -17,12 +17,12 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
     this.subscription = this.productService.getall()
       .subscribe(products => this.filteredproducts = this.products = products);
 
-    }
-
+  }
+  // product filter
   filter(query: string) {
     this.filteredproducts = (query) ?
-    this.products.filter(p => p.title.toLowerCase().includes(query)) :
-    this.products;
+      this.products.filter(p => p.title.toLowerCase().includes(query)) :
+      this.products;
   }
 
   ngOnDestroy() {

@@ -10,7 +10,7 @@ import { CommonModule} from '@angular/common';
 import {AppUser} from 'src/app/models/app-user';
 import { AuthService } from 'src/app/services/auth.service';
 import { AngularFireAuth } from '@angular/fire/auth';
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {FormGroup, Validators} from '@angular/forms';
 
 
 @Component({
@@ -26,7 +26,7 @@ export class NewUserComponent implements OnInit {
   appuser: AppUser = {name: '', email: '', isAdmin: false, isSalesM: false, isStockM: false, isUser: true, role: '', contactNum: ''};
 
   constructor(
-    private formBuilder: FormBuilder,
+    // private formBuilder: FormBuilder,
 
     private userService: UserService,
     private router: Router,
@@ -56,8 +56,8 @@ export class NewUserComponent implements OnInit {
      this.router.navigate(['/menu']);
    }
 
-form: FormGroup;
-formSubmitted = false;
+// form: FormGroup;
+// formSubmitted = false;
 
 
   ngOnInit() {}

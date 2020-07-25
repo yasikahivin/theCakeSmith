@@ -10,9 +10,6 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class CheckOutComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error("Method not implemented.");
-  }
  // cart$: Observable<ShoppingCart>;
 
  // constructor(private shoppingCartService: ShoppingCartService) {}

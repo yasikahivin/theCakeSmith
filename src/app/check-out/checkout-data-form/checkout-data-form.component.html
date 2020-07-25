@@ -2,129 +2,75 @@
   <br/>
   <br/>
   <br/>
-  <br/>
-  <br/>
-
   <div class="row">
-      <div class="col-md-6 mx-auto offset-2">
-          <div class="card">
-              <div class="card-body">
-                      <form #f="ngForm" (ngSubmit)="save(f.value)" novalidate>
-                      <div class="row">
-                      <div class="form-group col-6 offset-3">
-                          <label for="title">Name</label>
-                          <input [(ngModel)]="<body style="background-color:rgb(252,228,236)">
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
+    <div class="col-75">
+      <div class="container">
+        <form action="/action_page.php">
 
-    <div class="row">
-        <div class="col-md-6 mx-auto offset-2">
-            <div class="card">
-                <div class="card-body">
-                        <form #f="ngForm" (ngSubmit)="save(f.value)" novalidate>
-                        <div class="row">
-                        <div class="form-group col-6 offset-3">
-                            <label for="title">Name</label>
-                            <input [(ngModel)]="checkout.name" #name="ngModel"  name="name" id="name" type="text" class="form-control">
-                        </div>
-                        </div>
+          <div class="row">
+            <div class="col-50">
+              <h3>Billing Address</h3>
+              <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+              <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+              <label for="fname">Required Date</label>
+              <input type="date" id="fname" name="firstname" >
+              <label for="fname">Required Time</label>
+              <input type="time" id="fname" name="firstname" >
 
-                        <div class="row">
-                            <div class="form-group col-4 offset-4">
-                                <label for="unit_price">Unit Price</label>
-                                <div class="input-group">
-                                    <span class="input-group-text">LKR</span>
-                                    <input [(ngModel)]="checkout.unit_price" #price="ngModel" name="unit_price" id="unit_price" type="number" class="form-control" size="8">
-                                </div>
-                            </div>
-                        </div>
+              <label for="email"><i class="fa fa-envelope"></i> Email</label>
+              <input type="text" id="email" name="email" placeholder="john@example.com">
+              <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+              <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
+              <label for="city"><i class="fa fa-institution"></i> City</label>
+              <input type="text" id="city" name="city" placeholder="New York">
 
-                        <div class="row">
-                            <div class="form-group col-4 offset-4">
-                                <label for="unit_weight">Weight</label>
-                                <div class="input-group">
-                                    <input #unit_weight="ngModel" [(ngModel)]="checkout.unit_weight"   name="unit_weight" id="unit_weight" type="number" class="form-control text-center" >
-                                    <span class="input-group-text">kg</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                        <div class="form-group col-4 offset-4">
-                            <label for="quantity">Quantity</label>
-                            <div class="input-group">
-                                <input #weight="ngModel" [(ngModel)]="checkout.quantity"   name="quantity" id="quantity" type="number" class="form-control text-center" >
-                            </div>
-                        </div>
-                        </div>
-                        <br/>
-                        <br/>
-                        <div class="row">
-                            <div class="col-3"></div>
-                            <button class="btn btn-primary col-2">Save</button>
-                            <div class="col-2"></div>
-                            <button type="button" (click)="delete()" class="btn btn-danger col-2">Delete</button>
-                            <div class="col-3"></div>
-                        </div>
-
-                      </form>
+              <div class="row">
+                <div class="col-50">
+                  <label for="Road">Road</label>
+                  <input type="text" id="Road" name="Road" placeholder="NY">
                 </div>
-            </div>
-        </div>
-    </div>
-    <br/>
-    </body>
-
-.name" #name="ngModel"  name="name" id="name" type="text" class="form-control">
-                      </div>
-                      </div>
-
-                      <div class="row">
-                          <div class="form-group col-4 offset-4">
-                              <label for="unit_price">Unit Price</label>
-                              <div class="input-group">
-                                  <span class="input-group-text">LKR</span>
-                                  <input [(ngModel)]="checkout.unit_price" #price="ngModel" name="unit_price" id="unit_price" type="number" class="form-control" size="8">
-                              </div>
-                          </div>
-                      </div>
-
-                      <div class="row">
-                          <div class="form-group col-4 offset-4">
-                              <label for="unit_weight">Weight</label>
-                              <div class="input-group">
-                                  <input #unit_weight="ngModel" [(ngModel)]="checkout.unit_weight"   name="unit_weight" id="unit_weight" type="number" class="form-control text-center" >
-                                  <span class="input-group-text">kg</span>
-                              </div>
-                          </div>
-                      </div>
-
-                      <div class="row">
-                      <div class="form-group col-4 offset-4">
-                          <label for="quantity">Quantity</label>
-                          <div class="input-group">
-                              <input #weight="ngModel" [(ngModel)]="checkout.quantity"   name="quantity" id="quantity" type="number" class="form-control text-center" >
-                          </div>
-                      </div>
-                      </div>
-                      <br/>
-                      <br/>
-                      <div class="row">
-                          <div class="col-3"></div>
-                          <button class="btn btn-primary col-2">Save</button>
-                          <div class="col-2"></div>
-                          <button type="button" (click)="delete()" class="btn btn-danger col-2">Delete</button>
-                          <div class="col-3"></div>
-                      </div>
-
-                    </form>
+                <div class="col-50">
+                  <label for="zip">Zip</label>
+                  <input type="text" id="zip" name="zip" placeholder="10001">
+                </div>
               </div>
-          </div>
-      </div>
-  </div>
-  <br/>
-  </body>
+            </div>
 
+            <div class="col-50">
+              <h3><u>Payment Methods</u></h3>
+              <div class="icon-container">
+
+                  <ul>
+                    <li>Cash on Pickup</li>
+                    <li>Cash on Delivery</li>
+                    <li>FriMi</li>
+                  </ul>
+
+              </div>
+
+            </div>
+
+          </div>
+          <label>
+            <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+          </label>
+          <input type="submit" value="Continue to checkout" class="btn">
+        </form>
+      </div>
+    </div>
+
+    <div class="col-25">
+      <div class="container">
+        <h4>Cart
+          <span class="price" style="color:black">
+            <i class="fa fa-shopping-cart"></i>
+            <b>4</b>
+          </span>
+        </h4>
+        <p><a href="#">Product 1</a> <span class="price">Rs.2500</span></p>
+        <p><a href="#">Product 2</a> <span class="price">Rs.2200</span></p>
+        <hr>
+        <p>Total <span class="price" style="color:black"><b>Rs.4700</b></span></p>
+      </div>
+    </div>
+  </div>

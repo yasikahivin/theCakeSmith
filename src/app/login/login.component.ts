@@ -41,12 +41,6 @@ export class LoginComponent  implements OnInit {
           timeout: 4000
         });
 
-
-        // <ng -template [ngIf]; = "AppUser" >
-        //   <div>
-        //     this.router.navigate(['/userProfile']);
-        //   < /div>
-        // < /ng-template>;
         if (!confirm('You are now logged in to the system')) { return; }
       })
         .catch(err => {

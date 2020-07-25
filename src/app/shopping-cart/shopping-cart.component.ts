@@ -6,6 +6,10 @@ import { UserService } from '../services/user.service';
 import { AuthService } from '../services/auth.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { ShoppingCartItem } from '../models/shopping-cart-item';
+import { ShoppingCart } from "../models/shopping-cart";
+import { map } from 'rxjs/operators';
+import { AppUser } from '../models/app-user';
+
 
 @Component({
   selector: 'app-shopping-cart',

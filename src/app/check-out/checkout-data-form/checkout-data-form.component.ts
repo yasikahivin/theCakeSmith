@@ -13,7 +13,7 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./checkout-data-form.component.scss']
 })
 export class CheckoutDataFormComponent implements OnInit, OnDestroy {
-  id; string;
+  id: string;
 
   constructor() { }
 

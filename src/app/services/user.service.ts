@@ -37,38 +37,6 @@ users: Observable<any[]>;
         email: user.email,
         photoURL: user.photoURL,
       });
-      // this.db.object('/users/' + user.uid).update
-      // ({
-      //   isUser: true,
-      //   role: 'User',
-      //   isStockM: false,
-      //   isSalesM: false,
-      //   isAdmin: false,
-      // });
-      // this.db.object('/users/' + user.uid).update
-      // ({
-      //   isStockM: true,
-      //   role: 'StockM',
-      //   isSalesM: false,
-      //   isAdmin: false,
-      //   isUser: false,
-      // });
-      // this.db.object('/users/' + user.uid).update
-      // ({
-      //   isSalesM: true,
-      //   role: 'SalesM',
-      //   isStockM: false,
-      //   isAdmin: false,
-      //   isUser: false,
-      // });
-      // this.db.object('/users/' + user.uid).update
-      // ({
-      //   isAdmin: true,
-      //   role: 'Admin',
-      //   isStockM: false,
-      //   isSalesM: false,
-      //   isUser: false,
-      // });
     }
 
     get(uid: string): Observable<AppUser> {

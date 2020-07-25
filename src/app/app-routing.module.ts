@@ -31,6 +31,9 @@ import { StockmanagerAuthGuardService } from './services/stockmanager-auth-guard
 import { TermsConditionsComponent} from './Policies/terms-conditions/terms-conditions.component';
 import { PrivacyPolicyComponent } from './Policies/privacy-policy/privacy-policy.component';
 import { CartCheckoutComponent } from './shopping-cart/cart-checkout/cart-checkout.component';
+import { CheckoutDataFormComponent } from './check-out/checkout-data-form/checkout-data-form.component';
+
+
 
 
 const routes: Routes = [
@@ -46,6 +49,7 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'userProfile', component: NewUserComponent},
   {path: 'check-out', component: CheckOutComponent},
+  {path: 'check-out-form', component: CheckoutDataFormComponent},
   {path: 'terms', component: TermsConditionsComponent},
   {path: 'privacy-policy', component: PrivacyPolicyComponent},
 

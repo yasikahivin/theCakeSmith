@@ -5,6 +5,8 @@ import { InventoryService } from 'src/app/services/inventory.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule} from '@angular/forms';
+import {FormBuilder, FormGroup, FormArray, FormControl, ValidatorFn} from '@angular/forms';
 
 import { Inventory } from 'src/app/models/Inventory';
 
@@ -14,9 +16,16 @@ import { Inventory } from 'src/app/models/Inventory';
   templateUrl: './inventory-form.component.html',
   styleUrls: ['./inventory-form.component.scss']
 })
+
+
 export class InventoryFormComponent implements OnInit {
+  form: FormGroup;
+
+
   id: string;
   inventory: Inventory = { id: '', name: '', unit_price: 0, quantity: 0, unit_weight: 0 };
+
+
 
   constructor(
     private inventoryService: InventoryService,
@@ -24,11 +33,16 @@ export class InventoryFormComponent implements OnInit {
     private route: ActivatedRoute
   ) {
 
+
+   // this.category = this.getCategory();
+
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) { this.inventoryService.get(this.id).pipe(take(1)).subscribe(i => this.inventory = i); }
 
 
    }
+
+
 
    save(inventory: any) {
     if (this.id) {

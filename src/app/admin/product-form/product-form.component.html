@@ -1,100 +1,157 @@
 <body style="background-color:rgb(252,228,236)">
-<br/><br/><br/><br/>
-<div class="row">
+  <br /><br /><br /><br />
+  <div class="row">
     <div class="col-md-6 offset-2">
-        <div class="card">
-            <div class="card-body">
-                    <form #f="ngForm" (ngSubmit)="save(f.value)" novalidate>
-                      <div class="form-group">
-                          <label for="title">Name</label>
-                          <input [(ngModel)]="product.title" #title="ngModel"  name="title" id="title" type="text" class="form-control">
-                      </div>
+      <div class="card">
+        <div class="card-body">
+          <form #f="ngForm" (ngSubmit)="save(f.value)" novalidate>
+            <div class="form-group">
+              <label for="title">Name</label>
+              <input
+                [(ngModel)]="product.title"
+                #title="ngModel"
+                name="title"
+                id="title"
+                type="text"
+                class="form-control"
+              />
+            </div>
 
-                      <div class="row">
-                        <div class="col-2"></div>
-                        <div class="col-3">
-                            <div class="form-group">
-                                <label for="price">Price</label>
-                                <div class="input-group">
-                                    <span class="input-group-text">LKR</span>
-                                    <input [(ngModel)]="product.price" #price="ngModel" name="price" id="price" type="number" class="form-control" size="8">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-2"></div>
-                        <div class="col-3">
-                            <div class="form-group">
-                                <label for="weight">Weight</label>
-                                <div class="input-group">
-                                    <input #weight="ngModel" [(ngModel)]="product.weight"   name="weight" id="weight" type="number" class="form-control text-center" >
-                                    <span class="input-group-text">kg</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-2"></div>
-                      </div>
+            <div class="row">
+              <div class="col-2"></div>
+              <div class="col-3">
+                <div class="form-group">
+                  <label for="price">Price</label>
+                  <div class="input-group">
+                    <span class="input-group-text">LKR</span>
+                    <input
+                      [(ngModel)]="product.price"
+                      #price="ngModel"
+                      name="price"
+                      id="price"
+                      type="number"
+                      class="form-control"
+                      size="8"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-2"></div>
+              <div class="col-3">
+                <div class="form-group">
+                  <label for="weight">Weight</label>
+                  <div class="input-group">
+                    <input
+                      #weight="ngModel"
+                      [(ngModel)]="product.weight"
+                      name="weight"
+                      id="weight"
+                      type="number"
+                      class="form-control text-center"
+                    />
+                    <span class="input-group-text">kg</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2"></div>
+            </div>
 
-                      <div class="row">
-                          <div class="col-4"></div>
-                          <div class="col-4">
-                                <div class="form-group">
-                                    <label for="category">Category</label>
-                                    <select #category="ngModel" [(ngModel)]="product.category" name="category"  id="category" class="form-control">
+            <div class="row">
+              <div class="col-4"></div>
+              <div class="col-4">
+                <div class="form-group">
+                  <label for="category">Category</label>
+                  <select
+                    #category="ngModel"
+                    [(ngModel)]="product.category"
+                    name="category"
+                    id="category"
+                    class="form-control"
+                  >
+                    <option value="SimpleCake">Simple Cake</option>
+                    <option value="BirthdayCake">Birthday Cake</option>
+                    <option value="WeddingCake">Wedding Cake</option>
+                    <option value="Cupcake">Cupcake</option>
+                    <option value="Cookie">Cookie</option>
+                    <option value="">Donut</option>
+                    <option value="Sweets">Sweets</option>
+                    <!--<option *ngFor="let c of list" [value]="c.$key">{{ c.name }}</option>-->
+                    <!--<option *ngFor="let c of list" >{{ c.name }}</option>-->
+                  </select>
+                </div>
+              </div>
+              <div class="col-4"></div>
+            </div>
 
-                                        <option value="SimpleCake">Simple Cake</option>
-                                        <option value="BirthdayCake">Birthday Cake</option>
-                                        <option value="WeddingCake">Wedding Cake</option>
-                                        <option value="Cupcake">Cupcake</option>
-                                        <option value="Cookie">Cookie</option>
-                                        <option value="">Donut</option>
-                                        <option value="Sweets">Sweets</option>
-                                        <!--<option *ngFor="let c of list" [value]="c.$key">{{ c.name }}</option>-->
-                                        <!--<option *ngFor="let c of list" >{{ c.name }}</option>-->
-                                    </select>
-                                </div>
-                          </div>
-                          <div class="col-4"></div>
-                      </div>
-
-                      <div class="text-center">
-                          <img [src]="imgSrc" alt="upload" class="src" width="180px" height="180px" (click)="fileUploader.click()">
-                      </div>
-                      <div class="form-group">
-                          <label>Select file to upload</label>
-                          <input type="file" accept="image/*" name="imageURL" id="imageURL" class="form-control" #fileUploader (change)="showPreview($event)">
-                          <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4" style="color: firebrick;">
-                            Compulsory to upload an image of the product
-                          </small>
-                        </div>
-                      <!-- <div class="form-group">
+            <div class="text-center">
+              <img
+                [src]="imgSrc"
+                alt="upload"
+                class="src"
+                width="180px"
+                height="180px"
+                (click)="fileUploader.click()"
+              />
+            </div>
+            <div class="form-group">
+              <label>Select file to upload</label>
+              <input
+                type="file"
+                accept="image/*"
+                name="imageURL"
+                id="imageURL"
+                class="form-control"
+                #fileUploader
+                (change)="showPreview($event)"
+              />
+              <small
+                id="defaultRegisterFormPasswordHelpBlock"
+                class="form-text text-muted mb-4"
+                style="color: firebrick;"
+              >
+                Compulsory to upload an image of the product
+              </small>
+            </div>
+            <!-- <div class="form-group">
                           <label for="imageURL">Image URL</label>
                           <input #imageURL="ngModel" [(ngModel)]="product.imageURL" name="imageURL" id="imageURL" type="text" class="form-control">
                       </div> -->
-                      <div class="form-group">
-                            <label for="description">Description</label>
-                            <textarea #description="ngModel" [(ngModel)]="product.description"  name="description" id="description" type="number" class="form-control"></textarea>
-                          </div>
-                      <button class="btn btn-primary">Save</button>
-                      <button type="button" (click)="delete()" class="btn btn-danger">Delete</button>
-                  </form>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea
+                #description="ngModel"
+                [(ngModel)]="product.description"
+                name="description"
+                id="description"
+                type="number"
+                class="form-control"
+              ></textarea>
             </div>
+            <button class="btn btn-primary">Save</button>
+            <button type="button" (click)="delete()" class="btn btn-danger">
+              Delete
+            </button>
+          </form>
         </div>
+      </div>
     </div>
     <div class="col-md-4 mx-auto">
-          <div *ngIf="product.title" class="card" style="width:20rem;">
+      <div *ngIf="product.title" class="card" style="width:20rem;">
+        <div class="view overlay">
+          <img
+            class="card-img-top"
+            [src]="imgSrc"
+            *ngIf="imgSrc"
+            src="{{ product.imageURL }}"
+          />
+        </div>
 
-                  <div class="view overlay">
-                      <img class="card-img-top" [src]="imgSrc" *ngIf="imgSrc" src={{product.imageURL}}>
-                  </div>
-
-                  <div class="card-body">
-                    <h4 class="card-title">{{ product.title}}</h4>
-                    <p class="card-text">{{ product.price}}</p>
-                  </div>
-
-          </div>
+        <div class="card-body">
+          <h4 class="card-title">{{ product.title }}</h4>
+          <p class="card-text">{{ product.price }}</p>
+        </div>
+      </div>
     </div>
-</div>
-<br/>
+  </div>
+  <br />
 </body>
-
