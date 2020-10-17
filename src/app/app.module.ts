@@ -69,6 +69,9 @@ import { CheckoutDataFormComponent } from './check-out/checkout-data-form/checko
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { ProductQtyComponent } from './product-qty/product-qty.component';
 import { CartCheckoutComponent } from './shopping-cart/cart-checkout/cart-checkout.component';
+import { OrderService } from './services/order.service';
+import { ShoppingCartCardComponent } from './shopping-cart/cart-checkout/shopping-cart-card/shopping-cart-card.component';
+import { OrdersComponent } from './orders/orders.component';
 
 
 
@@ -107,7 +110,9 @@ import { CartCheckoutComponent } from './shopping-cart/cart-checkout/cart-checko
     PrivacyPolicyComponent,
     CheckoutDataFormComponent,
     ProductQtyComponent,
-    CartCheckoutComponent
+    CartCheckoutComponent,
+    ShoppingCartCardComponent,
+    OrdersComponent
 
   ],
   imports: [
@@ -140,7 +145,8 @@ import { CartCheckoutComponent } from './shopping-cart/cart-checkout/cart-checko
     ShoppingCartService,
     InventoryService,
     CustomService,
-    ContactService
+    ContactService,
+    OrderService
   ],
   bootstrap: [AppComponent]
 })

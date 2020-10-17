@@ -74,11 +74,14 @@ async removeFromCart(product: Product) {
             if (quantity === 0) item$.remove();
             else
                 item$.update({
-                    product: product,
+                  
                     quantity: quantity
                 });
         } else {
-            item$.set({ product: product, quantity: 1 });
+            item$.set({ 
+              title: product.title,
+              imageUrl: product.imageURL,
+              price: product.price, quantity: 1 });
         }
     });
 }

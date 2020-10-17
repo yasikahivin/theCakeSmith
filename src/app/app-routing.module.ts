@@ -32,7 +32,7 @@ import { TermsConditionsComponent} from './Policies/terms-conditions/terms-condi
 import { PrivacyPolicyComponent } from './Policies/privacy-policy/privacy-policy.component';
 import { CartCheckoutComponent } from './shopping-cart/cart-checkout/cart-checkout.component';
 import { CheckoutDataFormComponent } from './check-out/checkout-data-form/checkout-data-form.component';
-
+import { OrdersComponent } from './orders/orders.component';
 
 
 
@@ -53,10 +53,11 @@ const routes: Routes = [
   {path: 'terms', component: TermsConditionsComponent},
   {path: 'privacy-policy', component: PrivacyPolicyComponent},
 
-  {path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuardService]},
-  {path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService]},
-  {path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuardService]},
+  //{path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuardService]},
+  {path: 'order-success/:id', component: OrderSuccessComponent, canActivate: [AuthGuardService]},
+  {path: 'orders', component: OrdersComponent, canActivate: [AuthGuardService]},
   {path: 'systemAdmin', component: SystemAdminComponent},
+  {path: 'shopping-cart/cart-checkout', component: CartCheckoutComponent, canActivate: [AuthGuardService]},
 
   {path: 'custom', component: CustomComponent},
   {path: 'custom/desc', component: CustomDescriptionComponent},
@@ -78,7 +79,7 @@ const routes: Routes = [
 
   {path: 'policies/terms-condition', component: TermsConditionsComponent},
   {path: 'policies/privacy-policies', component: PrivacyPolicyComponent},
-  {path: 'shopping-cart/cart-checkout', component: CartCheckoutComponent},
+  
 ];
 
 @NgModule({

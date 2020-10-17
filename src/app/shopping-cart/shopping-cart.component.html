@@ -26,8 +26,8 @@
           <div [style.backgroundImage]="'url(' + item.imageUrl + ')'" class="thumbnail">
           </div>
         </td>
-        <td>{{ item.product.title}}</td>
-        <td><product-qty [product]="item.product" [shopping-cart]="cart"></product-qty></td>
+        <td>{{ item.title}}</td>
+        <td><product-qty [product]="item" [shopping-cart]="cart"></product-qty></td>
         <td class="text-right">{{ item.totalPrice | currency:'LKR':true}}</td>
       </tr>
     </tbody>
